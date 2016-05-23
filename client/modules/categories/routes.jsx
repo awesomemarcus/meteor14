@@ -10,6 +10,7 @@ import CategoriesView from './containers/categories_view.js';
 import CategoriesDelete  from './containers/categories_delete.js';
 import CategoriesList from './containers/categories_list.js';
 
+
 export default function (injectDeps, {FlowRouter}) {
   const MainLayoutCtx = injectDeps(MainLayout);
   const AuthCheck = injectDeps(AuthChecker);
@@ -17,8 +18,8 @@ export default function (injectDeps, {FlowRouter}) {
   FlowRouter.route('/categories/add', {
     name: 'categories_add',
     action() {
-      mount(AuthCheck, {
-        MainLayout,  content: () => (<CategoriesAdd />)
+      mount(MainLayoutCtx, {
+        content: () => (<CategoriesAdd />)
       });
     }
   });

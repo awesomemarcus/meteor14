@@ -16,15 +16,15 @@ export default function (injectDeps, {FlowRouter}) {
     action() {
       mount(MainLayoutCtx, {
         content: () => (<ProductsAdd />)
-      }); 
+      });
     }
   });
 
-  FlowRouter.route('/products/update', {
+  FlowRouter.route('/products/update/:productId', {
     name: 'products_update',
-    action() {
+    action({productId}) {
       mount(MainLayoutCtx, {
-        content: () => (<ProductsUpdate />)
+        content: () => (<ProductsUpdate productId={productId}/>)
       });
     }
   });
@@ -34,15 +34,6 @@ export default function (injectDeps, {FlowRouter}) {
     action() {
       mount(MainLayoutCtx, {
         content: () => (<ProductsView />)
-      });
-    }
-  });
-
-  FlowRouter.route('/products/delete', {
-    name: 'products_delete',
-    action() {
-      mount(MainLayoutCtx, {
-        content: () => (<ProductsDelete />)
       });
     }
   });

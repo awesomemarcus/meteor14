@@ -16,7 +16,7 @@ export default {
 
   },
 
-  delete({LocalState}, id) {
+  deleteProduct({LocalState}, id) {
 
   },
 

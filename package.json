@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "mantra-boilerplate",
   "scripts": {
+    "start": "./meteor.sh run",
+    "android-device": "./meteor.sh run android-device",
+    "version": "./version.sh > private/version.json",
     "test": "mocha .scripts/mocha_boot.js client/**/tests/**/*.js --compilers js:babel-core/register",
     "storybook": "start-storybook -p 9001"
   },
@@ -20,6 +23,7 @@
     "lodash.isarguments": "^3.0.8",
     "lodash.isarray": "^4.0.0",
     "mantra-core": "^1.2.0",
+    "moment": "^2.13.0",
     "raw-loader": "^0.5.1",
     "react": "^15.1.0",
     "react-dom": "^15.0.0",
