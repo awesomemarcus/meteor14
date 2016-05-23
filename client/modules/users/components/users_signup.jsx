@@ -1,6 +1,7 @@
 import React from 'react';
+import SelectAge from './select_age.jsx';
 
-class Signup extends React.Component {
+class UsersSignup extends React.Component {
   render() {
 
     const {signup} = this.props;
@@ -16,19 +17,18 @@ class Signup extends React.Component {
       createdAt : new Date(),
     };
 
-    signup(formData);
+    // signup(formData);
 
 
     const {error} = this.props;
     const {errorField} = this.props;
-    const {getAgeOptions} = this.props;
 
     return(
       <div className="container">
         <div className="col-sm-8 col-sm-offset-2">
-          <h2>User Signup</h2>
+          <h2><span className="glyphicon glyphicon-pencil"></span> User Signup</h2>
           {error ? <p style={{color: 'red'}}>{error}</p> : null}
-          <form className="form-horizontal" onSubmit={this.createAccount.bind(this)}>
+          <form className="form-horizontal" onSubmit={this.userCreateAccount.bind(this)}>
             <div className={this.getInputWrapperClass(errorField.email)}>
               <label for="inputEmail3" className="col-sm-2 control-label">Email</label>
               <div className="col-sm-10">
@@ -78,12 +78,7 @@ class Signup extends React.Component {
             <div className={this.getInputWrapperClass(errorField.age)}>
               <label for="selectAge" className="col-sm-2 control-label">Age</label>
               <div className="col-sm-10">
-                <select className="form-control" id="selectAge" >
-                  <option value>- select age -</option>
-                  {getAgeOptions().map(value => (
-                    <option value={value.age}>{value.age}</option>
-                  ))}
-                </select>
+                <SelectAge selectId="selectAge" selectClass="form-control"/>
                 {errorField.age ? <p style={{color: 'red'}}>{errorField.age}</p> : null}
               </div>
             </div>
@@ -98,14 +93,7 @@ class Signup extends React.Component {
     );
   }
 
-
-  signup(e){
-    if(e && e.preventDefault){
-      e.preventDefault();
-    }
-}
-
-  createAccount(event) {
+  userCreateAccount(event) {
     if (event && event.preventDefault) {
       event.preventDefault();
 
@@ -122,7 +110,8 @@ class Signup extends React.Component {
     return classes;
 
   }
+
 }
 
 
-export default Signup;
+export default UsersSignup;

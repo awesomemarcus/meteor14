@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Login extends React.Component{
+class UsersLogin extends React.Component{
   render() {
 
     const {login} = this.props;
@@ -8,10 +8,10 @@ class Login extends React.Component{
       email :"jun@mail.com",
       password : "password",
     };
-    login(formData);
+    // login(formData);
 
 
-    const {error} = this.props; 
+    const {error} = this.props;
     return(
       <div className="container">
 
@@ -41,4 +41,4 @@ class Login extends React.Component{
 
 }
 
-export default Login;
+export default UsersLogin;
