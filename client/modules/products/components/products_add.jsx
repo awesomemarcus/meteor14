@@ -49,7 +49,7 @@ class ProductsAdd extends React.Component {
         <div className="form-group">
           <label className="col-sm-2 control-label">Name</label>
           <div className="col-sm-10">
-            <input type="text" id="prodName" className="form-control" ref="name" onChange={this.validateProdName.bind(this)}/>
+            <input type="text" id="prodName" className="form-control" ref="name"/>
             <p id="nameErrorMsg" className="error text-error">{nameError ? nameError : ''}</p>
           </div>
         </div>
@@ -57,7 +57,7 @@ class ProductsAdd extends React.Component {
         <div className="form-group">
           <label className="col-sm-2 control-label">Description</label>
           <div className="col-sm-10">
-            <textarea id="prodDescription" onChange={this.validateProdDescription.bind(this)} className="form-control" rows="3" ref="description"></textarea>
+            <textarea id="prodDescription" className="form-control" rows="3" ref="description"></textarea>
             <p id="descriptionErrorMsg" className="error text-error">{descriptionError ? descriptionError : ''}</p>
           </div>
         </div>
@@ -65,7 +65,7 @@ class ProductsAdd extends React.Component {
         <div className="form-group">
           <label className="col-sm-2 control-label">Price</label>
           <div className="col-sm-10">
-            <input type="number" id="prodPrice" className="form-control" onChange={this.validateProdPrice.bind(this)} ref="price" placeholder="(i.e) $10.00" step="0.01"/>
+            <input type="number" id="prodPrice" className="form-control" ref="price" placeholder="(i.e) $10.00" step="0.01"/>
             <p id="priceErrorMsg" className="error text-error">{priceError ? priceError : ''}</p>
           </div>
         </div>
