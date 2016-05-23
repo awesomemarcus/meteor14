@@ -42,8 +42,31 @@ export default {
   },
 
 
-  userLogin({Meteor, LocalState},formData){
-    Meteor.call('usersLogin',formData);
+  userLogin({Meteor, LocalState,FlowRouter},formData){
+    LocalState.set("main_error",null) ;
+    let loginUser = true ;
+    // let Checker =  UsersSchema.namedContext("myContext");
+    //
+    //
+    // if(!Checker.validateOne(formData,'emails.$.address')){
+    //   loginUser = false;
+    //   return  LocalState.set("main_error", Checker.keyErrorMessage("emails.$.address"));
+    // }
+    //
+    // if(!Checker.validateOne(formData,"password")){
+    //   loginUser = false;
+    //   return  LocalState.set("main_error", Checker.keyErrorMessage("password"));
+    // }
+
+    if(loginUser){
+      Meteor.loginWithPassword(formData["emails.$.address"], formData["password"], (err)=>{
+        if(err){
+          return LocalState.set("main_error",err.message);
+        }
+        FlowRouter.go("/");
+      })
+    }
+
   },
   clearErrors({LocalState}){
     LocalState.set("profile.username",null);

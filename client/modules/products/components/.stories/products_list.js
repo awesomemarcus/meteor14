@@ -21,10 +21,19 @@ const products = [
     price: 15.50, createdAt: new Date('2016-4-12')},
 ];
 
+const categories = [
+  {_id: '1', name: 'Food'},
+  {_id: '2', name: 'Business'},
+  {_id: '3', name: 'Health'},
+  {_id: '4', name: 'Technology'},
+  {_id: '5', name: 'Ewan'},
+];
+
 storiesOf('Products List', module)
   .add('default view', () => (
     <ProductsList
         products={products}
         deleteProduct={action('delete product')}
+        categories={categories}
     />
   ));

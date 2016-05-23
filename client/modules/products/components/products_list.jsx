@@ -8,10 +8,27 @@ class ProductsList extends React.Component {
 
   render() {
 
-    const {prods,deleteProduct,updateProduct} = this.props;
+    const {
+      prods,
+      deleteProduct,
+      updateProduct,
+      categories,
+    } = this.props;
     return (
       <div className="col-sm-12">
-        <a href="/products/add" className="btn btn-success">Add</a>
+
+        <div className="col-sm-9">
+          <a href="/products/add" className="btn btn-success">Add</a>
+        </div>
+
+        <div className="col-sm-3">
+          <select className="form-control pull-right">
+            {categories ? categories.map( (category) => (
+              <option key={category._id} value={category._id}>{category.name}</option>
+              )) : 'no categories'}
+          </select>
+        </div>
+
         <table className="table table-striped">
           <thead>
             <tr>
