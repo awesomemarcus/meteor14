@@ -5,7 +5,10 @@ import ProductsList from '../components/products_list.jsx';
 export const composer = ({context}, onData) => {
   const {Meteor, Collections} = context();
 
-  onData(null, {});
+  if(Meteor.subscribe('productList').ready()){
+    const prods = Collections.Products.find({},{sort:{createdAt:-1}}).fetch();
+        onData(null, {prods});
+  }
 };
 
 export const depsMapper = (context, actions) => ({
