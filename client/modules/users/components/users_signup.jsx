@@ -84,6 +84,8 @@ class UsersSignup extends React.Component {
     }
     const {userSignup} = this.props;
     const {email,password,lastname,firstname,gender,username,age} = this.refs;
+
+
     const formData = {
       "emails.$.address" : email.value,
       password : password.value,
@@ -91,7 +93,7 @@ class UsersSignup extends React.Component {
       "profile.firstname" : firstname.value,
       "profile.lastname" : lastname.value,
       "profile.gender" : gender.value,
-      "profile.age" : parseInt(age.value),
+      "profile.age" : parseInt(age.refs.age.value),
       modifiedAt : new Date(),
       createdAt : new Date(),
     }
