@@ -3,6 +3,9 @@ import {Meteor} from 'meteor/meteor';
 import {Accounts} from 'meteor/accounts-base';
 
 Meteor.startup(()=>{
+  Accounts.config({
+    forbidClientAccountCreation: true,
+});
   Accounts.onCreateUser((options, user) => {
            user.profile = {};
            user.profile.username = options["profile.username"];

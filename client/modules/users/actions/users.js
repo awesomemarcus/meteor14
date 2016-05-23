@@ -15,9 +15,10 @@ export default {
       let Checker =  UsersSchema.namedContext("myContext");
       let schemaHasNoError = Checker.validate(formData);
       let signUpErrors = Checker.invalidKeys();
-        signUpErrors = _.map(signUpErrors, function (o) {
-            LocalState.set(o.name,Checker.keyErrorMessage(o.name));
-        });
+      _.map(signUpErrors, function (o) { //map errors on each fields
+          LocalState.set(o.name,Checker.keyErrorMessage(o.name));
+      });
+
 
 
       if(schemaHasNoError){
