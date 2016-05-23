@@ -3,12 +3,7 @@ import React from 'react';
 class UsersLogin extends React.Component{
   render() {
 
-    const {login} = this.props;
-    const formData = {
-      email :"jun@mail.com",
-      password : "password",
-    };
-    // login(formData);
+    const {userLogin} = this.props;
 
 
     const {error} = this.props;
@@ -37,6 +32,7 @@ class UsersLogin extends React.Component{
       event.preventDefault();
     }
 
+        const {userLogin} = this.props;
   }
 
 }

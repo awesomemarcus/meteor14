@@ -1,6 +1,4 @@
 import React from 'react';
-import {ProductSchem} from '/lib/collections/products.js';
-import {check} from 'meteor/check';
 
 class CategoriesAdd extends React.Component {
 

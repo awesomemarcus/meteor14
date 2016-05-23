@@ -2,7 +2,7 @@ import UsersSchema from '/lib/collections/users.js';
 
 
 export default {
-  signup({Meteor, LocalState,FlowRouter},formData){
+  userSignup({Meteor, LocalState,FlowRouter},formData){
       LocalState.set("profile.username",null);
       LocalState.set("profile.firstname",null);
       LocalState.set("profile.lastname",null);
@@ -15,9 +15,10 @@ export default {
       let Checker =  UsersSchema.namedContext("myContext");
       let schemaHasNoError = Checker.validate(formData);
       let signUpErrors = Checker.invalidKeys();
-        signUpErrors = _.map(signUpErrors, function (o) {
-            LocalState.set(o.name,Checker.keyErrorMessage(o.name));
-        });
+      _.map(signUpErrors, function (o) { //map errors on each fields
+          LocalState.set(o.name,Checker.keyErrorMessage(o.name));
+      });
+
 
 
       if(schemaHasNoError){
@@ -41,7 +42,7 @@ export default {
   },
 
 
-  login({Meteor, LocalState},formData){
+  userLogin({Meteor, LocalState},formData){
     Meteor.call('usersLogin',formData);
   },
   clearErrors({LocalState}){

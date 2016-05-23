@@ -16,8 +16,8 @@ class ProductsListItem extends React.Component {
     const {product} = this.props;
     return (
       <tr>
+        <td>{product._id}</td>
         <td>{product.category_id}</td>
-        <td>{product.name}</td>
         <td>{product.description}</td>
         <td>${product.price}</td>
         <td>{help.formatDate(product.createdAt)}</td>
@@ -35,6 +35,8 @@ class ProductsListItem extends React.Component {
       </tr>
     );
   }
+
+
 }
 
 
