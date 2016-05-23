@@ -1,5 +1,5 @@
 export default {
-  add({LocalState},name, description, price) {
+  add({LocalState},category_id, name, description, price) {
     if(!name) {
       return LocalState.set('PRODUCTS_ADD_NAME_ERROR', 'Product name is required.');
     }
@@ -9,6 +9,13 @@ export default {
     if(!price) {
       return LocalState.set('PRODUCTS_ADD_PRICE_ERROR', 'Product price is required.');
     }
+
+    Meteor.call('insertProduct', category_id, name, description, price, function(err) {
+      if(err) {
+        console.log(err);
+        return LocalState.set('PRODUCTS_ADD_ERROR', 'Failed to save product.');
+      }
+    });
 
     LocalState.set('PRODUCTS_ADD_NAME_ERROR', null);
     LocalState.set('PRODUCTS_ADD_DESCRIPTION_ERROR', null);

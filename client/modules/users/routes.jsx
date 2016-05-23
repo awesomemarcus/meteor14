@@ -2,8 +2,8 @@ import React from 'react';
 import {mount} from 'react-mounter';
 
 import MainLayout from '../core/components/main_layout.jsx';
-import Login from './containers/login.js';
-import Signup from './containers/signup.js';
+import UsersLogin from './containers/users_login.js';
+import UsersSignup from './containers/users_signup.js';
 
 export default function (injectDeps, {FlowRouter}) {
   const MainLayoutCtx = injectDeps(MainLayout);
@@ -12,7 +12,7 @@ export default function (injectDeps, {FlowRouter}) {
     name: 'login',
     action() {
       mount(MainLayoutCtx, {
-        content: () => (<Login />),
+        content: () => (<UsersLogin />),
       });
     },
   });
@@ -21,7 +21,7 @@ export default function (injectDeps, {FlowRouter}) {
     name: 'signup',
     action() {
       mount(MainLayoutCtx, {
-        content: () => (<Signup />),
+        content: () => (<UsersSignup />),
       });
     },
   });

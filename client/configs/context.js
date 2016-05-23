@@ -27,6 +27,6 @@ export default function () {
     Collections,
     LocalState: new ReactiveDict(),
     Tracker,
-    authCommon
+    authCommon,
   };
 }

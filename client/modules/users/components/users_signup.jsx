@@ -1,17 +1,18 @@
 import React from 'react';
+import SelectAge from './select_age.jsx';
 
-class Signup extends React.Component {
+class UsersSignup extends React.Component {
   render() {
     const  errorField = this.props;
-    const {getAgeOptions} = this.props;
-
     return(
       <div className="container">
         <div className="col-sm-8 col-sm-offset-2">
+
           <h2>User Signup</h2>
           {errorField.error ? <p  style={{color: 'red'}}>{errorField.error}</p> : null}
           <form className="form-horizontal" onSubmit={this.userSignup.bind(this)} onChange={this.clearError.bind(this)}>
             <div className={this.getInputWrapperClass(errorField["emails.$.address"])}>
+
               <label for="inputEmail3" className="col-sm-2 control-label">Email</label>
               <div className="col-sm-10">
                 <input type="email" ref="email" className="form-control" id="inputEmail3" placeholder="Email" />
@@ -59,15 +60,10 @@ class Signup extends React.Component {
             </div>
             <div className={this.getInputWrapperClass(errorField["profile.age"])}>
               <label for="selectAge" className="col-sm-2 control-label">Age</label>
-                <div className="col-sm-10">
-                  <select className="form-control" id="selectAge" ref="age" >
-                    <option value>- select age -</option>
-                    {getAgeOptions().map(value => (
-                      <option key={value.age} value={value.age}>{value.age}</option>
-                    ))}
-                  </select>
-                  {errorField["profile.age"] ? <p style={{color: 'red'}}>{errorField["profile.age"]}</p> : null}
-                </div>
+              <div className="col-sm-10">
+                <SelectAge selectId="selectAge" selectClass="form-control" ref="age"/>
+                {errorField["profile.age"] ? <p style={{color: 'red'}}>{errorField["profile.age"] }</p> : null}
+              </div>
             </div>
             <div className="form-group">
               <div className="col-sm-offset-2 col-sm-10">
@@ -79,6 +75,7 @@ class Signup extends React.Component {
       </div>
     );
   }
+
 
 
   userSignup(e){
@@ -102,6 +99,7 @@ class Signup extends React.Component {
     userSignup(formData);
 }
 
+
     clearError(e){
       if(e && e.preventDefault){
         e.preventDefault();
@@ -122,8 +120,8 @@ class Signup extends React.Component {
     return classes;
 
   }
+
 }
 
 
-
-export default Signup;
+export default UsersSignup;

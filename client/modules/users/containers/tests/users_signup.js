@@ -1,9 +1,9 @@
 const {describe, it} = global;
 import {expect} from 'chai';
 import {stub, spy} from 'sinon';
-import {composer} from '../signup';
+import {composer} from '../users_signup';
 
-describe('users.containers.signup', () => {
+describe('users.containers.users_signup', () => {
   describe('composer', () => {
 
 //    const Tracker = {nonreactive: cb => cb()};

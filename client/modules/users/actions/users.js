@@ -44,15 +44,6 @@ export default {
   login({Meteor, LocalState},formData){
     Meteor.call('usersLogin',formData);
   },
-  getAgeOptions(){
-    const ageOptions = [];
-
-    for (let minAge = 18; minAge <= 99; minAge++) {
-      ageOptions.push({age: minAge});
-    }
-
-    return ageOptions;
-  },
   clearErrors({LocalState}){
     LocalState.set("profile.username",null);
     LocalState.set("profile.firstname",null);
