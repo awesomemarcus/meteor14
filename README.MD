@@ -2,6 +2,7 @@
 ###### Topics
 - [Installing Mantra CLI](http://master.snapzio.com/snapzio/mantraboilerplate#installing-mantra-cli)
 - [Creating a mantra project via Mantra CLI](http://master.snapzio.com/snapzio/mantraboilerplate#creating-a-mantra-project-via-mantra-cli)
+- [Running Mantra using Bash](http://master.snapzio.com/snapzio/mantraboilerplate#running-mantra-using-bash)
 - [Creating a module in Mantra CLI](http://master.snapzio.com/snapzio/mantraboilerplate#creating-a-module-in-mantra-cli)
 - [Creating a file inside container, actions and compontents in a modules in mantra CLI](http://master.snapzio.com/snapzio/mantraboilerplate#creating-a-file-inside-container-actions-and-compontents-in-a-modules-in-mantra-cli)
 - [Naming Convention](http://master.snapzio.com/snapzio/mantraboilerplate#naming-convention)
@@ -30,7 +31,11 @@ ___
 ###### <br/> [Back to Top](http://master.snapzio.com/snapzio/mantraboilerplate#topics)
 
 ___
+## Running Mantra using Bash
+- `bash ./meteor.sh run`
+###### <br/> [Back to Top](http://master.snapzio.com/snapzio/mantraboilerplate#topics)
 
+___
 ## Creating a module in Mantra CLI
 - `mantra g module modulename`
 - module name should be Pascal case Example: `mantra g module PostAddd`
