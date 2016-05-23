@@ -12,4 +12,11 @@ const category = {
 storiesOf('Categories Update', module)
     .add('default view', () => (
       <CategoriesUpdate category={category} categoriesUpdate={action('categories update')}/>
+    ))
+    .add('name required error', () => (
+      <CategoriesUpdate category={category} categoriesUpdate={action('categories update')} nameError="Category name is required."/>
+    )).add('name min/max error', () => (
+      <CategoriesUpdate category={category} categoriesUpdate={action('categories update')} nameError="Category name must contain 3-20 characters."/>
+    )).add('name alpahumeric error', () => (
+      <CategoriesUpdate category={category} categoriesUpdate={action('categories update')} nameError="Category name must contain alphanumeric characters only."/>
     ));
