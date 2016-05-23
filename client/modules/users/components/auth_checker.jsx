@@ -6,7 +6,7 @@ class AuthChecker extends React.Component{
     render() {
       const {MainLayout, content, userId} = this.props;
         if(!userId){
-            FlowRouter.go("/");
+            FlowRouter.go("/users/login");
         }
         return(
             <div>

@@ -7,7 +7,7 @@ export const composer = ({context}, onData) => {
   const {  userSubReady, userId,  user } = authCommon();
   if(userSubReady){
     const data = {  userId, user};
-    onData(null, {data});
+    onData(null, data);
   }
 
 };
