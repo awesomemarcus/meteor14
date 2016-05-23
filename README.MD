@@ -33,6 +33,7 @@ ___
 ___
 ## Running Mantra using Bash
 - `bash ./meteor.sh run`
+
 ###### <br/> [Back to Top](http://master.snapzio.com/snapzio/mantraboilerplate#topics)
 
 ___
