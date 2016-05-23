@@ -8,7 +8,7 @@ echo MONGO: $MONGO_URL
 if [ "$1" == "" ]; then
     echo "USAGE: ./meteor.sh run [android-device]"
 fi
-# meteor npm install
+meteor npm install
 if [ "$1" == "run" ] &&  [ "$2" == "" ]; then
     # echo RUNNING: "meteor run --port $PORT --settings settings-local.json"
     echo RUNNING: "meteor run --port $PORT"
