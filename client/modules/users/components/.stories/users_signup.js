@@ -14,8 +14,8 @@ const getAgeOptions = ()=> {
 
 storiesOf('Users Signup', module)
   .add('Signup form', () => {
-    const error = null;
     const errorField = {
+      error: null,
       email: null,
       password: null,
       username: null,
@@ -26,12 +26,12 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
     );
   })
   .add('With error on submit', () => {
-    const error = 'Error on form submit';
     const errorField = {
+      error: 'Error on form submit',
       email: null,
       password: null,
       username: null,
@@ -42,12 +42,12 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
     );
   })
   .add('With error on email', () => {
-    const error = null;
     const errorField = {
+      error: null,
       email: 'Invalid Email',
       password: null,
       username: null,
@@ -58,12 +58,12 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
     );
   })
   .add('With error on password', () => {
-    const error = null;
     const errorField = {
+      error: null,
       email: null,
       password: 'Invalid Password',
       username: null,
@@ -74,12 +74,12 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
     );
   })
   .add('With error on username', () => {
-    const error = null;
     const errorField = {
+      error: null,
       email: null,
       password: null,
       username: 'Invalid Username',
@@ -90,12 +90,12 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
     );
   })
   .add('With error on firstname', () => {
-    const error = null;
     const errorField = {
+      error: null,
       email: null,
       password: null,
       username: null,
@@ -106,12 +106,12 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
     );
   })
   .add('With error on lastname', () => {
-    const error = null;
     const errorField = {
+      error: null,
       email: null,
       password: null,
       username: null,
@@ -122,12 +122,12 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
     );
   })
   .add('With error on gender', () => {
-    const error = null;
     const errorField = {
+      error: null,
       email: null,
       password: null,
       username: null,
@@ -138,12 +138,12 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
     );
   })
   .add('With error on age', () => {
-    const error = null;
     const errorField = {
+      error: null,
       email: null,
       password: null,
       username: null,
@@ -154,6 +154,22 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
+    );
+  })
+  .add('With error on all fields', () => {
+    const errorField = {
+      error: null,
+      email: 'Invalid Email',
+      password: 'Invalid Password',
+      username: 'Invalid Username',
+      firstname: 'Invalid Firstname',
+      lastname: 'Invalid Lastname',
+      gender: 'Invalid Gender',
+      age: 'Invalid Age'
+    };
+
+    return (
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
     );
   });

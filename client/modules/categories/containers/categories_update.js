@@ -10,8 +10,6 @@ export const composer = ({context, category_id}, onData) => {
     onData(null, {category});
   }
 
-  return;
-
 };
 
 export const depsMapper = (context, actions) => ({

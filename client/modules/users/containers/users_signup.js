@@ -1,19 +1,33 @@
 import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
-import UsersSignup from '../components/users_signup.jsx';
+import Signup from '../components/users_signup.jsx';
 
-export const composer = ({context, clearErrors}, onData) => {
+export const composer = ({context}, onData) => {
   const {LocalState} = context();
-  const error = LocalState.get("signup_error");
-  onData(null, {error});
-  return clearErrors;
+
+  const errorField = {
+    "username" :   LocalState.get("profile.username",null),
+    "firstname" :   LocalState.get("profile.firstname",null),
+    "lastname" :   LocalState.get("profile.lastname",null),
+    "email" :   LocalState.get("emails.$.address",null),
+    "password" :   LocalState.get("password",null),
+    "age" :   LocalState.get("profile.age",null),
+    "gender" :   LocalState.get("profile.gender",null) ,
+    "error" :  LocalState.get("main_error"),
+  };
+
+  onData(null, {errorField});
+
 };
 
-export const depsMapper = (context) => ({
+export const depsMapper = (context, actions) => ({
+  userSignup:actions.users.userSignup,
+  clearErrors:actions.users.clearErrors,
+  getAgeOptions:actions.users.getAgeOptions,
   context: () => context,
 });
 
 export default composeAll(
   composeWithTracker(composer),
   useDeps(depsMapper)
-)(UsersSignup);
+)(Signup);

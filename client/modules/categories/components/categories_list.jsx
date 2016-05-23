@@ -1,56 +1,42 @@
 import React from 'react';
 
+import CategoriesListItem from './categories_list_item.jsx';
+
 class CategoriesList extends React.Component{
+
+
   render() {
-    const {categories} = this.props;
+
+    const {categories,categoriesDelete} = this.props;
+
     return (
       <div>
-        <h1>CategoriesList</h1>
+        <h1>Categories List</h1>
         <a className="btn btn-default" href="/categories/add/" role="button">Add Category</a>
+        <br />
         <br />
         <table className="table table-bordered">
             <thead>
                   <tr className="info">
-                        <td>Name</td>
-                        <td>Details</td>
-                        <td>Created At</td>
-                        <td>Actions</td>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Created At</th>
+                    <th>Products</th>
+                    <th>Actions</th>
                   </tr>
             </thead>
 
-                  <CategoriesTable categories={categories} />
+            <tbody>
+              {categories ? categories.map( (category) => (
+                <CategoriesListItem key={category._id} category={category} categoriesDelete={categoriesDelete}/>
+              )) : 'no categories yet'}
+            </tbody>
 
         </table>
 
       </div>
     );
   }
-
-  thisId() {
-
-  }
 }
-
-
-const CategoriesTable = ({categories}) => (
-      <tbody>
-            {
-              categories.map(category => (
-                <tr key={category._id}>
-                      <td>{category.name}</td>
-                      <td>{category.details}</td>
-                      <td>{Date(category.createdAt)}</td>
-                      <td>
-                          <a className="btn btn-primary"  href={"/categories/view/" + category._id} role="button">View</a> &nbsp;&nbsp;
-                          <a className="btn btn-primary" href={"/categories/update/" + category._id} role="button">Update</a> &nbsp;&nbsp;
-                          <a className="btn btn-danger " href={"/categories/delete/" +  category._id} role="button">Delete</a>
-                      </td>
-                </tr>
-              ))
-            }
-      </tbody>
-);
-
-
 
 export default CategoriesList;
