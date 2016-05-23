@@ -9,7 +9,6 @@ export const composer = ({context}, onData) => {
 };
 
 export const depsMapper = (context, actions) => ({
-  delete: actions.products.delete,
   context: () => context
 });
 

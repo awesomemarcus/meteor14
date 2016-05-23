@@ -15,12 +15,11 @@ class ProductsAdd extends React.Component {
 
   render() {
     const {
+        categories,
         nameError,
         descriptionError,
         priceError,
     } = this.props;
-
-    const {categories} = this.props;
 
     return (
       <form className="form-horizontal col-sm-4" role="form" onSubmit={this.handleSubmit.bind(this)}>
