@@ -7,7 +7,6 @@ export default function () {
     'categoriesAdd'(data) {
          Categories.insert({
            name : data.name,
-           details : data.details,
            modifiedAt : new Date(),
            createdAt : new Date(),
          });
@@ -15,7 +14,6 @@ export default function () {
     'categoriesUpdate'(data) {
          Categories.update({_id:data._id},{$set:{
            name : data.name,
-           details : data.details,
            modifiedAt : new Date(),
            createdAt : new Date(),
          }});
