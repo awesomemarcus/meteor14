@@ -5,7 +5,6 @@ import MainLayout from '/client/modules/core/components/main_layout.jsx';
 import ProductsAdd from './containers/products_add.js';
 import ProductsUpdate from './containers/products_update.js';
 import ProductsView from './containers/products_view.js';
-import ProductsDelete  from './containers/products_delete.js';
 import ProductsList from './containers/products_list.js';
 
 export default function (injectDeps, {FlowRouter}) {

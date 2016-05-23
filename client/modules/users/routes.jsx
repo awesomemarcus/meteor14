@@ -18,11 +18,12 @@ export default function (injectDeps, {FlowRouter}) {
   });
 
   FlowRouter.route('/users/signup', {
-    name: 'signup', 
+    name: 'signup',
     action() {
       mount(MainLayoutCtx, {
         content: () => (<Signup />),
       });
     },
   });
+  
 }
