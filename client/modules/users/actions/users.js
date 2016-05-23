@@ -2,7 +2,7 @@ import UsersSchema from '/lib/collections/users.js';
 
 
 export default {
-  signup({Meteor, LocalState,FlowRouter},formData){
+  usersignup({Meteor, LocalState,FlowRouter},formData){
       LocalState.set("profile.username",null);
       LocalState.set("profile.firstname",null);
       LocalState.set("profile.lastname",null);
