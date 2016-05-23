@@ -1,6 +1,6 @@
 import React from 'react';
-// import {ProductSchem} from '/lib/collections/products.js';
-// import {check} from 'meteor/check';
+import {ProductSchem} from '/lib/collections/products.js';
+import {check} from 'meteor/check';
 
 class CategoriesAdd extends React.Component {
 
@@ -12,7 +12,7 @@ class CategoriesAdd extends React.Component {
     let formData = {
         name : name.value,
         details : details.value,
-      };
+    };
     categoriesAdd(formData);
 
     // let formData = {

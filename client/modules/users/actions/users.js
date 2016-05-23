@@ -32,15 +32,6 @@ console.log( LocalState.get("signup_error"));
   login({Meteor, LocalState},formData){
     Meteor.call('usersLogin',formData);
   },
-  getAgeOptions(){
-    const ageOptions = [];
-
-    for (let minAge = 18; minAge <= 99; minAge++) {
-      ageOptions.push({age: minAge});
-    }
-
-    return ageOptions;
-  },
   clearErrors({LocalState}){
     const localStateObj = {
       username : null,
