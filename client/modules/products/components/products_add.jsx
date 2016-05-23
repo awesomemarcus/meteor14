@@ -9,10 +9,10 @@ class ProductsAdd extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const {add} = this.props;
-    const {category_id,name, description, price} = this.refs;
-
-    add(category_id.value,name.value,description.value,price.value);
+    // const {add} = this.props;
+    // const {category_id,name, description, price} = this.refs;
+    //
+    // add(category_id.value,name.value,description.value,price.value);
   }
 
   render() {
@@ -39,8 +39,8 @@ class ProductsAdd extends React.Component {
               <option value="selecCategory" defaultValue="selected">Select a Category</option>
               {
                 categories ? categories.map(category => (
-                  <option key={category._id} value={category.name}>
-                    {category._id}
+                  <option key={category._id} value={category._id}>
+                    {category.name}
                   </option>
                 )) : 'No category available'
               }
@@ -74,7 +74,7 @@ class ProductsAdd extends React.Component {
 
         <div className="form-group pull-right">
           <div className="col-sm-10">
-            <button className="btn btn-primary">Add</button>
+            <button onClick={this.addProduct.bind(this)} className="btn btn-primary">Add</button>
           </div>
         </div>
 
@@ -123,7 +123,7 @@ class ProductsAdd extends React.Component {
   validateProdPrice () {
     const {price} = this.refs;
     let formData = {
-      "price": 5.6,
+      price: Number(price.value),
     };
     validatePrice = ProductSchem.namedContext("myContext").validateOne(formData, "price");
     if(validatePrice === false) {
@@ -139,11 +139,11 @@ class ProductsAdd extends React.Component {
     }
   }
 
-  // addProduct () {
-  //   const {add} = this.props;
-  //   const {category_id, name, description, price} = this.refs;
-  //   add(category_id.value, name.value, description.value, price.value)
-  // }
+  addProduct () {
+    const {add} = this.props;
+    const {category_id, name, description, price} = this.refs;
+    add(category_id.value, name.value, description.value, price.value)
+  }
 
 }
 

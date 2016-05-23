@@ -1,6 +1,5 @@
 export default {
   add({LocalState},category_id, name, description, price) {
-    console.log('test');
     if(!name) {
       return LocalState.set('PRODUCTS_ADD_NAME_ERROR', 'Product name is required.');
     }
@@ -16,7 +15,6 @@ export default {
         console.log(err);
         return LocalState.set('PRODUCTS_ADD_ERROR', 'Failed to save product.');
       }
-      console.log('success');
     });
 
     LocalState.set('PRODUCTS_ADD_NAME_ERROR', null);

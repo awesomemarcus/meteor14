@@ -7,24 +7,25 @@ class ProductsList extends React.Component {
   }
 
   render() {
-    const {products,deleteProduct,updateProduct} = this.props;
 
+    const {prods,deleteProduct,updateProduct} = this.props;
+    console.log(prods);
     return (
       <div className="col-sm-12">
         <a href="/products/add" className="btn btn-success">Add</a>
         <table className="table table-striped">
           <thead>
             <tr>
-              <th>Id</th>
-              <th>Category</th>
-              <th>Name</th>
+              <th>Prod Id</th>
+              <th>Category Id</th>
               <th>Description</th>
               <th>Price</th>
               <th>CreatedAt</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {products ? products.map( (product) => (
+            {prods ? prods.map( (product) => (
               <ProductsListItem
                   key={product._id}
                   product={product}
