@@ -29,11 +29,11 @@ export default function (injectDeps, {FlowRouter}) {
     }
   });
 
-  FlowRouter.route('/products/view', {
+  FlowRouter.route('/products/view/:productId', {
     name: 'products_view',
-    action() {
+    action({productId}) {
       mount(MainLayoutCtx, {
-        content: () => (<ProductsView />)
+        content: () => (<ProductsView productId={productId}/>)
       });
     }
   });
