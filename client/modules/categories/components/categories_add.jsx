@@ -7,7 +7,8 @@ class CategoriesAdd extends React.Component {
 
     const {categoriesAdd} = this.props;
     const {name} = this.refs;
-    categoriesAdd(name.value);
+
+    categoriesAdd({'name': name.value});
 
     // let formData = {
     //   catgory_id: "3543534534",
