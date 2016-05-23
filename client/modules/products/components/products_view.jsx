@@ -45,8 +45,10 @@ class ProductsView extends React.Component {
           </div>
         </div>
 
-        <div className="form-group">
-          <a href="/products/list" className="btn btn-primary">Back</a>
+        <div className="form-group pull-right">
+          <div className="col-sm-10">
+            <a href="/products/list" className="btn btn-primary">Back</a>
+          </div>
         </div>
 
       </form>
