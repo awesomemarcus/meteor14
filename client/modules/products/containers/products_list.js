@@ -6,12 +6,13 @@ export const composer = ({context}, onData) => {
   const {Meteor, Collections} = context();
 
   if(Meteor.subscribe('productList').ready()){
-    const prods = Collections.Products.find({},{sort:{createdAt:-1}}).fetch();
+    const prods = Collections.Products.find({deleted:null},{sort:{createdAt:-1}}).fetch();
         onData(null, {prods});
   }
 };
 
 export const depsMapper = (context, actions) => ({
+  deleteProduct: actions.products.deleteProduct,
   context: () => context
 });
 

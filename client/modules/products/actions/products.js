@@ -1,3 +1,5 @@
+import {ProductSchem} from '/lib/collections/products.js';
+
 export default {
   add({LocalState},category_id, name, description, price) {
     if(!name) {
@@ -24,10 +26,19 @@ export default {
   },
 
   deleteProduct({LocalState}, id) {
-
+    Meteor.call("deleteProduct", id, function (err) {
+      if(err) {
+        return LocalState.set('PRODUCTS_ADD_ERROR', 'Unable to delete product.');
+      }
+    });
   },
 
-  update({LocalState}, id) {
-
+  updateProduct({LocalState}, category_id, name, description, price) {
+    var id = FlowRouter.current().params.productId;
+    Meteor.call("updateProduct", id, category_id, name, description, price, function (err) {
+      if(err) {
+        return LocalState.set('PRODUCTS_UPDATE_ERROR', 'Unable to update product.');
+      }
+    });
   },
 }
