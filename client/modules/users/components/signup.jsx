@@ -2,6 +2,21 @@ import React from 'react';
 
 class Signup extends React.Component {
   render() {
+    const {signup} = this.props;
+    const formData = {
+      "emails.$.address" :"junski@",
+      password: "password",
+      "profile.username" : "jun",
+      "profile.firstname" : "jun",
+      "profile.lastname" : "ski",
+      "profile.gender" : "female",
+      "profile.age" : 20,
+      modifiedAt : new Date(),
+      createdAt : new Date(),
+    };
+
+    signup(formData);
+
     return(
       <div>
       <form className="form-horizontal">
@@ -25,6 +40,13 @@ class Signup extends React.Component {
         </form>
       </div>
     );
+  }
+
+  signup(e){
+    if(e && e.preventDefault){
+      e.preventDefault();
+    }
+
   }
 }
 
