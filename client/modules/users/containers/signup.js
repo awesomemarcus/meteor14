@@ -8,8 +8,7 @@ export const composer = ({context}, onData) => {
   onData(null, {});
 };
 
-export const depsMapper = (context, actions) => ({
-  getAgeOptions: actions.users.getAgeOptions,
+export const depsMapper = (context) => ({
   context: () => context,
 });
 
