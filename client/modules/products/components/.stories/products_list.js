@@ -23,5 +23,8 @@ const products = [
 
 storiesOf('Products List', module)
   .add('default view', () => (
-    <ProductsList products={products} deleteProduct={action('delete product')}/>
+    <ProductsList
+        products={products}
+        deleteProduct={action('delete product')}
+    />
   ));

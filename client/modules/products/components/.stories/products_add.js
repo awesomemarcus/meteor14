@@ -15,13 +15,13 @@ storiesOf('Products Add', module)
   .add('default view', () => (
     <ProductsAdd add={action('add product')} categories={categories}/>
 )).add('name required error', () => (
-  <ProductsAdd nameError="Name is required." add={action('add product')}/>
+  <ProductsAdd nameError="Name is required." add={action('add product')} categories={categories}/>
 )).add('name min/max error', () => (
-  <ProductsAdd nameError="Name must contain 3-20 characters."/>
+  <ProductsAdd nameError="Name must contain 3-20 characters." add={action('add product')} categories={categories}/>
 )).add('description required error', () => (
-  <ProductsAdd descriptionError="Description is required."/>
+  <ProductsAdd descriptionError="Description is required." add={action('add product')} categories={categories}/>
 )).add('description min/max error', () => (
-  <ProductsAdd descriptionError="Description must contain 20-150 characters."/>
+  <ProductsAdd descriptionError="Description must contain 20-150 characters." add={action('add product')} categories={categories}/>
 )).add('price required error', () => (
   <ProductsAdd priceError="Price is required."/>
 ));

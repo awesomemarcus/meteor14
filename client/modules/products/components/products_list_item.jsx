@@ -7,6 +7,11 @@ class ProductsListItem extends React.Component {
     deleteProduct(product._id);
   }
 
+  handleUpdate() {
+    const {product,updateProduct} = this.props;
+    updateProduct(product._id);
+  }
+
   render() {
     const {product} = this.props;
     return (
@@ -20,10 +25,10 @@ class ProductsListItem extends React.Component {
           <a href="#" className="btn btn-xs btn-danger" onClick={this.handleDelete.bind(this)}>
             delete
           </a>
-          <a href="#" className="btn btn-xs btn-success">
+          <a href={`/products/update/${product._id}`} className="btn btn-xs btn-success">
             edit
           </a>
-          <a href="#" className="btn btn-xs btn-default">
+          <a href={`/products/view/${product._id}`} className="btn btn-xs btn-default">
             view
           </a>
         </td>

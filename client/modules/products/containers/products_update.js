@@ -2,13 +2,27 @@ import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
 
 import ProductsUpdate from '../components/products_update.jsx';
 
-export const composer = ({context}, onData) => {
-  const {Meteor, Collections} = context();
-
-  onData(null, {});
+export const composer = ({context, productId}, onData) => {
+  const {LocalState} = context();
+  const nameError = LocalState.get('PRODUCTS_ADD_NAME_ERROR');
+  const descriptionError = LocalState.get('PRODUCTS_ADD_DESCRIPTION_ERROR');
+  const priceError = LocalState.get('PRODUCTS_ADD_PRICE_ERROR');
+  //const product = Collections.Products.findOne(productId);
+  //onData(null, {
+  //product,
+  //nameError,
+  //descriptionError,
+  //priceError,
+  //});
+  onData(null, {
+    nameError,
+    descriptionError,
+    priceError,
+  });
 };
 
 export const depsMapper = (context, actions) => ({
+  updateProduct: actions.products.updateProduct,
   context: () => context
 });
 

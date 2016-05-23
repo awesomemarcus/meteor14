@@ -2,8 +2,6 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import Signup from '../signup.jsx';
 
-// import '/public/bootstrap-3.3.6/css/bootstrap.min.css';
-
 const getAgeOptions = ()=> {
   const ageOptions = [];
 
@@ -14,8 +12,8 @@ const getAgeOptions = ()=> {
   return ageOptions;
 }
 
-storiesOf('users.Signup', module)
-  .add('signup form', () => {
+storiesOf('Users Signup', module)
+  .add('Signup form', () => {
     const error = null;
     const errorField = {
       email: null,
@@ -28,10 +26,10 @@ storiesOf('users.Signup', module)
     };
 
     return (
-      <Signup createAccount={action('createAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <Signup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
     );
   })
-  .add('with error on submit', () => {
+  .add('With error on submit', () => {
     const error = 'Error on form submit';
     const errorField = {
       email: null,
@@ -44,10 +42,10 @@ storiesOf('users.Signup', module)
     };
 
     return (
-      <Signup createAccount={action('createAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <Signup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
     );
   })
-  .add('with error on email', () => {
+  .add('With error on email', () => {
     const error = null;
     const errorField = {
       email: 'Invalid Email',
@@ -60,10 +58,10 @@ storiesOf('users.Signup', module)
     };
 
     return (
-      <Signup createAccount={action('createAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <Signup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
     );
   })
-  .add('with error on password', () => {
+  .add('With error on password', () => {
     const error = null;
     const errorField = {
       email: null,
@@ -76,10 +74,10 @@ storiesOf('users.Signup', module)
     };
 
     return (
-      <Signup createAccount={action('createAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <Signup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
     );
   })
-  .add('with error on username', () => {
+  .add('With error on username', () => {
     const error = null;
     const errorField = {
       email: null,
@@ -92,10 +90,10 @@ storiesOf('users.Signup', module)
     };
 
     return (
-      <Signup createAccount={action('createAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <Signup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
     );
   })
-  .add('with error on firstname', () => {
+  .add('With error on firstname', () => {
     const error = null;
     const errorField = {
       email: null,
@@ -108,10 +106,10 @@ storiesOf('users.Signup', module)
     };
 
     return (
-      <Signup createAccount={action('createAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <Signup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
     );
   })
-  .add('with error on lastname', () => {
+  .add('With error on lastname', () => {
     const error = null;
     const errorField = {
       email: null,
@@ -124,10 +122,10 @@ storiesOf('users.Signup', module)
     };
 
     return (
-      <Signup createAccount={action('createAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <Signup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
     );
   })
-  .add('with error on gender', () => {
+  .add('With error on gender', () => {
     const error = null;
     const errorField = {
       email: null,
@@ -140,10 +138,10 @@ storiesOf('users.Signup', module)
     };
 
     return (
-      <Signup createAccount={action('createAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <Signup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
     );
   })
-  .add('with error on age', () => {
+  .add('With error on age', () => {
     const error = null;
     const errorField = {
       email: null,
@@ -156,6 +154,6 @@ storiesOf('users.Signup', module)
     };
 
     return (
-      <Signup createAccount={action('createAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <Signup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
     );
   });

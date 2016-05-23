@@ -2,10 +2,9 @@ import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
 
 import ProductsView from '../components/products_view.jsx';
 
-export const composer = ({context}, onData) => {
-  const {Meteor, Collections} = context();
-
-  onData(null, {});
+export const composer = ({context, productId}, onData) => {
+  //const product = Collections.Products.findOne(productId);
+  // onData(null, {product});
 };
 
 export const depsMapper = (context, actions) => ({
