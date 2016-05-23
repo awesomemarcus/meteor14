@@ -16,32 +16,51 @@
 - [ESLint Rules](http://master.snapzio.com/snapzio/examples/tree/dev/mantra-boilerplate#eslint-rules)
     - [Wrong way](http://master.snapzio.com/snapzio/examples/tree/dev/mantra-boilerplate#wrong-way)
     - [Right way](http://master.snapzio.com/snapzio/examples/tree/dev/mantra-boilerplate#right-way)
-- []()
 
 
 ## Installing Mantra CLI
-`npm install -g mantra-cli`
+```sh
+$ npm install -g mantra-cli
+```
+
 ###### <br/> [Back to Top](http://master.snapzio.com/snapzio/examples/tree/dev/mantra-boilerplate#topics)
 
 ___
 
 ## Creating a mantra project via Mantra CLI
-`mantra create <project name>`
+```sh
+$ mantra create `<project name>`
+```
 ###### <br/> [Back to Top](http://master.snapzio.com/snapzio/examples/tree/dev/mantra-boilerplate#topics)
 
 ___
 
 ## Creating a module in Mantra CLI
-- `mantra g module modulename`
-- module name should be Pascal case Example: `mantra g module PostAddd`
+```sh
+$ mantra g module `<modulename>`
+```
+
+Module name should be **Pascal case** <br/>
+  *Example:*
+```sh
+$ mantra g module `PostAdd`
+```
 
 ###### <br/> [Back to Top](http://master.snapzio.com/snapzio/examples/tree/dev/mantra-boilerplate#topics)
 
 ___
 ## Creating a file inside container, actions and compontents in a modules in mantra CLI
-- `mantra g <folder inside module> <module name>: filename`
-- Example: `mantra g container core:PostAdd`.
-- Example: `mantra g container Favorites:FavoritesAdd`.
+```sh
+$ mantra g <folder inside module> <module name>: filename
+```
+Examples:
+```sh
+$ mantra g container `core`:`PostAdd`
+```
+```sh
+$ mantra g container `Favorites`:`FavoritesAdd`
+```
+
 - **_NOTE:_** When you create a file inside container this will create the same file inside components automatically.
 - **_NOTE:_** You have to create the files inside actions manually by typing: `mantra g actions Favorites:FavoritesAdd`.
 
