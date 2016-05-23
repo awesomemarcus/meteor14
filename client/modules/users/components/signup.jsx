@@ -2,9 +2,27 @@ import React from 'react';
 
 class Signup extends React.Component {
   render() {
+
+    const {signup} = this.props;
+    const formData = {
+      "emails.$.address" :"junski@",
+      password: "password",
+      "profile.username" : "jun",
+      "profile.firstname" : "jun",
+      "profile.lastname" : "ski",
+      "profile.gender" : "female",
+      "profile.age" : 20,
+      modifiedAt : new Date(),
+      createdAt : new Date(),
+    };
+
+    signup(formData);
+
+
     const {error} = this.props;
     const {errorField} = this.props;
     const {getAgeOptions} = this.props;
+
     return(
       <div className="container">
         <div className="col-sm-8 col-sm-offset-2">
@@ -80,6 +98,13 @@ class Signup extends React.Component {
     );
   }
 
+
+  signup(e){
+    if(e && e.preventDefault){
+      e.preventDefault();
+    }
+}
+
   createAccount(event) {
     if (event && event.preventDefault) {
       event.preventDefault();
@@ -95,6 +120,7 @@ class Signup extends React.Component {
     }
 
     return classes;
+
   }
 }
 
