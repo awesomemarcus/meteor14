@@ -47,29 +47,48 @@ class CategoriesAdd extends React.Component {
     e.preventDefault();
     const {categoriesAdd} = this.props;
     let formData = {
-      catgory_id: 3543534534,
-      name: "Prod Name 2",
+      catgory_id: "3543534534",
+      name: "Prod Name",
       description: "Sample Details",
       price: 24,
       createdAt: new Date(),
       modifiedAt: new Date(),
     };
     validateCatId = ProductSchem.namedContext("myContext").validateOne(formData, "catgory_id");
-    console.log(validateCatId);
+    if(validateCatId ===  false) {
+      console.log(check(formData, ProductSchem));
+    }
+
     validateName = ProductSchem.namedContext("myContext").validateOne(formData, "name");
-    console.log(validateCatId);
+    if(validateName ===  false) {
+      console.log(check(formData, ProductSchem));
+    }
+
     validateDescription = ProductSchem.namedContext("myContext").validateOne(formData, "description");
-    console.log(validateCatId);
+    if(validateDescription ===  false) {
+      console.log(check(formData, ProductSchem));
+    }
+
     validatePrice = ProductSchem.namedContext("myContext").validateOne(formData, "price");
-    console.log(validateCatId);
+    if(validatePrice ===  false) {
+      console.log(check(formData, ProductSchem));
+    }
+
     validateCreatedAt = ProductSchem.namedContext("myContext").validateOne(formData, "createdAt");
-    console.log(validateCatId);
+    if(validateCreatedAt ===  false) {
+      console.log(check(formData, ProductSchem));
+    }
+
     validateModifiedAt = ProductSchem.namedContext("myContext").validateOne(formData, "modifiedAt");
-    console.log(validateCatId);
+    if(validateModifiedAt ===  false) {
+      console.log(check(formData, ProductSchem));
+    }
 
     isValid = ProductSchem.namedContext("myContext").validate(formData);
-    console.log(isValid);
-    console.log(check(formData, ProductSchem));
+    if(isValid ===  true) {
+      console.log('call action');
+      // categoriesAdd(formData);
+    }
   }
 }
 
