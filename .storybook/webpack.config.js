@@ -1,7 +1,6 @@
 var path = require('path');
 
 module.exports = {
-  entry: [ 'bootstrap-loader', '../public'],
   module: {
     loaders: [
       {
