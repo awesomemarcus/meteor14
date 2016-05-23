@@ -16,7 +16,7 @@ class ProductsUpdate extends React.Component {
       description,
       price,
     } = this.refs;
-    //
+
     updateProduct(category_id.value,name.value,description.value,price.value);
 
   }
@@ -24,6 +24,7 @@ class ProductsUpdate extends React.Component {
   render() {
 
     const {
+        product,
         categories,
         nameError,
         descriptionError,
@@ -43,9 +44,11 @@ class ProductsUpdate extends React.Component {
           <label className="col-sm-2 control-label">Choose Category</label>
           <div className="col-sm-10">
             <select className="selectpicker form-control" ref="category_id">
-              {categories ? categories.map( (cat) => (
-                <option key={cat._id} value={cat._id}>{cat.name}</option>
-              )) : <option>No categories</option>}
+              {categories ? (categories.map((cat)=>(
+                <option
+                  value={cat._id}
+                >{cat.name}</option>
+              ))) : <option>No categories</option>}
             </select>
           </div>
         </div>
@@ -53,7 +56,7 @@ class ProductsUpdate extends React.Component {
         <div className="form-group">
           <label className="col-sm-2 control-label">Name</label>
           <div className="col-sm-10">
-            <input type="text" className="form-control" ref="name"/>
+            <input type="text" className="form-control" ref="name" value={product.name}/>
             <p className="error text-error">{nameError ? nameError : ''}</p>
           </div>
         </div>
@@ -61,7 +64,7 @@ class ProductsUpdate extends React.Component {
         <div className="form-group">
           <label className="col-sm-2 control-label">Description</label>
           <div className="col-sm-10">
-            <textarea className="form-control" rows="3" ref="description"></textarea>
+            <textarea className="form-control" rows="3" ref="description" value={product.description}></textarea>
             <p className="error text-error">{descriptionError ? descriptionError : ''}</p>
           </div>
         </div>
@@ -69,7 +72,7 @@ class ProductsUpdate extends React.Component {
         <div className="form-group">
           <label className="col-sm-2 control-label">Price</label>
           <div className="col-sm-10">
-            <input type="number" className="form-control" ref="price" placeholder="(i.e) $10.00" step="0.01"/>
+            <input type="number" className="form-control" ref="price" placeholder="(i.e) $10.00" step="0.01" value={product.price}/>
             <p className="error text-error">{priceError ? priceError : ''}</p>
           </div>
         </div>
