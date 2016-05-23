@@ -8,12 +8,8 @@ class CategoriesAdd extends React.Component {
     event.preventDefault();
 
     const {categoriesAdd} = this.props;
-    const {name, details} = this.refs;
-    let formData = {
-        name : name.value,
-        details : details.value,
-    };
-    categoriesAdd(formData);
+    const {name} = this.refs;
+    categoriesAdd(name.value);
 
     // let formData = {
     //   catgory_id: "3543534534",
@@ -65,7 +61,6 @@ class CategoriesAdd extends React.Component {
   render() {
     const {
       nameError,
-      detailsError,
     } = this.props;
     return (
       <div className="col-sm-4">
@@ -80,11 +75,6 @@ class CategoriesAdd extends React.Component {
             <p className="error text-error">{nameError ? nameError : ''}</p>
           </div>
 
-          <div className="form-group">
-            <label for="categoryDetails">Details</label>
-            <textarea ref="details"  type="textarea" className="form-control" id="categoryDetails" placeholder="categoryDetails" ></textarea>
-            <p className="error text-error">{detailsError ? detailsError : ''}</p>
-          </div>
           <button type="submit" className="btn btn-default">Add</button>
         </form>
       </div>

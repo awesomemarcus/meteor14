@@ -4,10 +4,10 @@ class SelectAge extends React.Component {
   render() {
     const {selectId, selectClass, selectValue} = this.props;
     return(
-      <select id={selectId} className={selectClass} defaultValue={selectValue}>
+      <select id={selectId} className={selectClass} defaultValue={selectValue} ref="age">
         <option value>- select age -</option>
         {this.getAgeArray().map(value => (
-          <option value={value.age}>{value.age}</option>
+          <option key={value.age} value={value.age}>{value.age}</option>
         ))}
       </select>
     );
