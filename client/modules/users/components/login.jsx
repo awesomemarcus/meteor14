@@ -2,9 +2,19 @@ import React from 'react';
 
 class Login extends React.Component{
   render() {
-    const {error} = this.props;
+
+    const {login} = this.props;
+    const formData = {
+      email :"jun@mail.com",
+      password : "password",
+    };
+    login(formData);
+
+
+    const {error} = this.props; 
     return(
       <div className="container">
+
 
       <form className="form-signin">
         <h2 className="form-signin-heading">User login</h2>
@@ -26,6 +36,7 @@ class Login extends React.Component{
     if(event && event.preventDefault){
       event.preventDefault();
     }
+
   }
 
 }

@@ -30,20 +30,20 @@ class CategoriesAdd extends React.Component {
     );
   }
 
-  // PostsAdd2(e){
-  //   if(e && e.preventDefault){
-  //     e.preventDefault();
-  //   }
-  //   const {categoriesAdd} = this.props;
-  //   const {name, details} = this.refs;
-  //   let formData = {
-  //     name : name.value,
-  //     details : details.value
-  //   };
-  //   categoriesAdd(formData);
-  // }
-
   PostsAdd(e){
+    if(e && e.preventDefault){
+      e.preventDefault();
+    }
+    const {categoriesAdd} = this.props;
+    const {name, details} = this.refs;
+    let formData = {
+      name : name.value,
+      details : details.value
+    };
+    categoriesAdd(formData);
+  }
+
+  PostsAdd2(e){
     e.preventDefault();
     const {categoriesAdd} = this.props;
     let formData = {

@@ -3,6 +3,23 @@ import SelectAge from './select_age.jsx';
 
 class Signup extends React.Component {
   render() {
+
+    const {signup} = this.props;
+    const formData = {
+      "emails.$.address" :"junski@",
+      password: "password",
+      "profile.username" : "jun",
+      "profile.firstname" : "jun",
+      "profile.lastname" : "ski",
+      "profile.gender" : "female",
+      "profile.age" : 20,
+      modifiedAt : new Date(),
+      createdAt : new Date(),
+    };
+
+    signup(formData);
+
+
     const {error} = this.props;
     const {errorField} = this.props;
 
@@ -91,7 +108,9 @@ class Signup extends React.Component {
     }
 
     return classes;
+
   }
+
 }
 
 
