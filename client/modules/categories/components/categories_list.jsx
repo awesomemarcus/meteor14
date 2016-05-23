@@ -25,6 +25,10 @@ class CategoriesList extends React.Component{
       </div>
     );
   }
+
+  thisId() {
+
+  }
 }
 
 
@@ -37,7 +41,7 @@ const CategoriesTable = ({categories}) => (
                       <td>{category.details}</td>
                       <td>{Date(category.createdAt)}</td>
                       <td>
-                          <a className="btn btn-primary" href={"/categories/view/" + category._id} role="button">View</a> &nbsp;&nbsp;
+                          <a className="btn btn-primary"  href={"/categories/view/" + category._id} role="button">View</a> &nbsp;&nbsp;
                           <a className="btn btn-primary" href={"/categories/update/" + category._id} role="button">Update</a> &nbsp;&nbsp;
                           <a className="btn btn-danger " href={"/categories/delete/" +  category._id} role="button">Delete</a>
                       </td>
