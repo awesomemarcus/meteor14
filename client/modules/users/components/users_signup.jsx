@@ -1,7 +1,7 @@
 import React from 'react';
 import SelectAge from './select_age.jsx';
 
-class Signup extends React.Component {
+class UsersSignup extends React.Component {
   render() {
 
     const {signup} = this.props;
@@ -17,7 +17,7 @@ class Signup extends React.Component {
       createdAt : new Date(),
     };
 
-    signup(formData);
+    // signup(formData);
 
 
     const {error} = this.props;
@@ -114,4 +114,4 @@ class Signup extends React.Component {
 }
 
 
-export default Signup;
+export default UsersSignup;
