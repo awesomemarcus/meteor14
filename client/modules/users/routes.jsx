@@ -8,7 +8,7 @@ import UsersSignup from './containers/users_signup.js';
 export default function (injectDeps, {FlowRouter}) {
   const MainLayoutCtx = injectDeps(MainLayout);
 
-  FlowRouter.route('/users/login', {
+  FlowRouter.route('/users/login', { 
     name: 'login',
     action() {
       mount(MainLayoutCtx, {
@@ -25,5 +25,5 @@ export default function (injectDeps, {FlowRouter}) {
       });
     },
   });
-  
+
 }

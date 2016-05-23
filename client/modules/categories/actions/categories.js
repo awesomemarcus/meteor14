@@ -16,8 +16,8 @@ export default {
     });
   },
   categoriesDelete(id) {
-    
-  }
+
+  },
   clearErrors({LocalState}){
     return LocalState.set("categories_add_error",null);
   },
