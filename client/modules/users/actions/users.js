@@ -2,7 +2,7 @@ import UsersSchema from '/lib/collections/users.js';
 
 
 export default {
-  usersignup({Meteor, LocalState,FlowRouter},formData){
+  userSignup({Meteor, LocalState,FlowRouter},formData){
       LocalState.set("profile.username",null);
       LocalState.set("profile.firstname",null);
       LocalState.set("profile.lastname",null);
@@ -42,7 +42,7 @@ export default {
   },
 
 
-  login({Meteor, LocalState},formData){
+  userLogin({Meteor, LocalState},formData){
     Meteor.call('usersLogin',formData);
   },
   clearErrors({LocalState}){

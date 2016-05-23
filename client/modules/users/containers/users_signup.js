@@ -21,7 +21,7 @@ export const composer = ({context}, onData) => {
 };
 
 export const depsMapper = (context, actions) => ({
-  userSignup:actions.users.signup,
+  userSignup:actions.users.userSignup,
   clearErrors:actions.users.clearErrors,
   getAgeOptions:actions.users.getAgeOptions,
   context: () => context,
