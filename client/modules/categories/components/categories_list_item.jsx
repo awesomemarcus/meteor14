@@ -34,7 +34,7 @@ class CategoriesListItem extends React.Component {
             <td>{category._id}</td>
             <td>{category.name}</td>
             <td>{help.formatDate(category.createdAt)}</td>
-            <td>asdasd</td>
+            <td>{this.getProductNames(category)}</td>
             <td>
               <a className="btn btn-xs btn-danger" href="#" role="button" onClick={this.handleDelete.bind(this)}>Delete</a>
               <a className="btn btn-xs btn-success" href={`/categories/update/${category._id}`} role="button">Update</a>
