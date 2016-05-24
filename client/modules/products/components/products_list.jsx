@@ -8,12 +8,8 @@ class ProductsList extends React.Component {
 
   render() {
 
-    const {
-      prods,
-      deleteProduct,
-      updateProduct,
-      categories,
-    } = this.props;
+    const { prods, deleteProduct, updateProduct, categories } = this.props;
+
     return (
       <div className="col-sm-12">
 
@@ -33,7 +29,7 @@ class ProductsList extends React.Component {
           <thead>
             <tr>
               <th>Prod Id</th>
-              <th>Category Id</th>
+              <th>Category</th>
               <th>Description</th>
               <th>Price</th>
               <th>CreatedAt</th>
