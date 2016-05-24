@@ -1,4 +1,4 @@
-import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
+import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
 import CategoriesUpdate from '../components/categories_update.jsx';
 
@@ -6,7 +6,6 @@ export const composer = ({context, category_id}, onData) => {
   const {Meteor, Collections} = context();
   if(Meteor.subscribe("categoriesSingle", category_id).ready()){
     const category = Collections.Categories.findOne(category_id);
-
     onData(null, {category});
   }
 
@@ -15,7 +14,7 @@ export const composer = ({context, category_id}, onData) => {
 export const depsMapper = (context, actions) => ({
   categoriesUpdate:actions.categories.categoriesUpdate,
   clearErrors: actions.categories.clearErrors,
-  context: () => context
+  context: () => context,
 });
 
 export default composeAll(

@@ -8,7 +8,6 @@ class ProductsUpdate extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
     const {updateProduct} = this.props;
     const {
       category_id,
@@ -22,7 +21,7 @@ class ProductsUpdate extends React.Component {
   }
 
   render() {
-
+    console.log(this);
     const {
         product,
         categories,
@@ -45,7 +44,7 @@ class ProductsUpdate extends React.Component {
           <div className="col-sm-10">
             <select className="selectpicker form-control" ref="category_id">
               {categories ? (categories.map((cat)=>(
-                <option
+                <option key={cat._id}
                   value={cat._id}
                 >{cat.name}</option>
               ))) : <option>No categories</option>}
@@ -56,7 +55,7 @@ class ProductsUpdate extends React.Component {
         <div className="form-group">
           <label className="col-sm-2 control-label">Name</label>
           <div className="col-sm-10">
-            <input type="text" className="form-control" ref="name" value={product.name}/>
+            <input type="text" className="form-control" ref="name" defaultValue={product.name}/>
             <p className="error text-error">{nameError ? nameError : ''}</p>
           </div>
         </div>
@@ -64,7 +63,7 @@ class ProductsUpdate extends React.Component {
         <div className="form-group">
           <label className="col-sm-2 control-label">Description</label>
           <div className="col-sm-10">
-            <textarea className="form-control" rows="3" ref="description" value={product.description}></textarea>
+            <textarea className="form-control" rows="3" ref="description" defaultValue={product.description}></textarea>
             <p className="error text-error">{descriptionError ? descriptionError : ''}</p>
           </div>
         </div>
@@ -72,7 +71,7 @@ class ProductsUpdate extends React.Component {
         <div className="form-group">
           <label className="col-sm-2 control-label">Price</label>
           <div className="col-sm-10">
-            <input type="number" className="form-control" ref="price" placeholder="(i.e) $10.00" step="0.01" value={product.price}/>
+            <input type="number" className="form-control" ref="price" placeholder="(i.e) $10.00" step="0.01" defaultValue={product.price}/>
             <p className="error text-error">{priceError ? priceError : ''}</p>
           </div>
         </div>

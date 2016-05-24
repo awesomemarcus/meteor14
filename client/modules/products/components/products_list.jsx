@@ -2,25 +2,29 @@ import React from 'react';
 import ProductsListItem from './products_list_item.jsx';
 
 class ProductsList extends React.Component {
+
   constructor(props) {
     super(props);
   }
 
   render() {
 
-    const {prods,deleteProduct,updateProduct} = this.props;
-    console.log(prods);
+    const { prods, deleteProduct, updateProduct } = this.props;
+
     return (
       <div className="col-sm-12">
+
         <a href="/products/add" className="btn btn-success">Add</a>
+
         <table className="table table-striped">
           <thead>
             <tr>
-              <th>Prod Id</th>
-              <th>Category Id</th>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Category</th>
               <th>Description</th>
               <th>Price</th>
-              <th>CreatedAt</th>
+              <th>Created At</th>
               <th>Actions</th>
             </tr>
           </thead>

@@ -3,11 +3,14 @@ import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 import UsersLogin from '../components/users_login.jsx';
 
 export const composer = ({context}, onData) => {
-  onData(null, {});
+  const {LocalState} = context();
+  const error = LocalState.get("main_error");
+  onData(null, {error});
 };
 
 export const depsMapper = (context, actions) => ({
-  login:actions.users.login,
+  userLogin:actions.users.userLogin,
+  clearErrors:actions.users.clearErrors,
   context: () => context,
 });
 

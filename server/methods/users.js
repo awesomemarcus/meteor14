@@ -1,8 +1,12 @@
 import UsersSchema from '/lib/collections/users.js';
 import {Meteor} from 'meteor/meteor';
+import {check} from 'meteor/check';
 import {Accounts} from 'meteor/accounts-base';
 
 Meteor.startup(()=>{
+  Accounts.config({
+    forbidClientAccountCreation: true,
+});
   Accounts.onCreateUser((options, user) => {
            user.profile = {};
            user.profile.username = options["profile.username"];
@@ -21,6 +25,7 @@ Meteor.startup(()=>{
 export default function () {
   Meteor.methods({
     'usersLogin'(formData) {
+      check(formData,Object);
       // let isValid = UsersSchema.namedContext("myContext").validate(formData,"email.$.address");
       // let isValid2 = UsersSchema.namedContext("myContext").validateOne(formData,"password");
       // check(formData,UsersSchema,(err)=>{
@@ -29,6 +34,7 @@ export default function () {
 
     },
     'usersSignup'(formData) {
+      check(formData,Object);
       let Checker =  UsersSchema.namedContext("myContext");
       let schemaNoError = Checker.validate(formData);
 

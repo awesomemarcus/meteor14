@@ -6,6 +6,7 @@
 - [Creating a module in Mantra CLI](http://master.snapzio.com/snapzio/mantraboilerplate#creating-a-module-in-mantra-cli)
 - [Creating a file inside container, actions and compontents in a modules in mantra CLI](http://master.snapzio.com/snapzio/mantraboilerplate#creating-a-file-inside-container-actions-and-compontents-in-a-modules-in-mantra-cli)
 - [Naming Convention](http://master.snapzio.com/snapzio/mantraboilerplate#naming-convention)
+- [Data Subscription Non-Global](http://master.snapzio.com/snapzio/mantraboilerplate/tree/prod#data-subscription-non-global)
 - [Filaname Prefix and Suffix](http://master.snapzio.com/snapzio/mantraboilerplate#filaname-prefix-and-suffix)
 - [Event Names to be used](http://master.snapzio.com/snapzio/mantraboilerplate#event-names-to-be-used)
 - [Adding a custom CSS file](http://master.snapzio.com/snapzio/mantraboilerplate#adding-a-custom-css-file)
@@ -32,7 +33,8 @@ ___
 
 ___
 ## Running Mantra using Bash
-- `bash ./meteor.sh run`
+- `bash ./meteor.sh run`.
+- This will allow you to run multiple projects in different ports and mongo by updating the `meteor.sh` file.
 
 ###### <br/> [Back to Top](http://master.snapzio.com/snapzio/mantraboilerplate#topics)
 
@@ -71,6 +73,19 @@ ___
 - In creating a module it should be all lower case. **_Example:_*** "products". `(folder would be products)`.
 - In creating an action it should be all lower case. **_Example:_** "products". `(file would be products.js)`.
 - In creating a container and component it should be Pascal case. **_Example:_** "ProductsList" files would be `(containers/products_list.js)` and `(components/products_list.jsx)`.
+
+###### <br/> [Back to Top](http://master.snapzio.com/snapzio/mantraboilerplate#topics)
+
+___
+## Data Subscription Non-Global
+- In creating a non-global subscription you need to add it inside the `context.js` under `/client/configs/`.
+-  See the sample code through the link: http://master.snapzio.com/snapzio/mantraboilerplate/blob/prod/client/configs/context.js
+-  See the function name `authCommon` and the variable `userSubReady`.
+- Using the non-global subscription:
+    - You can directly use the subscription inside the module container by calling the exported function from the context.js. Example: `const {authCommon} = context();`
+    - See the sample code through the link: http://master.snapzio.com/snapzio/mantraboilerplate/blob/prod/client/modules/users/containers/auth_checker.js
+    - You can now use it in the component by calling the props from the container: `const {MainLayout, content, userId} = this.props;`.
+- **_Note:_** this is still subject for improvement or changes.
 
 ###### <br/> [Back to Top](http://master.snapzio.com/snapzio/mantraboilerplate#topics)
 

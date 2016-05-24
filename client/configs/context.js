@@ -8,7 +8,7 @@ const authCommon = function () {
 
   let userSubReady = Meteor.subscribe('users.current').ready();
 
-  const userId = Meteor.userId() || null;
+  const userId = Meteor.userId() ? Meteor.userId() : null;
   const user = Meteor.user();
 
   return {

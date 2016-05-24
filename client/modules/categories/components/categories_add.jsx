@@ -1,6 +1,4 @@
 import React from 'react';
-import {ProductSchem} from '/lib/collections/products.js';
-import {check} from 'meteor/check';
 
 class CategoriesAdd extends React.Component {
 
@@ -9,7 +7,8 @@ class CategoriesAdd extends React.Component {
 
     const {categoriesAdd} = this.props;
     const {name} = this.refs;
-    categoriesAdd(name.value);
+
+    categoriesAdd({'name': name.value});
 
     // let formData = {
     //   catgory_id: "3543534534",

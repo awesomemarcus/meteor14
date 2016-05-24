@@ -1,4 +1,4 @@
-import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
+import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
 import CategoriesView from '../components/categories_view.jsx';
 
@@ -6,7 +6,6 @@ export const composer = ({context, category_id}, onData) => {
   const {Meteor, Collections} = context();
   if(Meteor.subscribe("categoriesSingle", category_id).ready()){
     const category = Collections.Categories.findOne(category_id);
-
     onData(null, {category});
   }
 
@@ -14,8 +13,8 @@ export const composer = ({context, category_id}, onData) => {
 
 };
 
-export const depsMapper = (context, actions) => ({
-  context: () => context
+export const depsMapper = (context) => ({
+  context: () => context,
 });
 
 export default composeAll(
