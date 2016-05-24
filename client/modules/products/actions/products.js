@@ -78,7 +78,7 @@ export default {
     });
   },
 
-  updateProduct({LocalState}, category_id, name, description, price) {
+  updateProduct({LocalState,FlowRouter}, category_id, name, description, price) {
     var id = FlowRouter.current().params.productId;
     Meteor.call("updateProduct", id, category_id, name, description, Number(price), function (err) {
       if(err) {

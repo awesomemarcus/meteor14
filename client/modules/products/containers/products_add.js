@@ -7,7 +7,7 @@ export const composer = ({context}, onData) => {
   const nameError = LocalState.get('PRODUCTS_ADD_NAME_ERROR');
   const descriptionError = LocalState.get('PRODUCTS_ADD_DESCRIPTION_ERROR');
   const priceError = LocalState.get('PRODUCTS_ADD_PRICE_ERROR');
-  const addError = LocalState.get('PRODUCTS_ADD_ERROR');
+  // const addError = LocalState.get('PRODUCTS_ADD_ERROR');
 
   if(Meteor.subscribe('categoriesList').ready()){
     const categories = Collections.Categories.find({},{sort:{createdAt:-1}}).fetch();

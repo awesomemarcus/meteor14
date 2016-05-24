@@ -1,12 +1,12 @@
-import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
+import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
 import ProductsUpdate from '../components/products_update.jsx';
 
 export const composer = ({context, productId}, onData) => {
-  const {LocalState, Meteor, Collections} = context();
-  const nameError = LocalState.get('PRODUCTS_ADD_NAME_ERROR');
-  const descriptionError = LocalState.get('PRODUCTS_ADD_DESCRIPTION_ERROR');
-  const priceError = LocalState.get('PRODUCTS_ADD_PRICE_ERROR');
+  const {Meteor, Collections} = context();
+  // const nameError = LocalState.get('PRODUCTS_ADD_NAME_ERROR');
+  // const descriptionError = LocalState.get('PRODUCTS_ADD_DESCRIPTION_ERROR');
+  // const priceError = LocalState.get('PRODUCTS_ADD_PRICE_ERROR');
   if(Meteor.subscribe('productList').ready()){
     const product = Collections.Products.findOne({_id: productId},{sort:{createdAt:-1}});
     const categories = Collections.Products.find({},{sort:{createdAt:-1}}).fetch();
@@ -16,7 +16,7 @@ export const composer = ({context, productId}, onData) => {
 
 export const depsMapper = (context, actions) => ({
   updateProduct: actions.products.updateProduct,
-  context: () => context
+  context: () => context,
 });
 
 export default composeAll(
