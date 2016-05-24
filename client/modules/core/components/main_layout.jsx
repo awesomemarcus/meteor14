@@ -1,13 +1,13 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import {Meteor} from 'meteor/meteor';
 import NavBar from './nav_bar.jsx';
+import {NavBarLogOut} from './nav_bar.jsx';
 
 
 class Layout extends React.Component {
   render() {
-    const {content,userId} = this.props;
-    console.log(userId);
-
+    const {content} = this.props;
     return (
       <div>
       <Helmet
@@ -26,7 +26,8 @@ class Layout extends React.Component {
         ]}
       />
         <div>
-          <NavBar />
+          {Meteor.userId() ?   <NavBar /> :   <NavBarLogOut /> }
+
           <div className="container marginTop">
             {content()}
           </div>
