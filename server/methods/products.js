@@ -1,20 +1,20 @@
-import {Products, ProductSchem} from '/lib/collections';
+import Products,{ProductSchem} from '/lib/collections/products.js';
 import {Meteor} from 'meteor/meteor';
 import {check} from 'meteor/check';
 
 export default function () {
   Meteor.methods({
-    'insertProduct'(categoryid, name, description, price) {
+    'insertProduct'(category_id, name, description, price) {
       const createdAt = new Date();
 
-      check(categoryid, String);
+      check(category_id, String);
       check(name, String);
       check(description, String);
       check(price, String);
       check(createdAt, Date);
 
       let formDate = {
-        category_id: categoryid,
+        category_id: category_id,
         name:name,
         description:description,
         price:Number(price),
@@ -23,7 +23,7 @@ export default function () {
       let isValid = ProductSchem.namedContext("myContext").validate(formDate);
       if(isValid === true) {
         const prodDetails = {
-          categoryid,
+          category_id,
           name,
           description,
           price,
