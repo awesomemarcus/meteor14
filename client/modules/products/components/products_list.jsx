@@ -28,7 +28,7 @@ class ProductsList extends React.Component {
         <table className="table table-striped">
           <thead>
             <tr>
-              <th>Prod Id</th>
+              <th>Id</th>
               <th>Category</th>
               <th>Description</th>
               <th>Price</th>
