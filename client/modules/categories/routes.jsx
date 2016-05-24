@@ -12,7 +12,7 @@ import CategoriesList from './containers/categories_list.js';
 
 
 export default function (injectDeps, {FlowRouter}) {
-  const MainLayoutCtx = injectDeps(MainLayout);
+//  const MainLayoutCtx = injectDeps(MainLayout);
   const AuthCheck = injectDeps(AuthChecker);
 
   FlowRouter.route('/categories/add', {

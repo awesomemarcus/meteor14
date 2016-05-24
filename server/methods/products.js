@@ -5,39 +5,39 @@ import {ProductSchem} from '/lib/collections/products.js';
 
 export default function () {
   Meteor.methods({
-    'insertProduct'(category_id, name, description, price) {
-      console.log(name);
+    'insertProduct'(categoryid, name, description, price) {
       const createdAt = new Date();
-      // let formData = {
-      //   category_id: 'asdsadasdasdas',
-      //   name: 'dsadasdsadsa',
-      //   description: 'sadasdsadsa',
-      //   price: 3.0,
-      // };
-      //
-      // let isValid = ProductSchem.namedContext("myContext").validate(formData);
-      //
-      // console.log(formData);
-      // console.log(isValid);
+      check(categoryid, String);
+      check(name, String);
+      check(description, String);
+      check(price, String);
+      check(createdAt, Date);
+
       const prodDetails = {
-        category_id,
+        categoryid,
         name,
         description,
         price,
         createdAt,
         modifiedAt: null,
         deleted: null,
-        saving: true
+        saving: true,
       };
       Products.insert(prodDetails);
     },
 
     'deleteProduct'(id) {
+      check(id, String);
       Products.update({_id: id}, {$set: {deleted: true}});
     },
 
-    'updateProduct'(id, category_id, name, description, price) {
-      Products.update({_id: id}, {$set: {category_id: category_id, name: name, description: description, price: price, modifiedAt: new Date()}});
+    'updateProduct'(id, categoryid, name, description, price) {
+      check(id, String);
+      check(categoryid, String);
+      check(name, String);
+      check(description, String);
+      check(price, Number);
+      Products.update({_id: id}, {$set: {category_id: categoryid, name: name, description: description, price: price, modifiedAt: new Date()}});
     },
   });
 }
