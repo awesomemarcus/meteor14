@@ -49,7 +49,7 @@ class ProductsAdd extends React.Component {
         <div className="form-group">
           <label className="col-sm-2 control-label">Name</label>
           <div className="col-sm-10">
-            <input type="text" id="prodName" className="form-control" ref="name"/>
+            <input type="text" id="prodName" onBlur={this.checkProdName.bind(this)} className="form-control" ref="name"/>
             <p id="nameErrorMsg" className="error text-error">{nameError ? nameError : ''}</p>
           </div>
         </div>
@@ -57,7 +57,7 @@ class ProductsAdd extends React.Component {
         <div className="form-group">
           <label className="col-sm-2 control-label">Description</label>
           <div className="col-sm-10">
-            <textarea id="prodDescription" className="form-control" rows="3" ref="description"></textarea>
+            <textarea id="prodDescription" onBlur={this.checkProdDescription.bind(this)} className="form-control" rows="3" ref="description"></textarea>
             <p id="descriptionErrorMsg" className="error text-error">{descriptionError ? descriptionError : ''}</p>
           </div>
         </div>
@@ -65,7 +65,7 @@ class ProductsAdd extends React.Component {
         <div className="form-group">
           <label className="col-sm-2 control-label">Price</label>
           <div className="col-sm-10">
-            <input type="number" id="prodPrice" className="form-control" ref="price" placeholder="(i.e) $10.00" step="0.01"/>
+            <input type="number" onBlur={this.checkProdPrice.bind(this)} id="prodPrice" className="form-control" ref="price" placeholder="(i.e) $10.00" step="0.01"/>
             <p id="priceErrorMsg" className="error text-error">{priceError ? priceError : ''}</p>
           </div>
         </div>
@@ -78,6 +78,24 @@ class ProductsAdd extends React.Component {
 
       </form>
     );
+  }
+
+  checkProdName () {
+    const {name} = this.refs;
+    const {validateProdName} = this.props;
+    validateProdName(name.value);
+  }
+
+  checkProdDescription () {
+    const {description} = this.refs;
+    const {validateProdDescription} = this.props;
+    validateProdDescription(description.value);
+  }
+
+  checkProdPrice () {
+    const {price} = this.refs;
+    const {validateProdPrice} = this.props;
+    validateProdPrice(price.value);
   }
 
   // validateProdName () {

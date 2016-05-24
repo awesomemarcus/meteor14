@@ -17,6 +17,9 @@ export const composer = ({context}, onData) => {
 
 export const depsMapper = (context, actions) => ({
   add: actions.products.add,
+  validateProdName: actions.products.validateProdName,
+  validateProdDescription: actions.products.validateProdDescription,
+  validateProdPrice: actions.products.validateProdPrice,
   context: () => context,
 });
 

@@ -32,7 +32,8 @@ ___
 
 ___
 ## Running Mantra using Bash
-- `bash ./meteor.sh run`
+- `bash ./meteor.sh run`.
+- This will allow you to run multiple projects in different ports and mongo by updating the `meteor.sh` file.
 
 ###### <br/> [Back to Top](http://master.snapzio.com/snapzio/mantraboilerplate#topics)
 
