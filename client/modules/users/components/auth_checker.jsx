@@ -10,7 +10,7 @@ class AuthChecker extends React.Component{
         }
         return(
             <div>
-              <MainLayout  content={content}/>
+              <MainLayout  content={content} userId={userId} />
             </div>
         );
 
