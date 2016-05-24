@@ -76,6 +76,18 @@ ___
 ###### <br/> [Back to Top](http://master.snapzio.com/snapzio/mantraboilerplate#topics)
 
 ___
+## Data Subscription Non-Global
+- In creating a non-global subscription you need to add it inside the `context.js` under `/client/configs/`.
+-  See the sample code through the link: http://master.snapzio.com/snapzio/mantraboilerplate/blob/prod/client/configs/context.js
+-  See the function name `authCommon` and the variable `userSubReady`.
+- Using the non-global subscription:
+    - You can directly use the subscription inside the module container by calling the exported function from the context.js. Example: `const {authCommon} = context();`
+    - See the sample code through the link: http://master.snapzio.com/snapzio/mantraboilerplate/blob/prod/client/modules/users/containers/auth_checker.js
+    - You can now use it in the component by calling the props from the container: `const {MainLayout, content, userId} = this.props;`.
+- **_Note:_** this is still subject for improvement or changes.
+
+
+___
 ## Filaname Prefix and Suffix
 - The filename prefix should be the `module name` and the suffix should be `event name`.
 - **_Example:_** If the module name is `Favorites` and the event is to `add` favorite users, the filename should be `FavoritesAdd`.
