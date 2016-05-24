@@ -15,7 +15,7 @@ export default function () {
       check(createdAt, Date);
 
       let formDate = {
-        category_id: 'gwaposijunjun',
+        category_id: categoryid,
         name:name,
         description:description,
         price:Number(price),
