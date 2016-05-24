@@ -6,6 +6,7 @@
 - [Creating a module in Mantra CLI](http://master.snapzio.com/snapzio/mantraboilerplate#creating-a-module-in-mantra-cli)
 - [Creating a file inside container, actions and compontents in a modules in mantra CLI](http://master.snapzio.com/snapzio/mantraboilerplate#creating-a-file-inside-container-actions-and-compontents-in-a-modules-in-mantra-cli)
 - [Naming Convention](http://master.snapzio.com/snapzio/mantraboilerplate#naming-convention)
+- [Data Subscription Non-Global](http://master.snapzio.com/snapzio/mantraboilerplate/tree/prod#data-subscription-non-global)
 - [Filaname Prefix and Suffix](http://master.snapzio.com/snapzio/mantraboilerplate#filaname-prefix-and-suffix)
 - [Event Names to be used](http://master.snapzio.com/snapzio/mantraboilerplate#event-names-to-be-used)
 - [Adding a custom CSS file](http://master.snapzio.com/snapzio/mantraboilerplate#adding-a-custom-css-file)
@@ -86,6 +87,7 @@ ___
     - You can now use it in the component by calling the props from the container: `const {MainLayout, content, userId} = this.props;`.
 - **_Note:_** this is still subject for improvement or changes.
 
+###### <br/> [Back to Top](http://master.snapzio.com/snapzio/mantraboilerplate#topics)
 
 ___
 ## Filaname Prefix and Suffix
