@@ -1,5 +1,4 @@
 import React from 'react';
-import SelectAge from './select_age.jsx';
 
 class UsersUpdate extends React.Component {
   render() {
@@ -47,7 +46,10 @@ class UsersUpdate extends React.Component {
             <div className={this.getInputWrapperClass(errorField.age)}>
               <label for="selectAge" className="col-sm-2 control-label">Age</label>
               <div className="col-sm-10">
-                <SelectAge selectId="selectAge" selectClass="form-control" selectValue={user.profile.age} />
+                <select className="form-control" id="selectAge" name="age" onBlur={this.validateField.bind(this)} ref="age">
+                  <option value>- select age -</option>
+                  {this.getAgeOptions()}
+                </select>
                 {errorField.age ? <p style={{color: 'red'}}>{errorField.age}</p> : null}
               </div>
             </div>
@@ -67,6 +69,18 @@ class UsersUpdate extends React.Component {
       event.preventDefault();
 
     }
+  }
+
+  getAgeOptions(){
+    const ageOptions = [];
+
+    for (let minAge = 18; minAge <= 99; minAge++) {
+      ageOptions.push({age: minAge});
+    }
+
+    return ageOptions.map((a) => (
+      <option value={a.age}>{a.age}</option>
+    ));
   }
 
   getInputWrapperClass(errorObj) {

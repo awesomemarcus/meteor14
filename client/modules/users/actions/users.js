@@ -2,6 +2,33 @@ import UsersSchema from '/lib/collections/users.js';
 
 
 export default {
+  validateInputField({LocalState}, field, value){
+    var key = "";
+    var userObj = {};
+
+    key = "profile." + field;
+    userObj[key] = value;
+
+    if(field === 'email'){
+      key = "emails.$.address";
+      userObj[key] = value;
+    }
+
+    if(field === 'password'){
+      key = field;
+      userObj[key] = value;
+    }
+
+    let Checker =  UsersSchema.namedContext("myContext");
+    const validate = Checker.validateOne(userObj, key);
+
+    LocalState.set(key, null);
+
+    if(!validate) {
+      LocalState.set(key, Checker.keyErrorMessage(key));
+    }
+
+  },
   signup({Meteor, LocalState,FlowRouter},formData){
       LocalState.set("profile.username",null);
       LocalState.set("profile.firstname",null);
@@ -39,8 +66,6 @@ export default {
 
 
   },
-
-
   login({Meteor, LocalState},formData){
     Meteor.call('usersLogin',formData);
   },
