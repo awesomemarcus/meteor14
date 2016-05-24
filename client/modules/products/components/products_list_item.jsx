@@ -14,7 +14,6 @@ class ProductsListItem extends React.Component {
 
   render() {
     const {product} = this.props;
-    debugger;
     return (
       <tr>
         <td>{product._id}</td>

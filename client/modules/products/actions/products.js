@@ -80,7 +80,7 @@ export default {
 
   updateProduct({LocalState}, category_id, name, description, price) {
     var id = FlowRouter.current().params.productId;
-    Meteor.call("updateProduct", id, category_id, name, description, price, function (err) {
+    Meteor.call("updateProduct", id, category_id, name, description, Number(price), function (err) {
       if(err) {
         return LocalState.set('PRODUCTS_UPDATE_ERROR', 'Unable to update product.');
       }
