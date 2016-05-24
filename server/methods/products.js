@@ -1,11 +1,18 @@
 import {Products} from '/lib/collections';
 import {Meteor} from 'meteor/meteor';
 import {check} from 'meteor/check';
+import {ProductSchem} from '/lib/collections';
 
 export default function () {
   Meteor.methods({
     'insertProduct'(categoryid, name, description, price) {
       const createdAt = new Date();
+
+      check(categoryid, String);
+      check(name, String);
+      check(description, String);
+      check(price, String);
+      check(createdAt, Date);
 
       let formDate = {
         category_id: 'gwaposijunjun',
