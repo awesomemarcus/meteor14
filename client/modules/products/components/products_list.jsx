@@ -2,6 +2,7 @@ import React from 'react';
 import ProductsListItem from './products_list_item.jsx';
 
 class ProductsList extends React.Component {
+
   constructor(props) {
     super(props);
   }
@@ -19,6 +20,7 @@ class ProductsList extends React.Component {
           <thead>
             <tr>
               <th>Id</th>
+              <th>Name</th>
               <th>Category</th>
               <th>Description</th>
               <th>Price</th>
