@@ -33,7 +33,7 @@
       2, {
         "ignore": [
           "^meteor/",
-          "lib"
+          "lib","/"
         ]
       }
     ],
