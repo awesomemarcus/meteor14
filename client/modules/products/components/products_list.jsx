@@ -8,22 +8,12 @@ class ProductsList extends React.Component {
 
   render() {
 
-    const { prods, deleteProduct, updateProduct, categories } = this.props;
+    const { prods, deleteProduct, updateProduct } = this.props;
 
     return (
       <div className="col-sm-12">
 
-        <div className="col-sm-9">
-          <a href="/products/add" className="btn btn-success">Add</a>
-        </div>
-
-        <div className="col-sm-3">
-          <select className="form-control pull-right">
-            {categories ? categories.map( (category) => (
-              <option key={category._id} value={category._id}>{category.name}</option>
-              )) : 'no categories'}
-          </select>
-        </div>
+        <a href="/products/add" className="btn btn-success">Add</a>
 
         <table className="table table-striped">
           <thead>
@@ -32,7 +22,7 @@ class ProductsList extends React.Component {
               <th>Category</th>
               <th>Description</th>
               <th>Price</th>
-              <th>CreatedAt</th>
+              <th>Created At</th>
               <th>Actions</th>
             </tr>
           </thead>
