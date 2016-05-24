@@ -65,7 +65,7 @@ class ProductsAdd extends React.Component {
         <div className="form-group">
           <label className="col-sm-2 control-label">Price</label>
           <div className="col-sm-10">
-            <input type="number" onBlur={this.checkProdPrice.bind(this)} id="prodPrice" className="form-control" ref="price" placeholder="(i.e) $10.00" step="0.01"/>
+            <input type="number" onBlur={this.checkProdPrice.bind(this)} id="prodPrice" className="form-control" ref="price" placeholder="(i.e) $10.00" min="0.01" step="0.01"/>
             <p id="priceErrorMsg" className="error text-error">{priceError ? priceError : ''}</p>
           </div>
         </div>

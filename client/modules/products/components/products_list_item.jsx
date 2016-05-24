@@ -14,10 +14,11 @@ class ProductsListItem extends React.Component {
 
   render() {
     const {product} = this.props;
+    debugger;
     return (
       <tr>
         <td>{product._id}</td>
-        <td>{product.category_id}</td>
+        <td>{product.categoryName}</td>
         <td>{product.description}</td>
         <td>${product.price}</td>
         <td>{help.formatDate(product.createdAt)}</td>
