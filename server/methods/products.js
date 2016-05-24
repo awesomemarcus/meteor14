@@ -1,7 +1,6 @@
 import {Products} from '/lib/collections';
 import {Meteor} from 'meteor/meteor';
 import {check} from 'meteor/check';
-import {ProductSchem} from '/lib/collections/products.js';
 
 export default function () {
   Meteor.methods({

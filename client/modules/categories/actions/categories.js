@@ -15,7 +15,7 @@ export default {
       FlowRouter.go('/categories/list')
     });
   },
-  categoriesDelete(id) {
+  categoriesDelete() {
 
   },
   clearErrors({LocalState}){

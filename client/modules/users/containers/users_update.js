@@ -1,15 +1,13 @@
-import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
+import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
 import UsersUpdate from '../components/users_update.jsx';
 
 export const composer = ({context}, onData) => {
-  const {Meteor, Collections} = context();
-
   onData(null, {});
 };
 
-export const depsMapper = (context, actions) => ({
-  context: () => context
+export const depsMapper = (context) => ({
+  context: () => context,
 });
 
 export default composeAll(

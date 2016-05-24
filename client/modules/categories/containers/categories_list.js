@@ -18,7 +18,7 @@ export const composer = ({context}, onData) => {
     });
 
     onData(null, {
-      categories
+      categories,
     });
 
   }
