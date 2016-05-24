@@ -29,9 +29,9 @@ storiesOf('Users Signup', module)
       <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
     );
   })
-  .add('With error on submit', () => {
+  .add('With error on result', () => {
     const errorField = {
-      error: 'Error on form submit',
+      error: 'Error from method call',
       email: null,
       password: null,
       username: null,

@@ -23,7 +23,7 @@ export const composer = ({context}, onData) => {
 export const depsMapper = (context, actions) => ({
   userSignup:actions.users.userSignup,
   clearErrors:actions.users.clearErrors,
-  getAgeOptions:actions.users.getAgeOptions,
+  validateInputField:actions.users.validateInputField,
   context: () => context,
 });
 
