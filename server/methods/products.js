@@ -6,6 +6,7 @@ import {ProductSchem} from '/lib/collections/products.js';
 export default function () {
   Meteor.methods({
     'insertProduct'(category_id, name, description, price) {
+      console.log(name);
       const createdAt = new Date();
       // let formData = {
       //   category_id: 'asdsadasdasdas',

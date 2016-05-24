@@ -1,15 +1,6 @@
 import {ProductSchem} from '/lib/collections/products.js';
 
 export default {
-  add({LocalState},category_id, name, description, price) {
-    if(!name || !description || !price) {
-      LocalState.set('PRODUCTS_ADD_NAME_ERROR', 'Product name is required.');
-      LocalState.set('PRODUCTS_ADD_DESCRIPTION_ERROR', 'Product description is required.');
-      LocalState.set('PRODUCTS_ADD_PRICE_ERROR', 'Product price is required.');
-      return;
-    }
-  },
-
   validateProdName({LocalState},name) {
     let formData = {
       name: name,
@@ -62,6 +53,21 @@ export default {
       document.getElementById('priceErrorMsg').style.color = 'green';
       document.getElementById('priceErrorMsg').innerHTML = 'Good';
     }
+  },
+
+  add({LocalState},category_id, name, description, price) {
+    if(!name || !description || !price) {
+      LocalState.set('PRODUCTS_ADD_NAME_ERROR', 'Product name is required.');
+      LocalState.set('PRODUCTS_ADD_DESCRIPTION_ERROR', 'Product description is required.');
+      LocalState.set('PRODUCTS_ADD_PRICE_ERROR', 'Product price is required.');
+      return;
+    }
+
+    Meteor.call("insertProduct", category_id, name, description, price, function (err) {
+      if(err) {
+        return LocalState.set('PRODUCTS_ADD_ERROR', 'Failed to Add Product');
+      }
+    });
   },
 
   deleteProduct({LocalState}, id) {

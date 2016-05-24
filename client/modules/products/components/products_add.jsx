@@ -19,6 +19,7 @@ class ProductsAdd extends React.Component {
         nameError,
         descriptionError,
         priceError,
+        addError,
     } = this.props;
 
     return (
@@ -29,6 +30,8 @@ class ProductsAdd extends React.Component {
             <h3>Add Product</h3>
           </div>
         </div>
+
+        <p className="error text-error">{addError ? addError : ''}</p>
 
         <div className="form-group">
           <label className="col-sm-2 control-label">Choose Category</label>
