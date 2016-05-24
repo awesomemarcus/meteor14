@@ -2,7 +2,7 @@ import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
 import Signup from '../components/users_signup.jsx';
 
-export const composer = ({context}, onData) => {
+export const composer = ({context,clearErrors}, onData) => {
   const {LocalState} = context();
 
   const errorField = {
@@ -17,7 +17,7 @@ export const composer = ({context}, onData) => {
   };
 
   onData(null, {errorField});
-
+  return clearErrors;
 };
 
 export const depsMapper = (context, actions) => ({
