@@ -69,7 +69,10 @@ class UsersSignup extends React.Component {
             </div>
             <div className="form-group">
               <div className="col-sm-offset-2 col-sm-10">
-                <button type="submit" className="btn btn-lg btn-block btn-primary">SUBMIT</button>
+                <button type="submit" className="btn btn-lg btn-block btn-success">SUBMIT</button>
+              </div>
+              <div className="col-sm-offset-2 col-sm-10" style={{marginTop: '5px'}}>
+                <a href="/users/login" className="btn btn-lg btn-block btn-default">LOGIN</a>
               </div>
             </div>
             </form>
