@@ -11,7 +11,7 @@ export const composer = ({context}, onData) => {
     const categories = Collections.Categories.find({}).fetch().map(function(category){
 
 
-      category.products = Collections.Products.find({category_id: category._id}).fetch();
+      category.productCount = Collections.Products.find({category_id: category._id}).count();
 
       return category;
 
