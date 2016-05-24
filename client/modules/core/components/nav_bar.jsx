@@ -24,13 +24,7 @@ class NavBar extends React.Component {
                 </ul>
 
                 <ul className="nav navbar-nav navbar-right">
-
-                  <li className="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span className="caret"></span></a>
-                    <ul className="dropdown-menu">
                       <li><a href="#" onClick={this.logout.bind(this)}>Logout</a></li>
-                    </ul>
-                  </li>
                 </ul>
 
 
@@ -69,13 +63,8 @@ export const NavBarLogOut = () => (
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav navbar-right">
-              <li className="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span className="caret"></span></a>
-                <ul className="dropdown-menu">
                   <li><a href="/users/signup">Signup</a></li>
                   <li><a href="/users/login">Login</a></li>
-                </ul>
-              </li>
             </ul>
 
 

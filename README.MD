@@ -12,6 +12,7 @@
 - [Adding a custom CSS file](http://master.snapzio.com/snapzio/mantraboilerplate#adding-a-custom-css-file)
 - [Adding a 3rd party scripts/codes such as Boostrap, JS, Fonts and CSS](http://master.snapzio.com/snapzio/mantraboilerplate#adding-a-3rd-party-scriptscodes-such-as-boostrap-js-fonts-and-css)
 - [Adding Routes](http://master.snapzio.com/snapzio/mantraboilerplate#adding-routes)
+- [Adding a schema](http://master.snapzio.com/snapzio/mantraboilerplate#adding-a-schema)
 - [Adding User Authentication](http://master.snapzio.com/snapzio/mantraboilerplate#adding-user-authentication)
 - [Using StoryBook](http://master.snapzio.com/snapzio/mantraboilerplate#using-storybook)
 - [Adding content inside the <head></head> tag using NPM React-Helmet](http://master.snapzio.com/snapzio/mantraboilerplate#adding-content-inside-the-headhead-tag-using-npm-react-helmet)
@@ -130,6 +131,11 @@ ___
 ___
 ## Adding Routes
 - Each module should have its own `routes.jsx`.
+
+___
+## Adding a schema
+- In adding a schema it should be added under `/lib/collections/<collection file>.js`.
+- Click the link for the sample format: http://master.snapzio.com/snapzio/mantraboilerplate/blob/prod/lib/collections/products.js
 
 ###### <br/> [Back to Top](http://master.snapzio.com/snapzio/mantraboilerplate#topics)
 
