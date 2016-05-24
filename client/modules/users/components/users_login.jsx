@@ -15,7 +15,7 @@ class UsersLogin extends React.Component{
         <label for="inputPassword" className="sr-only">Password</label>
         <input ref="password"  type="password" id="inputPassword" className="form-control" placeholder="Password" />
         <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <a href="/users/signup" className="btn btn-lg btn-block btn-default">Signupt</a>
+        <a href="/users/signup" className="btn btn-lg btn-block btn-default">Signup</a>
       </form>
 
     </div>
