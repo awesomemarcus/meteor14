@@ -2,6 +2,7 @@ import React from 'react';
 import * as help from '/client/global-helpers.js';
 
 class ProductsListItem extends React.Component {
+
   handleDelete() {
     const {product,deleteProduct} = this.props;
     deleteProduct(product._id);
@@ -14,21 +15,22 @@ class ProductsListItem extends React.Component {
 
   render() {
     const {product} = this.props;
+
     return (
       <tr>
         <td>{product._id}</td>
-        <td>{product.categoryName}</td>
+        <td>{product.category.name}</td>
         <td>{product.description}</td>
         <td>${product.price}</td>
         <td>{help.formatDate(product.createdAt)}</td>
         <td>
-          <a href="#" className="btn btn-xs btn-danger" onClick={this.handleDelete.bind(this)}>
-            delete
-          </a>
-          <a href={`/products/update/${product._id}`} className="btn btn-xs btn-success">
-            edit
-          </a>
-          <a href={`/products/view/${product._id}`} className="btn btn-xs btn-default">
+          <a href="#" className="btn btn-sm btn-danger" onClick={this.handleDelete.bind(this)}>
+            Delete
+          </a>&nbsp;
+          <a href={`/products/update/${product._id}`} className="btn btn-sm btn-success">
+            Edit
+          </a>&nbsp;
+          <a href={`/products/view/${product._id}`} className="btn btn-sm btn-default">
             view
           </a>
         </td>

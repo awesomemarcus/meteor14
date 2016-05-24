@@ -8,11 +8,13 @@ export const composer = ({context}, onData) => {
   if(Meteor.subscribe('productList').ready()){
     const prods = Collections.Products.find({deleted:null},{sort:{createdAt:-1}}).fetch().map(function(product){
 
-      product.categoryName = Collections.Categories.findOne({_id: product.category_id}, {fields: {name:1}});
+      product.category = Collections.Categories.findOne({_id: product.category_id}, {fields: {name:1}});
+
       return product;
     });
 
     onData(null, {prods});
+
   }
 };
 
