@@ -155,6 +155,7 @@ ___
 - The Kadirah DocHead needs to be added inside the app loader `/client/main.js`.
 - Just import the package inside the file `import {DocHead} from 'meteor/kadira:dochead';`.
 - Then use it, here are the syntax:
+
 ```
 //Site Title
 var title = 'Sample DocHead';
