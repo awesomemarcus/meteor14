@@ -15,7 +15,7 @@
 - [Adding a schema](http://master.snapzio.com/snapzio/mantraboilerplate#adding-a-schema)
 - [Adding User Authentication](http://master.snapzio.com/snapzio/mantraboilerplate#adding-user-authentication)
 - [Using StoryBook](http://master.snapzio.com/snapzio/mantraboilerplate#using-storybook)
-- [Adding content inside the <head></head> tag using NPM React-Helmet](http://master.snapzio.com/snapzio/mantraboilerplate#adding-content-inside-the-headhead-tag-using-npm-react-helmet)
+- [Adding content inside the `<head></head>` tag using NPM React-Helmet](http://master.snapzio.com/snapzio/mantraboilerplate#adding-content-inside-the-headhead-tag-using-npm-react-helmet)
 - [ESLint Rules](http://master.snapzio.com/snapzio/mantraboilerplate#eslint-rules)
     - [Wrong way](http://master.snapzio.com/snapzio/mantraboilerplate#wrong-way)
     - [Right way](http://master.snapzio.com/snapzio/mantraboilerplate#right-way)
