@@ -152,45 +152,26 @@ ___
 
 ___
 ## Adding content inside the `<head></head>` tag using `NPM React-Helmet`
-- **_React-Helmet_** will manage all of your changes to the **_document/html head_** with support for document `title`, `meta`, `link`, `script`, and `base tags`.
-- Here is the example react code on how to use it:
-
+- The Kadirah DocHead needs to be added inside the app loader `/client/main.js`.
+- Just import the package inside the file `import {DocHead} from 'meteor/kadira:dochead';`.
+- Then use it, here are the syntax:
 ```
-import React from "react";
-import Helmet from "react-helmet";
+//Site Title
+var title = 'Sample DocHead';
+DocHead.setTitle(title);
 
-export default function Application () {
-    return (
-        <div className="application">
-            <Helmet
-                htmlAttributes={{"lang": "en", "amp": undefined}} // amp takes no value
-                title="My Title"
-                titleTemplate="MySite.com - %s"
-                defaultTitle="My Default Title"
-                base={{"target": "_blank", "href": "http://mysite.com/"}}
-                meta={[
-                    {"name": "description", "content": "Helmet application"},
-                    {"property": "og:type", "content": "article"}
-                ]}
-                link={[
-                    {"rel": "canonical", "href": "http://mysite.com/example"},
-                    {"rel": "apple-touch-icon", "href": "http://mysite.com/img/apple-touch-icon-57x57.png"},
-                    {"rel": "apple-touch-icon", "sizes": "72x72", "href": "http://mysite.com/img/apple-touch-icon-72x72.png"}
-                ]}
-                script={[
-                  {"src": "http://include.com/pathtojs.js", "type": "text/javascript"},
-                  {"type": "application/ld+json", innerHTML: `{ "@context": "http://schema.org" }`}
-                ]}
-                onChangeClientState={(newState) => console.log(newState)}
-            />
-            ...
-        </div>
-    );
-};
+// Loading Javascript
+var gaScript = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js';
+DocHead.loadScript(gaScript);
+
+// Loadintg CSS
+var cssLink = {rel: "stylesheet", href: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'};
+DocHead.addLink(cssLink);
+
+// Loading Meta tag
+var metaInfo = {name: "description", content: "FlowRouter SSR is Awesome"};
+DocHead.addMeta(metaInfo);
 ```
-
-- Currently we added the code inside the `main_layout.jsx` under `/client/modules/core/components/`.
-- If you want additional html head tag content just refer to the example code above for the syntax.
 
 ###### <br/> [Back to Top](http://master.snapzio.com/snapzio/mantraboilerplate#topics)
 
