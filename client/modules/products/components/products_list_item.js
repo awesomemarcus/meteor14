@@ -1,5 +1,5 @@
 import React from 'react';
-import * as help from '/client/global-helpers.js';
+import * as help from '/client/global-helpers';
 
 class ProductsListItem extends React.Component {
 
