@@ -6,7 +6,6 @@ class ProductsAdd extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log("should stop the build");
     event.preventDefault();
     const {add} = this.props;
     const {category_id,name, description, price} = this.refs;
