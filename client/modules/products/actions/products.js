@@ -1,4 +1,4 @@
-import {ProductSchem} from '/lib/collections/products.js';
+import {ProductSchem} from '/lib/collections/products';
 
 export default {
   validateProdName({LocalState},name) {

@@ -1,6 +1,6 @@
 import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
-import CategoriesList from '../components/categories_list.jsx';
+import CategoriesList from '../components/categories_list';
 
 export const composer = ({context}, onData) => {
 

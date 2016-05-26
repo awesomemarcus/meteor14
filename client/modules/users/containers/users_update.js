@@ -1,6 +1,6 @@
 import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
-import UsersUpdate from '../components/users_update.jsx';
+import UsersUpdate from '../components/users_update';
 
 export const composer = ({context}, onData) => {
   onData(null, {});

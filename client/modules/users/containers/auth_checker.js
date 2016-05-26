@@ -1,6 +1,6 @@
 import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
-import AuthChecker from '../components/auth_checker.jsx';
+import AuthChecker from '../components/auth_checker';
 
 export const composer = ({context }, onData) => {
   const {authCommon} = context();

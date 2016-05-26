@@ -1,6 +1,6 @@
 import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
-import CategoriesUpdate from '../components/categories_update.jsx';
+import CategoriesUpdate from '../components/categories_update';
 
 export const composer = ({context, category_id}, onData) => {
   const {Meteor, Collections} = context();

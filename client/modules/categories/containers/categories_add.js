@@ -1,6 +1,6 @@
 import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
-import CategoriesAdd from '../components/categories_add.jsx';
+import CategoriesAdd from '../components/categories_add';
 
 export const composer = ({context}, onData) => {
   const {LocalState} = context();

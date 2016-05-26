@@ -1,4 +1,4 @@
-import UsersSchema from '/lib/collections/users.js';
+import UsersSchema from '/lib/collections/users';
 
 
 export default {

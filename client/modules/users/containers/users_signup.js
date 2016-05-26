@@ -1,6 +1,6 @@
 import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
-import Signup from '../components/users_signup.jsx';
+import Signup from '../components/users_signup';
 
 export const composer = ({context,clearErrors}, onData) => {
   const {LocalState} = context();

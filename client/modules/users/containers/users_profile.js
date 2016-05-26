@@ -1,6 +1,6 @@
 import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
-import UsersProfile from '../components/users_profile.jsx';
+import UsersProfile from '../components/users_profile';
 
 export const composer = ({context}, onData) => {
   onData(null, {});

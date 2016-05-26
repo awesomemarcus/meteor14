@@ -1,4 +1,4 @@
-import products from './products.js';
+import products from './products';
 
 export default function (context) {
   products(context);

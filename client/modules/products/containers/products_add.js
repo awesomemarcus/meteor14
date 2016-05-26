@@ -1,6 +1,6 @@
 import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
-import ProductsAdd from '../components/products_add.jsx';
+import ProductsAdd from '../components/products_add';
 
 export const composer = ({context}, onData) => {
   const {LocalState, Meteor, Collections} = context();
