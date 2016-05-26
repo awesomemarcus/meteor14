@@ -11,7 +11,7 @@ Prod:
   only:
     - prod
   script:
-    - meteor npm install;
+    - meteor npm install --production;
     - eslint .
     - meteor build . --server-only;
     - find $FOLDER -mindepth 1 -delete;
