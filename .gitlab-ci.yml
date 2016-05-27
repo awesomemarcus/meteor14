@@ -9,6 +9,7 @@ before_script:
 
 cache:
   paths:
+    - .meteor/local/
     - node_modules/
 
 Dev:
