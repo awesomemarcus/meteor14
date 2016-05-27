@@ -13,7 +13,6 @@ Dev:
   script:
     - npm install;
     - eslint .
-    - npm test
     - meteor build . --server-only;
     - find $FOLDER -mindepth 1 -delete;
     - rsync -av $PROJECTFILE $FOLDER;
