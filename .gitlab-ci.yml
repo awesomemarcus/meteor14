@@ -6,6 +6,8 @@ before_script:
   - export PROJECTFILE="mantraboilerplate.tar.gz"
   - export FOLDER="/home/snapzio/mantraboilerplate/"
   - bash version.sh > private/version.json;
+  - alias time="/usr/bin/time -f 'Took %e seconds'"
+
 
 cache:
   paths:
@@ -16,10 +18,10 @@ Dev:
   only:
     - dev
   script:
-    - nsp check --output summary
-    - npm install;
-    - eslint .
-    - meteor build . --server-only;
-    - find $FOLDER -mindepth 1 -not -path "node_modules" -delete;
-    - rsync -av $PROJECTFILE $FOLDER;
+    - time nsp check --output summary
+    - time npm install;
+    - time eslint .
+    - time meteor build . --server-only;
+    - time find $FOLDER -mindepth 1 -delete;
+    - time rsync -av $PROJECTFILE $FOLDER;
     - cd $FOLDER; tar -xf $PROJECTFILE; cd bundle/programs/server; npm install --production; chown -R snapzio:www-data .; service nginx reload;
