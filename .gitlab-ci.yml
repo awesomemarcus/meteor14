@@ -7,12 +7,12 @@ before_script:
   - export FOLDER="/home/snapzio/mantraboilerplate/"
   - bash version.sh > private/version.json;
 
-Prod:
+Dev:
   only:
-    - prod
+    - dev
   script:
-    - meteor npm install --production;
     - eslint .
+    - npm install;
     - meteor build . --server-only;
     - find $FOLDER -mindepth 1 -delete;
     - rsync -av $PROJECTFILE $FOLDER;
