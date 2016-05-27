@@ -1,4 +1,4 @@
-# Mantra BoilerPlate 1
+# Mantra BoilerPlate 2
 ###### Topics
 - [Installing Mantra CLI](http://master.snapzio.com/snapzio/mantraboilerplate#installing-mantra-cli)
 - [Creating a mantra project via Mantra CLI](http://master.snapzio.com/snapzio/mantraboilerplate#creating-a-mantra-project-via-mantra-cli)
