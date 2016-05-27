@@ -1,4 +1,5 @@
 before_script:
+  - shopt -s expand_aliases
   - uname -r
   - pwd
   - meteor node --version
@@ -7,7 +8,6 @@ before_script:
   - export FOLDER="/home/snapzio/mantraboilerplate/"
   - bash version.sh > private/version.json;
   - alias time="/usr/bin/time -f 'Took %e seconds'"
-
 
 cache:
   paths:
