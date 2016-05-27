@@ -16,4 +16,4 @@ Dev:
     - meteor build . --server-only;
     - find $FOLDER -mindepth 1 -delete;
     - rsync -av $PROJECTFILE $FOLDER;
-    - cd $FOLDER; tar -xf $PROJECTFILE; cd bundle/programs/server; meteor npm install; chown -R snapzio:www-data .; service nginx reload;
+    - cd $FOLDER; tar -xf $PROJECTFILE; cd bundle/programs/server; npm install --production; chown -R snapzio:www-data .; service nginx reload;
