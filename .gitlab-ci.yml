@@ -8,6 +8,11 @@ before_script:
   - bash version.sh > private/version.json;
 
 Dev:
+  cache:
+    paths:
+    - .meteor/local/
+    - node_modules/
+
   only:
     - dev
   script:
