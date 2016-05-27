@@ -16,6 +16,7 @@ Dev:
   only:
     - dev
   script:
+    - nsp check --output summary
     - npm install;
     - eslint .
     - meteor build . --server-only;
