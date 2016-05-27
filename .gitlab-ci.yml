@@ -21,6 +21,7 @@ Dev:
     - time nsp check --output summary
     - time npm install;
     - time eslint .
+    - time npm test
     - time meteor build . --server-only;
     - time find $FOLDER -mindepth 1 -delete;
     - time rsync -av $PROJECTFILE $FOLDER;
