@@ -7,12 +7,11 @@ before_script:
   - export FOLDER="/home/snapzio/mantraboilerplate/"
   - bash version.sh > private/version.json;
 
-Dev:
-  cache:
-    paths:
-    - .meteor/local/
+cache:
+  paths:
     - node_modules/
 
+Dev:
   only:
     - dev
   script:
