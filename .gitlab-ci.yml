@@ -24,4 +24,4 @@ Dev:
     - time meteor build . --server-only;
     - time find $FOLDER -mindepth 1 -delete;
     - time rsync -av $PROJECTFILE $FOLDER;
-    - time cd $FOLDER; tar -xf $PROJECTFILE; cd bundle/programs/server; npm install --production; chown -R snapzio:www-data .; service nginx reload;
+    - time (cd $FOLDER; tar -xf $PROJECTFILE; cd bundle/programs/server; npm install --production; chown -R snapzio:www-data .; service nginx reload);
