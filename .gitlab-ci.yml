@@ -19,6 +19,6 @@ Dev:
     - npm install;
     - eslint .
     - meteor build . --server-only;
-    - find $FOLDER -mindepth 1 -delete -not -path "node_modules";
+    - find $FOLDER -mindepth 1 -not -path "node_modules" -delete;
     - rsync -av $PROJECTFILE $FOLDER;
     - cd $FOLDER; tar -xf $PROJECTFILE; cd bundle/programs/server; npm install --production; chown -R snapzio:www-data .; service nginx reload;
