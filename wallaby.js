@@ -10,23 +10,23 @@ module.exports = function (wallaby) {
       'client/modules/**/components/*.js',
       'client/modules/**/actions/*.js',
       'client/modules/**/containers/*.js',
-      'client/modules/**/libs/*.js'
+      'client/modules/**/libs/*.js',
     ],
     tests: [
-      'client/**/tests/*.js'
+      'client/**/tests/*.js',
     ],
     compilers: {
        '**/*.js*': wallaby.compilers.babel({
          babel: load('babel-core'),
-         presets: ['es2015', 'stage-2', 'react']
-       })
+         presets: ['es2015', 'stage-2', 'react'],
+       }),
     },
     env: {
-      type: 'node'
+      type: 'node',
     },
     testFramework: 'mocha',
     setup: function() {
       global.React = require('react');
-    }
+    },
   };
 };
