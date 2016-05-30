@@ -1,6 +1,7 @@
 import React from 'react';
-import {Meteor} from 'meteor/meteor';
+
 class NavBar extends React.Component {
+
   render() {
     return (
       <nav className="navbar navbar-default navbar-fixed-top">
@@ -37,10 +38,12 @@ class NavBar extends React.Component {
           </nav>
     );
   }
+
   logout(e){
     if (e && e.preventDefault){
       e.preventDefault();
     }
+    const {Meteor} = this.props;
     Meteor.logout();
   }
 
