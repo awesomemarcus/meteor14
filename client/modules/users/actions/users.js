@@ -1,8 +1,8 @@
-import UsersSchema from '/lib/collections/users';
+
 
 
 export default {
-  validateInputField({LocalState}, field, value){
+  validateInputField({LocalState, UsersSchema}, field, value){
     var key = "";
     var userObj = {};
 
@@ -29,7 +29,7 @@ export default {
     }
 
   },
-  userSignup({Meteor, LocalState,FlowRouter},formData){
+  userSignup({Meteor, LocalState,FlowRouter, UsersSchema},formData){
       LocalState.set("profile.username",null);
       LocalState.set("profile.firstname",null);
       LocalState.set("profile.lastname",null);

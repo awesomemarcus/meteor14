@@ -1,7 +1,6 @@
-import {ProductSchem} from '/lib/collections/products';
 
 export default {
-  validateProdName({LocalState},name) {
+  validateProdName({LocalState,ProductSchem},name) {
     let formData = {
       name: name,
     }
@@ -19,7 +18,7 @@ export default {
     }
   },
 
-  validateProdDescription({LocalState},description) {
+  validateProdDescription({LocalState, ProductSchem},description) {
     let formData = {
       description: description,
     }
@@ -37,7 +36,7 @@ export default {
     }
   },
 
-  validateProdPrice({LocalState},price) {
+  validateProdPrice({LocalState, ProductSchem},price) {
     let formData = {
       price: Number(price),
     }
