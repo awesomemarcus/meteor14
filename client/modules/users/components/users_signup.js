@@ -2,7 +2,7 @@ import React from 'react';
 
 class UsersSignup extends React.Component {
   render() {
-    const  {errorField} = this.props;
+    const  {errorField, getAgeoptions} = this.props;
     return(
       <div className="container">
         <div className="col-sm-8 col-sm-offset-2">
@@ -14,14 +14,14 @@ class UsersSignup extends React.Component {
 
               <label for="inputEmail3" className="col-sm-2 control-label">Email</label>
               <div className="col-sm-10">
-                <input type="email" name="email" ref="email" className="form-control" id="inputEmail3" onBlur={this.validateField.bind(this)} placeholder="Email" />
+                <input type="email" name="email" ref="email" className="form-control" id="inputEmail" onBlur={this.validateField.bind(this)} placeholder="Email" />
                 {errorField.email ? <p style={{color: 'red'}}>{errorField.email}</p> : null}
               </div>
             </div>
             <div className={this.getInputWrapperClass(errorField.password)}>
               <label for="inputPassword3" className="col-sm-2 control-label">Password</label>
               <div className="col-sm-10">
-                <input type="password" name="password" ref="password" className="form-control" id="inputPassword3" onBlur={this.validateField.bind(this)} placeholder="Password" />
+                <input type="password" name="password" ref="password" className="form-control" id="inputPassword" onBlur={this.validateField.bind(this)} placeholder="Password" />
                 {errorField.password ? <p style={{color: 'red'}}>{errorField.password}</p> : null}
               </div>
             </div>
@@ -62,7 +62,8 @@ class UsersSignup extends React.Component {
               <div className="col-sm-10">
                 <select className="form-control" id="selectAge" name="age" onBlur={this.validateField.bind(this)} ref="age">
                   <option value>- select age -</option>
-                  {this.getAgeOptions()}
+                  { getAgeoptions ? getAgeoptions.map(value => (<option key={value.age} value={value.age}>{value.age}</option>))
+                    : <option>Invalid Age Object</option> }
                 </select>
                 {errorField.age ? <p style={{color: 'red'}}>{errorField.age}</p> : null}
               </div>
@@ -96,8 +97,6 @@ class UsersSignup extends React.Component {
       "profile.lastname" : lastname.value,
       "profile.gender" : gender.value,
       "profile.age" : parseInt(age.value),
-      modifiedAt : new Date(),
-      createdAt : new Date(),
     }
 
     userSignup(formData);

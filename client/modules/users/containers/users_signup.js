@@ -16,7 +16,9 @@ export const composer = ({context,clearErrors}, onData) => {
     "error" :  LocalState.get("main_error"),
   };
 
-  onData(null, {errorField});
+  const getAgeoptions = initAgeOptions();
+
+  onData(null, {errorField, getAgeoptions});
   return clearErrors;
 };
 
@@ -31,3 +33,13 @@ export default composeAll(
   composeWithTracker(composer),
   useDeps(depsMapper)
 )(Signup);
+
+const initAgeOptions = () => {
+  const ageOptions = [];
+
+  for (let minAge = 18; minAge <= 99; minAge++) {
+    ageOptions.push({age: minAge});
+  }
+
+  return ageOptions;
+};
