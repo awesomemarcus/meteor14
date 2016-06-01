@@ -9,7 +9,7 @@ Meteor.startup(()=>{
 });
   Accounts.onCreateUser((options, user) => {
            user.profile = {};
-           user.profile.username = options["profile.username"];
+           user.profile.profilename = options["profile.profilename"];
            user.profile.firstname = options["profile.firstname"];
            user.profile.lastname = options["profile.lastname"];
            user.profile.gender = options["profile.gender"];
@@ -46,7 +46,7 @@ export default function () {
       Accounts.createUser({
        "email" : formData["emails.$.address"],
        "password" : formData["password"],
-       "profile.username" : formData["profile.username"],
+       "profile.profilename" : formData["profile.profilename"],
        "profile.firstname" :formData["profile.firstname"],
        "profile.lastname" : formData["profile.lastname"],
        "profile.gender" : formData["profile.gender"],

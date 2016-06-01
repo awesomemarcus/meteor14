@@ -72,7 +72,7 @@ describe('core.components.users_signup', () => {
     const formData = {
       'emails.$.address': 'toinks@mail.com',
       password: 'tmp12345',
-      'profile.username': 'toinksman',
+      'profile.profilename': 'toinksman',
       'profile.firstname': 'toinks',
       'profile.lastname': 'man',
       'profile.gender': 'male',
@@ -82,7 +82,7 @@ describe('core.components.users_signup', () => {
     const onCreate = (userData) => {
       expect(userData['emails.$.address']).to.be.equal(formData['emails.$.address']);
       expect(userData.password).to.be.equal(formData.password);
-      expect(userData['profile.username']).to.be.equal(formData['profile.username']);
+      expect(userData['profile.profilename']).to.be.equal(formData['profile.profilename']);
       expect(userData['profile.firstname']).to.be.equal(formData['profile.firstname']);
       expect(userData['profile.lastname']).to.be.equal(formData['profile.lastname']);
       expect(userData['profile.gender']).to.be.equal(formData['profile.gender']);
@@ -101,7 +101,7 @@ describe('core.components.users_signup', () => {
     instance.refs = {
       email: {value: formData['emails.$.address']},
       password: {value: formData.password},
-      username: {value: formData['profile.username']},
+      profilename: {value: formData['profile.profilename']},
       firstname: {value: formData['profile.firstname']},
       lastname: {value: formData['profile.lastname']},
       gender: {value: formData['profile.gender']},

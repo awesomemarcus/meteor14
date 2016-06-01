@@ -24,7 +24,7 @@ describe('users.actions.userSignup', () => {
       expect(LocalState.set.args).to.have.length(0);
   });
 
-  it("it should say invalid email", ()=>{
+  it("it should give a main_error", ()=>{
       formData["emails.$.address"] = "this is not a valid email";
       LocalState.set("main_error","Error");
       expect(LocalState.set.args[0]).to.deep.equal(["main_error" , "Error"]);
