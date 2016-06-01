@@ -5,7 +5,7 @@ import UsersSignup from '../users_signup';
 
 describe('core.components.users_signup', () => {
 
-  /* Component props */
+  /* Component properties */
   const errorField = {
     error: null,
     email: null,
