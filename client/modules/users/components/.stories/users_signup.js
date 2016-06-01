@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import UsersSignup from '../users_signup';
 
+
 const getAgeOptions = ()=> {
   const ageOptions = [];
 
@@ -22,13 +23,14 @@ storiesOf('Users Signup', module)
       firstname: null,
       lastname: null,
       gender: null,
-      age: null
+      age: null,
     };
 
+
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
+        <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
     );
-  })
+  });
   .add('With error on result', () => {
     const errorField = {
       error: 'Error from method call',
@@ -38,7 +40,7 @@ storiesOf('Users Signup', module)
       firstname: null,
       lastname: null,
       gender: null,
-      age: null
+      age: null,
     };
 
     return (
@@ -54,7 +56,7 @@ storiesOf('Users Signup', module)
       firstname: null,
       lastname: null,
       gender: null,
-      age: null
+      age: null,
     };
 
     return (
@@ -70,7 +72,7 @@ storiesOf('Users Signup', module)
       firstname: null,
       lastname: null,
       gender: null,
-      age: null
+      age: null,
     };
 
     return (
@@ -86,7 +88,7 @@ storiesOf('Users Signup', module)
       firstname: null,
       lastname: null,
       gender: null,
-      age: null
+      age: null,
     };
 
     return (
@@ -102,7 +104,7 @@ storiesOf('Users Signup', module)
       firstname: 'Invalid Firstname',
       lastname: null,
       gender: null,
-      age: null
+      age: null,
     };
 
     return (
@@ -118,7 +120,7 @@ storiesOf('Users Signup', module)
       firstname: null,
       lastname: 'Invalid Lastname',
       gender: null,
-      age: null
+      age: null,
     };
 
     return (
@@ -134,7 +136,7 @@ storiesOf('Users Signup', module)
       firstname: null,
       lastname: null,
       gender: 'Invalid Gender',
-      age: null
+      age: null,
     };
 
     return (
@@ -150,7 +152,7 @@ storiesOf('Users Signup', module)
       firstname: null,
       lastname: null,
       gender: null,
-      age: 'Invalid Age'
+      age: 'Invalid Age',
     };
 
     return (
@@ -166,7 +168,7 @@ storiesOf('Users Signup', module)
       firstname: 'Invalid Firstname',
       lastname: 'Invalid Lastname',
       gender: 'Invalid Gender',
-      age: 'Invalid Age'
+      age: 'Invalid Age',
     };
 
     return (

@@ -6,7 +6,7 @@ export const composer = ({context,clearErrors}, onData) => {
   const {LocalState} = context();
 
   const errorField = {
-    "username" :   LocalState.get("profile.username",null),
+    "profilename" :   LocalState.get("profile.profilename",null),
     "firstname" :   LocalState.get("profile.firstname",null),
     "lastname" :   LocalState.get("profile.lastname",null),
     "email" :   LocalState.get("emails.$.address",null),

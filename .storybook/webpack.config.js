@@ -5,26 +5,26 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: [ 'babel' ],
+        loaders: ['babel'] ,
         exclude: /node_modules/,
-        include: __dirname
+        include: __dirname,
       },
       {
         test: /\.css?$/,
         loaders: [
           'style',
-          'raw'
+          'raw',
         ],
-        include: path.resolve(__dirname, '../')
+        include: path.resolve(__dirname, '../'),
       },
       {
         test: /\.(jpe?g|jpg|gif|png|woff|woff2|eot|ttf|svg)$/,
         loaders: [
           'url?limit=10000',
-          'img'
+          'img',
         ],
-        include: __dirname
-      }
-    ]
-  }
+        include: __dirname,
+      },
+    ],
+  },
 };
