@@ -1,6 +1,10 @@
 import React from 'react';
 
+
 class UsersSignup extends React.Component {
+
+
+
   render() {
     const  {errorField, getAgeoptions} = this.props;
     return(
@@ -25,11 +29,11 @@ class UsersSignup extends React.Component {
                 {errorField.password ? <p style={{color: 'red'}}>{errorField.password}</p> : null}
               </div>
             </div>
-            <div className={this.getInputWrapperClass(errorField.username)}>
-              <label for="inputUsername" className="col-sm-2 control-label">Username</label>
+            <div className={this.getInputWrapperClass(errorField.profilename)}>
+              <label for="inputProfilename" className="col-sm-2 control-label">Profilename</label>
               <div className="col-sm-10">
-                <input type="text" name="username" ref="username" className="form-control" id="inputUsername" onBlur={this.validateField.bind(this)} placeholder="Username" />
-                {errorField.username ? <p style={{color: 'red'}}>{errorField.username}</p> : null}
+                <input type="text" name="profilename" ref="profilename" className="form-control" id="inputProfilename" onBlur={this.validateField.bind(this)} placeholder="Profilename" />
+                {errorField.profilename ? <p style={{color: 'red'}}>{errorField.profilename}</p> : null}
               </div>
             </div>
             <div className={this.getInputWrapperClass(errorField.firstname)}>
@@ -57,6 +61,9 @@ class UsersSignup extends React.Component {
                 {errorField.gender ? <p style={{color: 'red'}}>{errorField.gender}</p> : null}
               </div>
             </div>
+
+
+
             <div className={this.getInputWrapperClass(errorField.age)}>
               <label for="selectAge" className="col-sm-2 control-label">Age</label>
               <div className="col-sm-10">
@@ -82,21 +89,25 @@ class UsersSignup extends React.Component {
     );
   }
 
+
+
   userSignup(e){
     if(e && e.preventDefault){
       e.preventDefault();
     }
     const {userSignup} = this.props;
-    const {email,password,lastname,firstname,gender,username,age} = this.refs;
+    const {email,password,lastname,firstname,gender,profilename,age} = this.refs;
 
     const formData = {
       "emails.$.address" : email.value,
-      password : password.value,
-      "profile.username" : username.value,
+      "password" : password.value,
+      "profile.profilename" : profilename.value,
       "profile.firstname" : firstname.value,
       "profile.lastname" : lastname.value,
       "profile.gender" : gender.value,
       "profile.age" : parseInt(age.value),
+      "createdAt" : new Date(),
+      "modifiedAt" : new Date(),
     }
 
     userSignup(formData);

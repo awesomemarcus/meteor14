@@ -31,15 +31,20 @@
     "raw-loader": "^0.5.1",
     "react-addons-test-utils": "^15.0.0",
     "sinon": "1.17.x",
-    "style-loader": "^0.13.1"
+    "style-loader": "^0.13.1",
+    "country-list": "0.0.3"
   },
   "dependencies": {
+    "country-list": "0.0.3",
     "domready": "^1.0.8",
     "eslint-plugin-react": "^5.1.1",
     "mantra-core": "^1.5.0",
+    "meteor-node-stubs": "^0.2.3",
     "moment": "^2.13.0",
+    "node-simple-schema": "0.0.4",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
-    "react-mounter": "^1.2.0"
+    "react-mounter": "^1.2.0",
+    "underscore": "^1.8.3"
   }
 }
