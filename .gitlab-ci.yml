@@ -16,8 +16,10 @@ cache:
 
 test:
   script:
+    - time npm install;
     - time eslint .
-
+    - time npm test
+    
 Dev:
   only:
     - dev
