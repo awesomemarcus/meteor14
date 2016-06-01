@@ -30,7 +30,7 @@ storiesOf('Users Signup', module)
     return (
         <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
     );
-  });
+  })
   .add('With error on result', () => {
     const errorField = {
       error: 'Error from method call',

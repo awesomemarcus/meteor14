@@ -35,7 +35,7 @@ export default function () {
     },
     'usersSignup'(formData) {
       check(formData,Object);
-      console.log(formData);
+
 
       let Checker =  User.namedContext("myContext");
       let schemaNoError = Checker.validate(formData);
