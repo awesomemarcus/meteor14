@@ -14,7 +14,7 @@ describe('Insert data to the categories collection and subscribe to the data to 
   });
 
   it('should be able to subscribe to the Categories collection and return an object', function () {
-    client.subscribe("categoriesList");
+    client.subscribe("categoriesList");sadasdsa
     var category = client.collection("categories");
     expect(category).to.be.a("Object");
   });
