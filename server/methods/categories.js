@@ -6,7 +6,7 @@ export default function () {
   Meteor.methods({
     'categoriesAdd'(data) {
          check(data, Object);
-         Categories.insert({
+         return Categories.insert({
            name : data.name,
            modifiedAt : new Date(),
            createdAt : new Date(),

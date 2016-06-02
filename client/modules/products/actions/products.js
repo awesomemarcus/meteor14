@@ -62,7 +62,8 @@ export default {
       return;
     }
     var user_id = Meteor.userId();
-    Meteor.call("insertProduct", user_id, category_id, name, description, price, function (err) {
+    var id = JSON.stringify(user_id);
+    Meteor.call("insertProduct", id, category_id, name, description, price, function (err) {
       if(err) {
         return LocalState.set('PRODUCTS_ADD_ERROR', 'Failed to Add Product');
       }
