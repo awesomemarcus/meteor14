@@ -10,9 +10,9 @@ before_script:
   - alias time="/usr/bin/time -f 'Took %e seconds'"
 
 cache:
+  key: "$CI_BUILD_REF_NAME"
   paths:
-    - .meteor/local/
-    - node_modules/
+  - node_modules/
 
 build:
   stage: build
@@ -23,7 +23,8 @@ test:
   stage: test
   script:
     - time eslint .
-    - time npm test
+    - time npm run test
+    - time npm run gagarin-build
 
 deploy-dev:
   stage: deploy
@@ -32,5 +33,5 @@ deploy-dev:
   script:
     - time meteor build . --server-only;
     - time find $FOLDER -mindepth 1 -delete;
-    - time rsync -av .coverage $PROJECTFILE $FOLDER;
+    - time rsync -av $PROJECTFILE $FOLDER;
     - cd $FOLDER && tar -xf $PROJECTFILE && cd bundle/programs/server && meteor npm install --production && chown -R snapzio:www-data . && service nginx reload;
