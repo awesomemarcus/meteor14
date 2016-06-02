@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="8" width="1145" height="833" text="Mantra Boilerplate&#xA;http://localhost:3000/products/list" locked="true" measuredWidth="1145" measuredHeight="833">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Master" id="31" x="4" y="52" measuredWidth="1138" measuredHeight="50">
+    <screen xsi:type="model:Screen" href="../assets/MainMenuComponent.screen#/"/>
+  </widgets>
+  <widgets xsi:type="model:WidgetGroup" id="46" x="128" y="152" measuredWidth="220" measuredHeight="90">
+    <widgets xsi:type="model:Master" id="47" measuredWidth="220" measuredHeight="43">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Typography.screen#h2.%20Heading"/>
+      <overrides>
+        <widgets ref="5" text="Products List">
+          <attributes key="icon" value="assets/fa-list (large)"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Master" id="48" x="1" y="56" measuredWidth="105" measuredHeight="34">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Buttons.screen#Button"/>
+      <overrides>
+        <widgets ref="21" text="Add Product"/>
+      </overrides>
+    </widgets>
+  </widgets>
+  <widgets xsi:type="model:Master" id="49" x="131" y="265" measuredWidth="884" measuredHeight="331">
+    <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Content.screen#Table%20Contextual"/>
+    <overrides>
+      <widgets ref="55" width="884" height="331" text="Id,Name,Category,Price,Description,Created At, Created By, Actions&#xA;1,Product 1,Food,$10.50,The quick..,2016-05-10,Ric,{trash} {edit} {assets/fa-eye}&#xA;2,Product 2,Technology,$25.99,Lorem ipsum..,2016-05-10,Rod,{trash} {edit} {assets/fa-eye}&#xA;3,Product 3,Business,$9.99,Dolor ipsum..,2016-05-10,Neil,{trash} {edit} {assets/fa-eye}&#xA;4,Product 4,Gadget,$65.80,Blah blah..,2016-05-10,Jun,{trash} {edit} {assets/fa-eye}&#xA;5,Product 5,Technology,$25.99,Whatever..,2016-05-10,Jay,{trash} {edit} {assets/fa-eye}"/>
+    </overrides>
+  </widgets>
+  <hRuler>
+    <guides position="572"/>
+    <guides position="128"/>
+    <guides position="1014"/>
+  </hRuler>
+  <vRuler/>
+  <font size="14px"/>
+</model:Screen>

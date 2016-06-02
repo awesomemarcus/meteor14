@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="8" width="1145" height="833" text="Mantra Boilerplate&#xA;http://localhost:3000/categories/update" locked="true" measuredWidth="1145" measuredHeight="833">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Master" id="31" x="4" y="52" measuredWidth="1138" measuredHeight="50">
+    <screen xsi:type="model:Screen" href="../assets/MainMenuComponent.screen#/"/>
+  </widgets>
+  <widgets xsi:type="model:WidgetGroup" id="51" x="128" y="180" measuredWidth="368" measuredHeight="157">
+    <widgets xsi:type="model:Master" id="52" y="64" measuredWidth="368" measuredHeight="39">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Forms.screen#Text%20Input"/>
+      <overrides>
+        <widgets ref="1" width="368" text="category 1">
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Master" id="53" measuredWidth="275" measuredHeight="43">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Typography.screen#h2.%20Heading"/>
+      <overrides>
+        <widgets ref="5" text="Category Update">
+          <attributes key="icon" value="assets/fa-pencil (large)"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Master" id="54" y="121" height="36" measuredWidth="81" measuredHeight="36">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Buttons.screen#Button%20Success"/>
+      <overrides>
+        <widgets ref="37" width="81" height="36" text="Update">
+          <attributes key="background" value="#ffffff"/>
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+  </widgets>
+  <hRuler>
+    <guides position="572"/>
+    <guides position="128"/>
+    <guides position="1014"/>
+  </hRuler>
+  <vRuler/>
+  <font size="14px"/>
+</model:Screen>

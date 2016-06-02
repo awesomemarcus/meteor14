@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="8" width="1145" height="833" text="Mantra Boilerplate&#xA;http://localhost:3000/users/profile/1" locked="true" measuredWidth="1145" measuredHeight="833">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Master" id="31" x="4" y="52" measuredWidth="1138" measuredHeight="50">
+    <screen xsi:type="model:Screen" href="../assets/MainMenuComponent.screen#/"/>
+  </widgets>
+  <widgets xsi:type="model:WidgetGroup" id="72" x="128" y="184" measuredWidth="464" measuredHeight="379">
+    <widgets xsi:type="model:Master" id="73" x="96" y="68" measuredWidth="368" measuredHeight="39">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Forms.screen#Text%20Input"/>
+      <overrides>
+        <widgets ref="1" width="368" text="johndoe">
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Master" id="74" measuredWidth="211" measuredHeight="43">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Typography.screen#h2.%20Heading"/>
+      <overrides>
+        <widgets ref="5" text="User Update">
+          <attributes key="icon" value="assets/fa-pencil (large)"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Label" id="75" x="2" y="75" text="Username" measuredWidth="77" measuredHeight="25">
+      <font bold="true"/>
+    </widgets>
+    <widgets xsi:type="model:Master" id="76" x="96" y="118" measuredWidth="368" measuredHeight="39">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Forms.screen#Text%20Input"/>
+      <overrides>
+        <widgets ref="1" width="368" text="John">
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Label" id="77" x="2" y="125" text="Firstname" measuredWidth="77" measuredHeight="25">
+      <font bold="true"/>
+    </widgets>
+    <widgets xsi:type="model:Master" id="78" x="96" y="168" measuredWidth="368" measuredHeight="39">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Forms.screen#Text%20Input"/>
+      <overrides>
+        <widgets ref="1" width="368" text="Doe">
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Label" id="79" x="2" y="175" text="Lastname" measuredWidth="75" measuredHeight="25">
+      <font bold="true"/>
+    </widgets>
+    <widgets xsi:type="model:Master" id="80" x="96" y="218" measuredWidth="368" measuredHeight="39">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Forms.screen#Text%20Input"/>
+      <overrides>
+        <widgets ref="1" width="368" text="Male">
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Label" id="81" x="2" y="225" text="Gender" measuredWidth="58" measuredHeight="25">
+      <font bold="true"/>
+    </widgets>
+    <widgets xsi:type="model:Icon" id="82" x="434" y="175" measuredWidth="24" measuredHeight="24" icon="assets/fa-caret-down (medium)"/>
+    <widgets xsi:type="model:Master" id="83" x="96" y="268" measuredWidth="368" measuredHeight="39">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Forms.screen#Text%20Input"/>
+      <overrides>
+        <widgets ref="1" width="368" text="26">
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Label" id="84" x="2" y="275" text="Age" measuredWidth="35" measuredHeight="25">
+      <font bold="true"/>
+    </widgets>
+    <widgets xsi:type="model:Master" id="85" x="96" y="326" measuredWidth="368" measuredHeight="53">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Buttons.screen#Button%20Primary"/>
+      <overrides>
+        <widgets ref="35" width="368" height="53" text="SAVE">
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Icon" id="86" x="434" y="276" measuredWidth="24" measuredHeight="24" icon="assets/fa-caret-down (medium)"/>
+  </widgets>
+  <hRuler>
+    <guides position="572"/>
+    <guides position="128"/>
+    <guides position="1014"/>
+  </hRuler>
+  <vRuler/>
+  <font size="14px"/>
+</model:Screen>

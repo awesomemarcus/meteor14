@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="8" width="1145" height="833" text="Mantra Boilerplate&#xA;http://localhost:3000/signin" locked="true" measuredWidth="1145" measuredHeight="833">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:WidgetGroup" id="9" x="399" y="244" measuredWidth="339" measuredHeight="298">
+    <widgets xsi:type="model:Master" id="10" y="67" width="339" measuredWidth="339" measuredHeight="39">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Forms.screen#Text%20Input"/>
+      <overrides>
+        <widgets ref="1" width="339" text="Email Address">
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Master" id="11" y="115" width="339" measuredWidth="339" measuredHeight="39">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Forms.screen#Text%20Input"/>
+      <overrides>
+        <widgets ref="1" width="339" text="Password">
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Master" id="12" y="181" width="339" height="53" measuredWidth="339" measuredHeight="53">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Buttons.screen#Button%20Primary"/>
+      <overrides>
+        <widgets ref="35" width="339" height="53" text="Sign in">
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Master" id="13" y="245" width="339" height="53" measuredWidth="339" measuredHeight="53">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Buttons.screen#Button"/>
+      <overrides>
+        <widgets ref="21" width="339" height="53" text="Signup">
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Master" id="14" x="2" width="236" measuredWidth="236" measuredHeight="43">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Typography.screen#h2.%20Heading"/>
+      <overrides>
+        <widgets ref="5" width="236" text="User login">
+          <attributes key="icon" value="assets/fa-sign-in (large)"/>
+        </widgets>
+      </overrides>
+    </widgets>
+  </widgets>
+  <widgets xsi:type="model:Master" id="15" x="3" y="52" measuredWidth="1138" measuredHeight="50">
+    <screen xsi:type="model:Screen" href="../assets/SigninMenuComponent.screen#/"/>
+  </widgets>
+  <hRuler>
+    <guides position="572"/>
+  </hRuler>
+  <vRuler/>
+  <font size="14px"/>
+</model:Screen>

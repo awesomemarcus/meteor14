@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="8" width="1145" height="833" text="Mantra Boilerplate&#xA;http://localhost:3000/categories/list" locked="true" measuredWidth="1145" measuredHeight="833">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Master" id="31" x="4" y="52" measuredWidth="1138" measuredHeight="50">
+    <screen xsi:type="model:Screen" href="../assets/MainMenuComponent.screen#/"/>
+  </widgets>
+  <widgets xsi:type="model:Master" id="24" x="244" y="221" measuredWidth="645" measuredHeight="49">
+    <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Typography.screen#h1.%20Heading"/>
+    <overrides>
+      <widgets ref="1" text="Welcome to snapzio Mantra Boilerplate"/>
+    </overrides>
+  </widgets>
+  <hRuler>
+    <guides position="572"/>
+  </hRuler>
+  <vRuler/>
+  <font size="14px"/>
+</model:Screen>

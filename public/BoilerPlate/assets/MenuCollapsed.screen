@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:WidgetGroup" id="1" x="221" y="120">
+    <widgets xsi:type="model:Button" id="2" x="364" y="1" background="#f8f8f8" icon="assets/fa-bars (small)">
+      <font/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="3" x="10" text="Mantra Boilerplate" foreground="#777777">
+      <font size="18px"/>
+    </widgets>
+    <widgets xsi:type="model:WidgetGroup" id="4" y="42">
+      <widgets xsi:type="model:Panel" id="5" width="410" height="50" background="#f8f8f8" foreground="#f8f8f8"/>
+      <widgets xsi:type="model:Label" id="6" x="10" y="12" text="Categories" foreground="#777777">
+        <font size="16px"/>
+      </widgets>
+    </widgets>
+    <widgets xsi:type="model:WidgetGroup" id="7" y="92">
+      <widgets xsi:type="model:Panel" id="8" width="410" height="50" background="#f8f8f8" foreground="#f8f8f8"/>
+      <widgets xsi:type="model:Label" id="9" x="10" y="12" text="Products" foreground="#777777">
+        <font size="16px"/>
+      </widgets>
+    </widgets>
+    <widgets xsi:type="model:WidgetGroup" id="10" y="142">
+      <widgets xsi:type="model:Panel" id="11" width="410" height="50" background="#f8f8f8" foreground="#f8f8f8"/>
+      <widgets xsi:type="model:Label" id="12" x="10" y="12" text="Logout" foreground="#777777">
+        <font size="16px"/>
+      </widgets>
+    </widgets>
+    <widgets xsi:type="model:HLine" id="13" y="38" width="410" foreground="#e7e7e7"/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

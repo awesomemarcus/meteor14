@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:WidgetGroup" id="1" x="4" y="52">
+    <widgets xsi:type="model:Panel" id="2" width="1138" height="50" background="#f8f8f8" foreground="#f8f8f8"/>
+    <widgets xsi:type="model:Label" id="3" x="10" y="10" text="Mantra Boilerplate" foreground="#777777">
+      <font size="18px"/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="4" x="1072" y="12" text="Signin" foreground="#777777">
+      <font size="14px"/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="5" x="998" y="12" text="Signup" foreground="#777777">
+      <font size="14px"/>
+    </widgets>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

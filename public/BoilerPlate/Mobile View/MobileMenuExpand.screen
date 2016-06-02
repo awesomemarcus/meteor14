@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Master" id="1" x="200" y="10" locked="true" measuredWidth="456" measuredHeight="872">
+    <screen xsi:type="model:WidgetGroup" href="../assets/Android5/Devices/Nexus%206.screen#Nexus%206"/>
+    <overrides>
+      <widgets ref="1">
+        <attributes key="locked" value="true"/>
+      </widgets>
+      <widgets ref="7">
+        <attributes key="locked" value="true"/>
+        <attributes key="background" value="#f1f3f6"/>
+      </widgets>
+      <widgets ref="78">
+        <attributes key="locked" value="true"/>
+        <attributes key="alpha" value="128"/>
+      </widgets>
+      <widgets ref="79">
+        <attributes key="locked" value="true"/>
+      </widgets>
+      <widgets ref="81">
+        <attributes key="locked" value="true"/>
+      </widgets>
+      <widgets ref="83">
+        <attributes key="locked" value="true"/>
+      </widgets>
+    </overrides>
+  </widgets>
+  <widgets xsi:type="model:WidgetGroup" id="2869" x="216" y="160" measuredWidth="0" measuredHeight="0"/>
+  <widgets xsi:type="model:Panel" id="14301" x="221" y="111" width="410" height="50" measuredWidth="410" measuredHeight="50" background="#f8f8f8" foreground="#ffffff"/>
+  <widgets xsi:type="model:Master" id="14327" x="221" y="120" measuredWidth="410" measuredHeight="192">
+    <screen xsi:type="model:Screen" href="../assets/MenuCollapsed.screen#/"/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font name="Roboto" size="14px"/>
+</model:Screen>

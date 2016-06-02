@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Master" id="1" x="200" y="10" locked="true" measuredWidth="456" measuredHeight="872">
+    <screen xsi:type="model:WidgetGroup" href="../assets/Android5/Devices/Nexus%206.screen#Nexus%206"/>
+    <overrides>
+      <widgets ref="1">
+        <attributes key="locked" value="true"/>
+      </widgets>
+      <widgets ref="7">
+        <attributes key="locked" value="true"/>
+        <attributes key="background" value="#f1f3f6"/>
+      </widgets>
+      <widgets ref="78">
+        <attributes key="locked" value="true"/>
+        <attributes key="alpha" value="128"/>
+      </widgets>
+      <widgets ref="79">
+        <attributes key="locked" value="true"/>
+      </widgets>
+      <widgets ref="81">
+        <attributes key="locked" value="true"/>
+      </widgets>
+      <widgets ref="83">
+        <attributes key="locked" value="true"/>
+      </widgets>
+    </overrides>
+  </widgets>
+  <widgets xsi:type="model:WidgetGroup" id="2869" x="216" y="160" measuredWidth="0" measuredHeight="0"/>
+  <widgets xsi:type="model:WidgetGroup" id="14308" x="241" y="161" measuredWidth="368" measuredHeight="493">
+    <widgets xsi:type="model:Master" id="14295" y="64" measuredWidth="368" measuredHeight="39">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Forms.screen#Text%20Input"/>
+      <overrides>
+        <widgets ref="1" width="368" text="Email">
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Master" id="14296" y="111" measuredWidth="368" measuredHeight="39">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Forms.screen#Text%20Input"/>
+      <overrides>
+        <widgets ref="1" width="368" text="Password">
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Master" id="14299" measuredWidth="201" measuredHeight="45">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Typography.screen#h2.%20Heading"/>
+      <overrides>
+        <widgets ref="5" text="User Signup">
+          <attributes key="icon" value="assets/fa-user-plus (large)"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Master" id="14300" y="158" measuredWidth="368" measuredHeight="39">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Forms.screen#Text%20Input"/>
+      <overrides>
+        <widgets ref="1" width="368" text="Profilename">
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Master" id="14301" y="205" measuredWidth="368" measuredHeight="39">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Forms.screen#Text%20Input"/>
+      <overrides>
+        <widgets ref="1" width="368" text="Firstname">
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Master" id="14302" y="252" measuredWidth="368" measuredHeight="39">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Forms.screen#Text%20Input"/>
+      <overrides>
+        <widgets ref="1" width="368" text="Lastname">
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Master" id="14304" y="299" measuredWidth="368" measuredHeight="34">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Buttons.screen#Button%20Dropdown"/>
+      <overrides>
+        <widgets ref="23" width="368" text="- select gender - {desc}">
+          <attributes key="textAlignment" value="Right"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Master" id="14305" y="341" measuredWidth="368" measuredHeight="34">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Buttons.screen#Button%20Dropdown"/>
+      <overrides>
+        <widgets ref="23" width="368" text="- select age - {desc}">
+          <attributes key="textAlignment" value="Right"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Master" id="14306" y="383" measuredWidth="368" measuredHeight="51">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Buttons.screen#Button%20Success"/>
+      <overrides>
+        <widgets ref="37" width="368" height="51" text="SUBMIT">
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+    <widgets xsi:type="model:Master" id="14307" y="442" measuredWidth="368" measuredHeight="51">
+      <screen xsi:type="model:WidgetGroup" href="../assets/Bootstrap/Buttons.screen#Button%20Success"/>
+      <overrides>
+        <widgets ref="37" width="368" height="51" text="LOGIN">
+          <attributes key="background" value="#ffffff"/>
+          <font size="16px"/>
+        </widgets>
+      </overrides>
+    </widgets>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font name="Roboto" size="14px"/>
+</model:Screen>

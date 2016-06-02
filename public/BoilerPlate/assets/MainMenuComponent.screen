@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:WidgetGroup" id="1" x="4" y="52" measuredWidth="1138" measuredHeight="50">
+    <widgets xsi:type="model:Panel" id="2" width="1138" height="50" measuredWidth="1138" measuredHeight="50" background="#f8f8f8" foreground="#f8f8f8"/>
+    <widgets xsi:type="model:Label" id="3" x="10" y="10" text="Mantra Boilerplate" measuredWidth="166" measuredHeight="30" foreground="#777777">
+      <font size="18px"/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="4" x="1072" y="12" text="Logout" measuredWidth="54" measuredHeight="25" foreground="#777777">
+      <font size="14px"/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="5" x="300" y="12" text="Products" measuredWidth="67" measuredHeight="25" foreground="#777777">
+      <font size="14px"/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="6" x="196" y="12" text="Categories" measuredWidth="79" measuredHeight="25" foreground="#777777">
+      <font size="14px"/>
+    </widgets>
+    <widgets xsi:type="model:Label" id="8" x="1002" y="12" text="Profile" measuredWidth="51" measuredHeight="25" foreground="#777777">
+      <font size="14px"/>
+    </widgets>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>
