@@ -4,9 +4,7 @@ import NavBar , {NavBarLogOut} from './nav_bar';
 
 class Layout extends React.Component {
   render() {
-    const {content,userId} = this.props;
-    const {Meteor} = this.props;
-
+    const {content,userId, Meteor} = this.props;
     return (
       <div>
         <div>

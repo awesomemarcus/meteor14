@@ -13,13 +13,13 @@ export const composer = ({context,clearErrors}, onData) => {
     "password" :   LocalState.get("password",null),
     "age" :   LocalState.get("profile.age",null),
     "gender" :   LocalState.get("profile.gender",null) ,
-    "error" :  LocalState.get("main_error"),
+    "error" :  LocalState.get("main_error",null),
   };
 
   const getAgeoptions = initAgeOptions();
 
   onData(null, {errorField, getAgeoptions});
-  return clearErrors;
+ return clearErrors;
 };
 
 export const depsMapper = (context, actions) => ({
