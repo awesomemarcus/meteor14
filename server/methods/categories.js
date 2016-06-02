@@ -17,7 +17,6 @@ export default function () {
          Categories.update({_id:data._id},{$set:{
            name : data.name,
            modifiedAt : new Date(),
-           createdAt : new Date(),
          }});
     },
   });
