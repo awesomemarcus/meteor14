@@ -14,12 +14,12 @@ cache:
   paths:
   - node_modules/
 
-all-builds:
+all-build:
   stage: build
   script:
     - time npm install;
 
-all-tests:
+all-test:
   stage: test
   script:
     - time eslint .
