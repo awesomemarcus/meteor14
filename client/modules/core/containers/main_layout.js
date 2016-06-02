@@ -13,7 +13,6 @@ export const composer = ({context}, onData) => {
 
 };
 
-
 export const depsMapper = (context) => ({
   context: () => context,
 });
