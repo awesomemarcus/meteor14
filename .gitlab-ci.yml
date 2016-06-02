@@ -14,19 +14,19 @@ cache:
   paths:
   - node_modules/
 
-build:
+all:
   stage: build
   script:
     - time npm install;
 
-test:
+all:
   stage: test
   script:
     - time eslint .
     - time npm run test
     - time npm run gagarin-build
 
-deploy-dev:
+dev:
   stage: deploy
   only:
     - dev
