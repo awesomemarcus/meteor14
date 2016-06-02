@@ -36,13 +36,18 @@ export default function () {
     'usersSignup'(formData) {
       check(formData,Object);
 
-
       let Checker =  User.namedContext("myContext");
       let schemaNoError = Checker.validate(formData);
+      let signUpErrors = Checker.invalidKeys();
+      _.map(signUpErrors, function (o) { //map errors on each fields
+
+          throw new Error(Checker.keyErrorMessage(o.name));
+      });
 
       if(!schemaNoError) {
           throw new Error("Please fill in the form correctly.");
       }
+
       Accounts.createUser({
        "email" : formData["emails.$.address"],
        "password" : formData["password"],
