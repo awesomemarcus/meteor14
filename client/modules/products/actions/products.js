@@ -61,8 +61,8 @@ export default {
       LocalState.set('PRODUCTS_ADD_PRICE_ERROR', 'Product price is required.');
       return;
     }
-
-    Meteor.call("insertProduct", category_id, name, description, price, function (err) {
+    var user_id = Meteor.userId();
+    Meteor.call("insertProduct", user_id, category_id, name, description, price, function (err) {
       if(err) {
         return LocalState.set('PRODUCTS_ADD_ERROR', 'Failed to Add Product');
       }

@@ -1,4 +1,4 @@
-describe('Insert data to the categories collection and subscribe to the data to check if data is successfully inserted', function () {
+describe('Insert and Update data to the categories collection and subscribe to the data to check if data is successfully inserted or updated', function () {
   var server = meteor({flavor: "fiber"});
   var client = ddp(server, {flavor: "fiber"});
 
