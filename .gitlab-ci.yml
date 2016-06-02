@@ -26,6 +26,7 @@ test:
     - time npm test
 
 deploy-dev:
+  stage: deploy
   only:
     - dev
   script:
