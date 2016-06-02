@@ -24,6 +24,7 @@ test:
   script:
     - time eslint .
     - time npm test
+    - time npm gagarin-build
 
 deploy-dev:
   stage: deploy
