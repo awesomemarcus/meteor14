@@ -59,20 +59,18 @@ export default {
 
 
   },
+  
   userLogin({Meteor, LocalState,FlowRouter},formData){
-    LocalState.set("main_error",null) ;
-    let loginUser = true ;
 
-    if(loginUser){
       Meteor.loginWithPassword(formData["emails.$.address"], formData["password"], (err)=>{
         if(err){
           return LocalState.set("main_error",err.message);
         }
         FlowRouter.go("/");
       })
-    }
 
   },
+
   clearErrors({LocalState}){
     LocalState.set("profile.profilename",null);
     LocalState.set("profile.firstname",null);
