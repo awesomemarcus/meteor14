@@ -10,9 +10,8 @@ before_script:
   - alias time="/usr/bin/time -f 'Took %e seconds'"
 
 cache:
-  paths:
-    - .meteor/local/
-    - node_modules/
+  key: "$CI_BUILD_REF_NAME"
+  untracked: true
 
 build:
   stage: build
