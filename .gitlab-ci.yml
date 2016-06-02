@@ -24,3 +24,12 @@ test:
   script:
     - time eslint .
     - time npm test
+
+deploy-dev:
+  only:
+    - dev
+  script:
+    - time meteor build . --server-only;
+    - time find $FOLDER -mindepth 1 -delete;
+    - time rsync -av .coverage $PROJECTFILE $FOLDER;
+    - cd $FOLDER && tar -xf $PROJECTFILE && cd bundle/programs/server && meteor npm install --production && chown -R snapzio:www-data . && service nginx reload;
