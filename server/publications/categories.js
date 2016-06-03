@@ -5,7 +5,7 @@ import {check} from 'meteor/check';
 export default function () {
 
   Meteor.publish('categoriesList',  (id) => {
-
+    check(id, String);
     return [
       Categories.find(),
       Products.find({user_id: id}),
