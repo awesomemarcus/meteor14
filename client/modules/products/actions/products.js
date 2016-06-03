@@ -62,7 +62,7 @@ export default {
       return;
     }
 
-    Meteor.call("insertProduct", category_id, name, description, price, function (err, data) {
+    Meteor.call("insertProduct", category_id, name, description, price, function (err) {
       if(err) {
         return LocalState.set('PRODUCTS_ADD_ERROR', err.error);
       }
