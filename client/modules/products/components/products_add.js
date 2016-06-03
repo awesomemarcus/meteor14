@@ -21,7 +21,6 @@ class ProductsAdd extends React.Component {
         priceError,
         addError,
     } = this.props;
-
     return (
       <form className="form-horizontal col-sm-4" role="form" onSubmit={this.handleSubmit.bind(this)}>
 

@@ -61,11 +61,10 @@ export default {
       LocalState.set('PRODUCTS_ADD_PRICE_ERROR', 'Product price is required.');
       return;
     }
-    var user_id = Meteor.userId();
-    var id = JSON.stringify(user_id);
-    Meteor.call("insertProduct", id, category_id, name, description, price, function (err) {
+
+    Meteor.call("insertProduct", category_id, name, description, price, function (err) {
       if(err) {
-        return LocalState.set('PRODUCTS_ADD_ERROR', 'Failed to Add Product');
+        return LocalState.set('PRODUCTS_ADD_ERROR', err.error);
       }
     });
   },

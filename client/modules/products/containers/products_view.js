@@ -4,7 +4,7 @@ import ProductsView from '../components/products_view';
 
 export const composer = ({context, productId}, onData) => {
   const {Meteor, Collections} = context();
-  if(Meteor.subscribe('productList').ready()){
+  if(Meteor.subscribe('productList', Meteor.userId()).ready()){
     const product = Collections.Products.findOne({},{sort:{createdAt:-1}});
         onData(null, {product});
   }
