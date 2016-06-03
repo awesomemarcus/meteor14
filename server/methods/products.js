@@ -14,7 +14,7 @@ export default function () {
       check(createdAt, Date);
 
       let formData = {
-        createdBy: 's',
+        createdBy: Meteor.userId(),
         category_id: category_id,
         name:name,
         description:description,
@@ -22,7 +22,6 @@ export default function () {
         updatedAt: new Date(),
         createdAt: createdAt,
         deleted: false,
-        saving: true,
       };
 
       let Checker =  ProductSchem.namedContext("myContext");

@@ -14,7 +14,7 @@ describe('Insert and Update data to the products collection and subscribe to the
         "profile.age": 29,
         modifiedAt: new Date(),
         createdAt: new Date()
-      }; 
+      };
 
     Meteor.call("usersSignup", formData);
     });
@@ -57,17 +57,17 @@ describe('Insert and Update data to the products collection and subscribe to the
     var category = client.collection("categories");
     var userCatId = Object.keys(category)[0];
 
-    var prod1 = client.call("insertProduct", [userPropId, userCatId, 'Safeguard', 'Skin germ protection soap', '25']);
+    var prod1 = client.call("insertProduct", [userCatId, 'Safeguard', 'Skin germ protection soap', '25']);
     client.sleep(200);
-    var prod2 = client.call("insertProduct", ['5s6ad46as1d46sa14dsas56ad5', userCatId, 'BlackWhite', 'Underarm protection', '120'])
+    var prod2 = client.call("insertProduct", [userCatId, 'BlackWhite', 'Underarm protection', '120'])
     client.sleep(200);
-    var prod3 = client.call("insertProduct", [userPropId, userCatId, 'Rexona', 'Body Spray', '60' ]);
+    var prod3 = client.call("insertProduct", [userCatId, 'Rexona', 'Body Spray', '60' ]);
     client.sleep(200);
-    var prod4 = client.call("insertProduct", [userPropId, userCatId, 'Noodles', 'Snack till death', '15' ]);
+    var prod4 = client.call("insertProduct", [userCatId, 'Noodles', 'Snack till death', '15' ]);
     client.sleep(200);
-    var prod5 = client.call("insertProduct", ['5s6ad46as1d46sa14dsas56ad5', userCatId, 'Jollibee', 'Bida and sarap', '60' ]);
+    var prod5 = client.call("insertProduct", [userCatId, 'Jollibee', 'Bida and sarap', '60' ]);
     client.sleep(200);
-    var prod1 = client.call("insertProduct", [userPropId, userCatId, 'McDonalds', 'Happy Meal', '100' ]);
+    var prod1 = client.call("insertProduct", [userCatId, 'McDonalds', 'Happy Meal', '100' ]);
     expect(prod1).to.be.a("String");
     expect(prod2).to.be.a("String");
     expect(prod3).to.be.a("String");
@@ -92,6 +92,9 @@ describe('Insert and Update data to the products collection and subscribe to the
 
     client.subscribe("productList", [userPropId]);
     var test = client.collection("products");
-    expect(Object.keys(test).length).to.equal(4);
+    expect(Object.keys(test).length).to.equal(6);
+    for(var i in test) {
+      expect(test[i].createdBy).to.be.equal(userPropId);
+    }
   });
 });
