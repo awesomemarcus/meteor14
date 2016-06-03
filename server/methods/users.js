@@ -45,7 +45,7 @@ export default function () {
        "profile.lastname" : formData["profile.lastname"],
        "profile.gender" : formData["profile.gender"],
        "profile.age" : formData["profile.age"],
-       modifiedAt : 'new Date()',
+       modifiedAt : new Date(),
        createdAt : new Date(),
      });
 
