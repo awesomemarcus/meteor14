@@ -35,7 +35,7 @@ export default function () {
           deleted: null,
           saving: true,
         };
-        Products.insert(prodDetails);
+        return Products.insert(prodDetails);
       }
 
       // check(categoryid, String);

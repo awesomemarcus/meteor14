@@ -4,11 +4,11 @@ import {check} from 'meteor/check';
 
 export default function () {
 
-  Meteor.publish('categoriesList',  () => {
-
+  Meteor.publish('categoriesList',  (id) => {
+    check(id, String);
     return [
       Categories.find(),
-      Products.find(),
+      Products.find({user_id: id}),
     ];
 
   });
@@ -20,5 +20,4 @@ export default function () {
     return Categories.find({_id:category_id});
 
   });
-
 }
