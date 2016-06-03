@@ -75,7 +75,11 @@ describe('Insert and Update data to the products collection and subscribe to the
   });
 
   it('should subscribe to the product collection and return object', function () {
-    client.subscribe("productList");
+    client.subscribe("users.current");
+    var user = client.collection("users");
+    var userPropId = Object.keys(user)[0];
+
+    client.subscribe("productList", [userPropId]);
     var product = client.collection("products");
     expect(product).to.be.a("Object");
   });

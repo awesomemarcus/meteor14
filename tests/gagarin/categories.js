@@ -14,19 +14,19 @@ describe('Insert and Update data to the categories collection and subscribe to t
   });
 
   it('should be able to subscribe to the Categories collection and return an object', function () {
-    client.subscribe("categoriesList");
+    client.subscribe("categoriesList", ['5s6ad46as1d46sa14dsas56ad5']);
     var category = client.collection("categories");
     expect(category).to.be.a("Object");
   });
 
   it('should NOT equal to NULL or UNDEFINED', function () {
-    client.subscribe("categoriesList");
+    client.subscribe("categoriesList", ['5s6ad46as1d46sa14dsas56ad5']);
     var category = client.collection("categories");
     expect(category).to.not.be.a("undefined");
   });
 
   it('should equal to the inserted data', function () {
-    client.subscribe("categoriesList");
+    client.subscribe("categoriesList", ['5s6ad46as1d46sa14dsas56ad5']);
     var category = client.collection("categories");
     for(var i in category) {
       expect(category[i].name).to.be.equal('Games');
@@ -36,7 +36,7 @@ describe('Insert and Update data to the categories collection and subscribe to t
   });
 
   it('should update data name', function () {
-    client.subscribe("categoriesList");
+    client.subscribe("categoriesList", ['5s6ad46as1d46sa14dsas56ad5']);
     var category = client.collection("categories");
     var id = Object.keys(category)[0];
     var data = [{
@@ -49,7 +49,7 @@ describe('Insert and Update data to the categories collection and subscribe to t
   });
 
   it('should reflect the updated data', function () {
-    client.subscribe("categoriesList");
+    client.subscribe("categoriesList", ['5s6ad46as1d46sa14dsas56ad5']);
     var category = client.collection("categories");
     for(var i in category) {
       expect(category[i].name).to.be.equal('Games Arcade');
