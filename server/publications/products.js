@@ -7,7 +7,7 @@ export default function () {
   Meteor.publish('productList',  (id) => {
     check(id, String);
     return [
-      Products.find({user_id: id}),
+      Products.find({createdBy: id}),
       Categories.find(),
     ];
   });

@@ -8,7 +8,7 @@ export default function () {
     check(id, String);
     return [
       Categories.find(),
-      Products.find({user_id: id}),
+      Products.find({createdBy: id}),
     ];
 
   });

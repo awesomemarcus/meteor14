@@ -4,10 +4,10 @@ import {check} from 'meteor/check';
 
 export default function () {
   Meteor.methods({
-    'insertProduct'(user_id, category_id, name, description, price) {
+    'insertProduct'(createdBy, category_id, name, description, price) {
       const createdAt = new Date();
 
-      check(user_id, String);
+      check(createdBy, String);
       check(category_id, String);
       check(name, String);
       check(description, String);
@@ -15,7 +15,7 @@ export default function () {
       check(createdAt, Date);
 
       let formDate = {
-        user_id: user_id,
+        createdBy: createdBy,
         category_id: category_id,
         name:name,
         description:description,
@@ -25,7 +25,7 @@ export default function () {
       let isValid = ProductSchem.namedContext("myContext").validate(formDate);
       if(isValid === true) {
         const prodDetails = {
-          user_id,
+          createdBy,
           category_id,
           name,
           description,

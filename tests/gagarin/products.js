@@ -91,7 +91,7 @@ describe('Insert and Update data to the products collection and subscribe to the
 
     client.subscribe("productList", [userPropId]);
     var test = client.collection("products");
-
+    console.log(test);
     expect(Object.keys(test).length).to.equal(4);
   });
 });
