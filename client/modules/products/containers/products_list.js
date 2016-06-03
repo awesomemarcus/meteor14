@@ -5,8 +5,8 @@ import ProductsList from '../components/products_list';
 export const composer = ({context}, onData) => {
   const {Meteor, Collections} = context();
 
-  if(Meteor.subscribe('productList').ready()){
-    const prods = Collections.Products.find({deleted:null},{sort:{createdAt:-1}}).fetch().map(function(product){
+  if(Meteor.subscribe('productList', Meteor.userId()).ready()){
+    const prods = Collections.Products.find({},{sort:{createdAt:-1}}).fetch().map(function(product){
 
       product.category = Collections.Categories.findOne({_id: product.category_id}, {fields: {name:1}});
 

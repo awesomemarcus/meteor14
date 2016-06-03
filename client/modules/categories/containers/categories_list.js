@@ -6,7 +6,7 @@ export const composer = ({context}, onData) => {
 
   const {Meteor, Collections} = context();
 
-  if(Meteor.subscribe('categoriesList').ready()){
+  if(Meteor.subscribe('categoriesList', Meteor.userId()).ready()){
 
     const categories = Collections.Categories.find({}).fetch().map(function(category){
 

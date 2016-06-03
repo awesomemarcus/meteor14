@@ -14,11 +14,12 @@ describe('Insert and Update data to the products collection and subscribe to the
         "profile.age": 29,
         modifiedAt: new Date(),
         createdAt: new Date()
-      };
+      }; 
 
     Meteor.call("usersSignup", formData);
     });
     var loginCredentials = client.login({ user : { email : "rod@snapzio.com" }, password : "tmp12345" });
+    console.log(loginCredentials);
     expect(loginCredentials).to.be.a("object");
     expect(loginCredentials.id).to.be.a("string");
     expect(loginCredentials.token).to.be.a("string");
@@ -91,7 +92,6 @@ describe('Insert and Update data to the products collection and subscribe to the
 
     client.subscribe("productList", [userPropId]);
     var test = client.collection("products");
-    console.log(test);
     expect(Object.keys(test).length).to.equal(4);
   });
 });

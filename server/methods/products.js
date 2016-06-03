@@ -4,57 +4,37 @@ import {check} from 'meteor/check';
 
 export default function () {
   Meteor.methods({
-    'insertProduct'(createdBy, category_id, name, description, price) {
+    'insertProduct'(category_id, name, description, price) {
       const createdAt = new Date();
 
-      check(createdBy, String);
       check(category_id, String);
       check(name, String);
       check(description, String);
       check(price, String);
       check(createdAt, Date);
 
-      let formDate = {
-        createdBy: createdBy,
+      let formData = {
+        createdBy: 's',
         category_id: category_id,
         name:name,
         description:description,
         price:Number(price),
+        updatedAt: new Date(),
+        createdAt: createdAt,
+        deleted: false,
+        saving: true,
+      };
+
+      let Checker =  ProductSchem.namedContext("myContext");
+      const validate = Checker.validate(formData);
+      if(validate) {
+        return Products.insert(formData);
       }
 
-      let isValid = ProductSchem.namedContext("myContext").validate(formDate);
-      if(isValid === true) {
-        const prodDetails = {
-          createdBy,
-          category_id,
-          name,
-          description,
-          price,
-          createdAt,
-          modifiedAt: null,
-          deleted: null,
-          saving: true,
-        };
-        return Products.insert(prodDetails);
-      }
-
-      // check(categoryid, String);
-      // check(name, String);
-      // check(description, String);
-      // check(price, String);
-      // check(createdAt, Date);
-
-      // const prodDetails = {
-      //   categoryid,
-      //   name,
-      //   description,
-      //   price,
-      //   createdAt,
-      //   modifiedAt: null,
-      //   deleted: null,
-      //   saving: true,
-      // };
-      // Products.insert(prodDetails);
+      let prodError = Checker.invalidKeys();
+      _.map(prodError, function (o) { //map errors on each fields
+        throw new Meteor.Error(Checker.keyErrorMessage(o.name));
+      });
     },
 
     'deleteProduct'(id) {

@@ -7,7 +7,7 @@ export const composer = ({context, productId}, onData) => {
   // const nameError = LocalState.get('PRODUCTS_ADD_NAME_ERROR');
   // const descriptionError = LocalState.get('PRODUCTS_ADD_DESCRIPTION_ERROR');
   // const priceError = LocalState.get('PRODUCTS_ADD_PRICE_ERROR');
-  if(Meteor.subscribe('productList').ready()){
+  if(Meteor.subscribe('productList', Meteor.userId()).ready()){
     const product = Collections.Products.findOne({_id: productId},{sort:{createdAt:-1}});
     const categories = Collections.Products.find({},{sort:{createdAt:-1}}).fetch();
         onData(null, {product, categories});
