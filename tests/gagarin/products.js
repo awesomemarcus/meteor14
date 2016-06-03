@@ -42,7 +42,8 @@ describe('Insert and Update data to the products collection and subscribe to the
         modifiedAt : new Date(),
         createdAt : new Date(),
       }
-      Meteor.call("categoriesAdd", data);
+      var cats = Meteor.call("categoriesAdd", data);
+      expect(cats).to.be.a("String");
     });
   });
 
@@ -55,29 +56,31 @@ describe('Insert and Update data to the products collection and subscribe to the
     var category = client.collection("categories");
     var userCatId = Object.keys(category)[0];
 
-    console.log(client);
-
-    client.call("insertProduct", [userPropId, userCatId, 'Safeguard', 'Skin germ protection soap', '25']);
+    var prod1 = client.call("insertProduct", [userPropId, userCatId, 'Safeguard', 'Skin germ protection soap', '25']);
     client.sleep(200);
-    client.call("insertProduct", ['5s6ad46as1d46sa14dsas56ad5', userCatId, 'BlackWhite', 'Underarm protection', '120'])
+    var prod2 = client.call("insertProduct", ['5s6ad46as1d46sa14dsas56ad5', userCatId, 'BlackWhite', 'Underarm protection', '120'])
     client.sleep(200);
-    client.call("insertProduct", [userPropId, userCatId, 'Rexona', 'Body Spray', '60' ]);
+    var prod3 = client.call("insertProduct", [userPropId, userCatId, 'Rexona', 'Body Spray', '60' ]);
     client.sleep(200);
-    client.call("insertProduct", [userPropId, userCatId, 'Noodles', 'Snack till death', '15' ]);
+    var prod4 = client.call("insertProduct", [userPropId, userCatId, 'Noodles', 'Snack till death', '15' ]);
     client.sleep(200);
-    client.call("insertProduct", ['5s6ad46as1d46sa14dsas56ad5', userCatId, 'Jollibee', 'Bida and sarap', '60' ]);
+    var prod5 = client.call("insertProduct", ['5s6ad46as1d46sa14dsas56ad5', userCatId, 'Jollibee', 'Bida and sarap', '60' ]);
     client.sleep(200);
-    client.call("insertProduct", [userPropId, userCatId, 'McDonalds', 'Happy Meal', '100' ]);
-
+    var prod1 = client.call("insertProduct", [userPropId, userCatId, 'McDonalds', 'Happy Meal', '100' ]);
+    expect(prod1).to.be.a("String");
+    expect(prod2).to.be.a("String");
+    expect(prod3).to.be.a("String");
+    expect(prod4).to.be.a("String");
+    expect(prod5).to.be.a("String");
   });
 
-  // it('should subscribe to the product collection and return object', function () {
-  //   client.subscribe("productList");
-  //   var product = client.collection("products");
-  //   expect(product).to.be.a("Object");
-  // });
+  it('should subscribe to the product collection and return object', function () {
+    client.subscribe("productList");
+    var product = client.collection("products");
+    expect(product).to.be.a("Object");
+  });
 
-  it('should publish product related to the current user login', function () {
+  it('should get the products related to the user', function () {
     client.subscribe("users.current");
     var user = client.collection("users");
     var userPropId = Object.keys(user)[0];
@@ -85,8 +88,6 @@ describe('Insert and Update data to the products collection and subscribe to the
     client.subscribe("productList", [userPropId]);
     var test = client.collection("products");
 
-    console.log(test);
-    console.log(Object.keys(test).length);
-
+    expect(Object.keys(test).length).to.equal(4);
   });
 });
