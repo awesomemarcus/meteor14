@@ -19,7 +19,6 @@ describe('Insert and Update data to the products collection and subscribe to the
     Meteor.call("usersSignup", formData);
     });
     var loginCredentials = client.login({ user : { email : "rod@snapzio.com" }, password : "tmp12345" });
-    console.log(loginCredentials);
     expect(loginCredentials).to.be.a("object");
     expect(loginCredentials.id).to.be.a("string");
     expect(loginCredentials.token).to.be.a("string");
