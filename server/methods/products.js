@@ -5,6 +5,10 @@ import {check} from 'meteor/check';
 export default function () {
   Meteor.methods({
     'insertProduct'(category_id, name, description, price) {
+
+      /* use only for testing latency compensation */
+      //Meteor._sleepForMs(5000);
+
       const createdAt = new Date();
 
       check(category_id, String);
@@ -25,15 +29,17 @@ export default function () {
       };
 
       let Checker =  ProductSchem.namedContext("myContext");
-      const validate = Checker.validate(formData);
-      if(validate) {
+
+      if(Checker.validate(formData)) {
         return Products.insert(formData);
       }
 
       let prodError = Checker.invalidKeys();
+
       _.map(prodError, function (o) { //map errors on each fields
         throw new Meteor.Error(Checker.keyErrorMessage(o.name));
       });
+
     },
 
     'deleteProduct'(id) {

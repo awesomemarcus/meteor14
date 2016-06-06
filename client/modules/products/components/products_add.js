@@ -8,9 +8,13 @@ class ProductsAdd extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const {add} = this.props;
-    const {category_id,name, description, price} = this.refs;
+    const {category_id,name, description, price, productAdd} = this.refs;
 
     add(category_id.value,name.value,description.value,price.value);
+
+    productAdd.reset();
+
+
   }
 
   render() {
@@ -22,7 +26,7 @@ class ProductsAdd extends React.Component {
         addError,
     } = this.props;
     return (
-      <form className="form-horizontal col-sm-4" role="form" onSubmit={this.handleSubmit.bind(this)}>
+      <form className="form-horizontal col-sm-4" ref="productAdd" role="form" onSubmit={this.handleSubmit.bind(this)}>
 
         <div className="form-group">
           <div className="col-sm-10">
