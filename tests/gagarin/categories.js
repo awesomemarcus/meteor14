@@ -6,8 +6,10 @@ describe('Insert and Update data to the categories collection and subscribe to t
     server.execute(function () {
       var data = {
         name : 'Games',
-        modifiedAt : new Date(),
+        createdBy: 'BJg4CB785mqa5WkaW',
+        updatedAt : new Date(),
         createdAt : new Date(),
+        deleted: false,
       }
       Meteor.call("categoriesAdd", data)
     });
@@ -30,8 +32,10 @@ describe('Insert and Update data to the categories collection and subscribe to t
     var category = client.collection("categories");
     for(var i in category) {
       expect(category[i].name).to.be.equal('Games');
-      expect(category[i].modifiedAt).to.be.a('Date');
+      expect(category[i].createdBy).to.be.equal('BJg4CB785mqa5WkaW');
+      expect(category[i].updatedAt).to.be.a('Date');
       expect(category[i].createdAt).to.be.a('Date');
+      expect(category[i].deleted).to.be(false);
     }
   });
 
@@ -42,7 +46,7 @@ describe('Insert and Update data to the categories collection and subscribe to t
     var data = [{
       _id: id,
       name : 'Games Arcade',
-      modifiedAt : new Date(),
+      updatedAt : new Date(),
     }]
     client.call("categoriesUpdate", data)
     client.sleep(200);
@@ -53,7 +57,7 @@ describe('Insert and Update data to the categories collection and subscribe to t
     var category = client.collection("categories");
     for(var i in category) {
       expect(category[i].name).to.be.equal('Games Arcade');
-      expect(category[i].modifiedAt).to.be.a('Date');
+      expect(category[i].updatedAt).to.be.a('Date');
     }
   });
 });
