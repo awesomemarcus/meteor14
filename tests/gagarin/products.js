@@ -41,8 +41,10 @@ describe('Insert and Update data to the products collection and subscribe to the
     server.execute(function () {
       var data = {
         name : 'Games',
-        modifiedAt : new Date(),
+        createdBy: 'BJg4CB785mqa5WkaW',
+        updatedAt : new Date(),
         createdAt : new Date(),
+        deleted: false,
       }
       var cats = Meteor.call("categoriesAdd", data);
       expect(cats).to.be.a("String");
