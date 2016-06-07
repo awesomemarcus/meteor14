@@ -21,7 +21,7 @@ class ProductsListItem extends React.Component {
       <tr>
         <td>{product._id}</td>
         <td>{product.name}</td>
-        <td>{product.category.name}</td>
+        <td>{product['category.name']}</td>
         <td>{product.description}</td>
         <td>${product.price}</td>
         <td>{help.formatDate(product.createdAt)}</td>
