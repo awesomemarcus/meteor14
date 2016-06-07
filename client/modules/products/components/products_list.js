@@ -10,7 +10,6 @@ class ProductsList extends React.Component {
   render() {
 
     const { prods, deleteProduct, updateProduct } = this.props;
-    console.log(prods);
     return (
       <div className="col-sm-12">
 
