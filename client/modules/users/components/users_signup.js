@@ -11,7 +11,7 @@ class UsersSignup extends React.Component {
       <div className="container">
         <div className="col-sm-8 col-sm-offset-2">
 
-          <h2>User Signup</h2>
+          <h2><span className="glyphicon glyphicon-pencil"></span> User Signup</h2>
           {errorField.error ? <p  style={{color: 'red'}}>{errorField.error}</p> : null}
           <form className="form-horizontal" onSubmit={this.userSignup.bind(this)}>
             <div className={this.getInputWrapperClass(errorField.email)}>

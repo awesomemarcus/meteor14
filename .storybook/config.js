@@ -5,7 +5,11 @@ import '/public/bootstrap-3.3.6/css/bootstrap.min.css';
 import '/client/assets/stylesheets/custom_style.css';
 import '/client/assets/stylesheets/products.css';
 
+
 function loadStories() {
+  require('expose?$!expose?jQuery!jquery');
+  require("bootstrap-webpack");
+
   require('../client/modules/users/components/.stories/');
   require('../client/modules/products/components/.stories/');
   require('../client/modules/categories/components/.stories/');
