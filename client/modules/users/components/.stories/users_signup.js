@@ -28,7 +28,7 @@ storiesOf('Users Signup', module)
 
 
     return (
-        <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
+        <UsersSignup userSignup={action('userSignup')} getAgeOptions={getAgeOptions()} errorField={errorField} />
     );
   })
   .add('With error on result', () => {
