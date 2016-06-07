@@ -6,11 +6,11 @@ class CategoriesUpdate extends React.Component {
     event.preventDefault();
     const {categoriesUpdate} = this.props;
     const {name} = this.refs;
-    categoriesUpdate(name.value);
+    categoriesUpdate({'name': name.value});
   }
 
   render() {
-    const {nameError, category} = this.props;
+    const {nameError, category, detailsError} = this.props;
 
     return (
       <div className="col-sm-4">
@@ -18,6 +18,7 @@ class CategoriesUpdate extends React.Component {
 
         <div className="form-group">
           <h3>Category Update</h3>
+          {detailsError ? <p  style={{color: 'red'}}>{detailsError}</p> : null}
         </div>
 
         <div className="form-group">

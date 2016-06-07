@@ -60,12 +60,15 @@ class CategoriesAdd extends React.Component {
   render() {
     const {
       nameError,
+      detailsError,
     } = this.props;
+
     return (
       <div className="col-sm-4">
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="form-group">
             <h3>Category Add</h3>
+            {detailsError ? <p  style={{color: 'red'}}>{detailsError}</p> : null}
           </div>
 
           <div className="form-group">

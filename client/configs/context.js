@@ -4,6 +4,7 @@ import {FlowRouter} from 'meteor/kadira:flow-router';
 import {ReactiveDict} from 'meteor/reactive-dict';
 import {Tracker} from 'meteor/tracker';
 import {ProductSchem} from '/lib/collections/products';
+import {CategorySchem} from '/lib/collections/categories';
 import User from '/lib/collections/users';
 import _ from 'underscore';
 
@@ -32,6 +33,7 @@ export default function () {
     Tracker,
     authCommon,
     ProductSchem,
+    CategorySchem,
     User,
     _ ,
   };
