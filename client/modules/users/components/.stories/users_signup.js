@@ -28,7 +28,7 @@ storiesOf('Users Signup', module)
 
 
     return (
-        <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
+        <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
     );
   })
   .add('With error on result', () => {
@@ -44,7 +44,7 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
     );
   })
   .add('With error on email', () => {
@@ -60,7 +60,7 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
     );
   })
   .add('With error on password', () => {
@@ -76,7 +76,7 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
     );
   })
   .add('With error on username', () => {
@@ -92,7 +92,7 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
     );
   })
   .add('With error on firstname', () => {
@@ -108,7 +108,7 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
     );
   })
   .add('With error on lastname', () => {
@@ -124,7 +124,7 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
     );
   })
   .add('With error on gender', () => {
@@ -140,7 +140,7 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
     );
   })
   .add('With error on age', () => {
@@ -156,7 +156,7 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
     );
   })
   .add('With error on all fields', () => {
@@ -172,6 +172,6 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions} errorField={errorField} />
+      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
     );
   });

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import UsersUpdate from '../users_update';
 
-const getAgeOptions = ()=> {
+const getAgeOptions = () => {
   const ageOptions = [];
 
   for (let minAge = 18; minAge <= 99; minAge++) {
@@ -14,7 +14,7 @@ const getAgeOptions = ()=> {
 
 const userObject = {
   profile: {
-    username: "johnyCash",
+    profilename: "johnyCash",
     firstname: "John",
     lastname: "Doe",
     gender: "male",
@@ -24,114 +24,185 @@ const userObject = {
 
 storiesOf('Users Update', module)
   .add('Update form', () => {
-    const error = null;
     const errorField = {
-      email: null,
-      password: null,
-      username: null,
+      error: null,
+      profilename: null,
       firstname: null,
       lastname: null,
       gender: null,
-      age: null
+      age: null,
+    };
+
+    const userObject = {
+      profile: {
+        profilename: "johnyCash",
+        firstname: "John",
+        lastname: "Doe",
+        gender: "male",
+        age: "25"
+      }
     };
 
     return (
-      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />
     );
   })
-  .add('With error on submit', () => {
-    const error = 'Error on form submit';
+  .add('With error on result', () => {
     const errorField = {
-      email: null,
-      password: null,
-      username: null,
+      error: 'Error from method call',
+      profilename: null,
       firstname: null,
       lastname: null,
       gender: null,
-      age: null
+      age: null,
     };
 
+
     return (
-      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />
     );
   })
-  .add('With error on username', () => {
-    const error = null;
+  .add('With error on profilename', () => {
     const errorField = {
-      email: null,
-      password: null,
-      username: 'Invalid Username',
+      error: null,
+      profilename: 'Invalid Profilename',
       firstname: null,
       lastname: null,
       gender: null,
-      age: null
+      age: null,
+    };
+
+    const userObject = {
+      profile: {
+        profilename: null,
+        firstname: "John",
+        lastname: "Doe",
+        gender: "male",
+        age: "25"
+      }
     };
 
     return (
-      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />
     );
   })
   .add('With error on firstname', () => {
-    const error = null;
     const errorField = {
-      email: null,
-      password: null,
-      username: null,
-      firstname: 'Invalid Firstname',
+      error: null,
+      profilename: null,
+      firstname: 'Invalid firstname',
       lastname: null,
       gender: null,
-      age: null
+      age: null,
+    };
+
+    const userObject = {
+      profile: {
+        profilename: "johnyCash",
+        firstname: null,
+        lastname: "Doe",
+        gender: "male",
+        age: "25"
+      }
     };
 
     return (
-      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />
     );
   })
   .add('With error on lastname', () => {
-    const error = null;
     const errorField = {
-      email: null,
-      password: null,
-      username: null,
+      error: null,
+      profilename: null,
       firstname: null,
-      lastname: 'Invalid Lastname',
+      lastname: 'Invalid lastname',
       gender: null,
-      age: null
+      age: null,
+    };
+
+    const userObject = {
+      profile: {
+        profilename: "johnyCash",
+        firstname: "John",
+        lastname: null,
+        gender: "male",
+        age: "25"
+      }
     };
 
     return (
-      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />
     );
   })
   .add('With error on gender', () => {
-    const error = null;
     const errorField = {
-      email: null,
-      password: null,
-      username: null,
+      error: null,
+      profilename: null,
       firstname: null,
       lastname: null,
-      gender: 'Invalid Gender',
-      age: null
+      gender: 'Invalid gender',
+      age: null,
+    };
+
+    const userObject = {
+      profile: {
+        profilename: "johnyCash",
+        firstname: "John",
+        lastname: "Doe",
+        gender: null,
+        age: "25"
+      }
     };
 
     return (
-      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />
     );
   })
   .add('With error on age', () => {
-    const error = null;
     const errorField = {
-      email: null,
-      password: null,
-      username: null,
+      error: null,
+      profilename: null,
       firstname: null,
       lastname: null,
       gender: null,
-      age: 'Invalid Age'
+      age: 'Invalid age',
+    };
+
+    const userObject = {
+      profile: {
+        profilename: "johnyCash",
+        firstname: "John",
+        lastname: "Doe",
+        gender: "male",
+        age: null
+      }
     };
 
     return (
-      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions} error={error} errorField={errorField} />
+      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />
+    );
+  })
+  .add('With error on all fields', () => {
+    const errorField = {
+      error: null,
+      profilename: 'Invalid Profilename',
+      firstname: 'Invalid Firstname',
+      lastname: 'Invalid Lastname',
+      gender: 'Invalid Gender',
+      age: 'Invalid Age',
+    };
+
+    const userObject = {
+      profile: {
+        profilename: null,
+        firstname: null,
+        lastname: null,
+        gender: null,
+        age: null
+      }
+    };
+
+    return (
+      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />
     );
   });

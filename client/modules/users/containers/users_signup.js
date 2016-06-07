@@ -16,9 +16,9 @@ export const composer = ({context,clearErrors}, onData) => {
     "error" :  LocalState.get("main_error",null),
   };
 
-  const getAgeoptions = initAgeOptions();
+  const getAgeOptions = initAgeOptions();
 
-  onData(null, {errorField, getAgeoptions});
+  onData(null, {errorField, getAgeOptions});
  return clearErrors;
 };
 

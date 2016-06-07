@@ -6,12 +6,13 @@ class UsersSignup extends React.Component {
 
 
   render() {
-    const  {errorField, getAgeoptions} = this.props;
+    const  {errorField, getAgeOptions} = this.props;
+
     return(
       <div className="container">
         <div className="col-sm-8 col-sm-offset-2">
 
-          <h2><span className="glyphicon glyphicon-pencil"></span> User Signup</h2>
+          <h2><span className="glyphicon glyphicon-plus"></span> User Signup</h2>
           {errorField.error ? <p  style={{color: 'red'}}>{errorField.error}</p> : null}
           <form className="form-horizontal" onSubmit={this.userSignup.bind(this)}>
             <div className={this.getInputWrapperClass(errorField.email)}>
@@ -69,7 +70,7 @@ class UsersSignup extends React.Component {
               <div className="col-sm-10">
                 <select className="form-control" id="selectAge" name="age" onBlur={this.validateField.bind(this)} ref="age">
                   <option value>- select age -</option>
-                  { getAgeoptions ? getAgeoptions.map(value => (<option key={value.age} value={value.age}>{value.age}</option>))
+                  { getAgeOptions ? getAgeOptions.map(value => (<option key={value.age} value={value.age}>{value.age}</option>))
                     : <option>Invalid Age Object</option> }
                 </select>
                 {errorField.age ? <p style={{color: 'red'}}>{errorField.age}</p> : null}
@@ -111,18 +112,6 @@ class UsersSignup extends React.Component {
     }
 
     userSignup(formData);
-  }
-
-  getAgeOptions(){
-    const ageOptions = [];
-
-    for (let minAge = 18; minAge <= 99; minAge++) {
-      ageOptions.push({age: minAge});
-    }
-
-    return ageOptions.map((a) => (
-      <option value={a.age}>{a.age}</option>
-    ));
   }
 
   clearError(e){
