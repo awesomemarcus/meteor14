@@ -89,4 +89,12 @@ export default {
       FlowRouter.go('/products/list');
     });
   },
+
+  clearErrors({LocalState}){
+
+    return [
+      LocalState.set("PRODUCTS_ADD_ERROR", null),
+      LocalState.set("ERROR", null),
+    ];
+  },
 }

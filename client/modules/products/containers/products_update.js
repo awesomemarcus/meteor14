@@ -2,7 +2,7 @@ import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
 import ProductsUpdate from '../components/products_update';
 
-export const composer = ({context, productId}, onData) => {
+export const composer = ({context, productId, clearErrors}, onData) => {
   const {Meteor, Collections, LocalState} = context();
   // const nameError = LocalState.get('PRODUCTS_ADD_NAME_ERROR');
   // const descriptionError = LocalState.get('PRODUCTS_ADD_DESCRIPTION_ERROR');
@@ -13,6 +13,8 @@ export const composer = ({context, productId}, onData) => {
     const categories = Collections.Categories.find({},{sort:{createdAt:-1}}).fetch();
         onData(null, {product, categories, error});
   }
+
+  return clearErrors;
 };
 
 export const depsMapper = (context, actions) => ({

@@ -13,8 +13,6 @@ export const composer = ({context}, onData) => {
       return product;
     });
 
-    console.log(prods);
-
     onData(null, {prods});
 
   }
