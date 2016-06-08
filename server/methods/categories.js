@@ -44,5 +44,10 @@ export default function () {
         return Categories.update({_id:categoryId},{$set:data});
 
     },
+    'categoriesDelete'(categoryId) {
+      check(categoryId, String);
+
+      return Categories.remove(categoryId);
+    }
   });
 }

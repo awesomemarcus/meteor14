@@ -30,7 +30,7 @@ class ProductsListItem extends React.Component {
             Delete
           </a>&nbsp;
           <a href={`/products/update/${product._id}`} className="btn btn-sm btn-success">
-            Edit
+            Update
           </a>&nbsp;
           <a href={`/products/view/${product._id}`} className="btn btn-sm btn-default">
             view

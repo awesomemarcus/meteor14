@@ -54,7 +54,7 @@ export default {
     }
   },
 
-  add({LocalState},category_id, name, description, price) {
+  add({LocalState,FlowRouter},category_id, name, description, price) {
     if(!name || !description || !price) {
       LocalState.set('PRODUCTS_ADD_NAME_ERROR', 'Product name is required.');
       LocalState.set('PRODUCTS_ADD_DESCRIPTION_ERROR', 'Product description is required.');
@@ -66,6 +66,8 @@ export default {
       if(err) {
         return LocalState.set('PRODUCTS_ADD_ERROR', err.error);
       }
+
+      FlowRouter.go('/products/list');
     });
   },
 
@@ -83,6 +85,8 @@ export default {
       if(err) {
         return LocalState.set('PRODUCTS_UPDATE_ERROR', 'Unable to update product.');
       }
+
+      FlowRouter.go('/products/list');
     });
   },
 }

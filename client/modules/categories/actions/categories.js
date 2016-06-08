@@ -39,8 +39,12 @@ export default {
 
     LocalState.set("CATEGORIES_ADD_ERROR", Checker.keyErrorMessage('name'));
   },
-  categoriesDelete() {
-
+  categoriesDelete({Meteor,LocalState}, categoryId) {
+    Meteor.call('categoriesDelete', categoryId, function(error) {
+      if(error){
+        return LocalState.set("CATEGORIES_ADD_DETAILS_ERROR", error.reason);
+      }
+    });
   },
   clearErrors({LocalState}){
 
