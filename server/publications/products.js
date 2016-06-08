@@ -8,8 +8,8 @@ export default function () {
     check(id, String);
 
     return [
-      Products.find({createdBy: id}),
-      Categories.find(),
+      Products.find({createdBy: id, deleted: false}),
+      Categories.find({createdBy: id, deleted: false}),
     ];
   });
 }
