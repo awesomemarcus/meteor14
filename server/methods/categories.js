@@ -25,23 +25,22 @@ export default function () {
          });
     },
     'categoriesUpdate'(categoryId, data) {
-         check(categoryId, String);
-         check(data, Object);
+       check(categoryId, String);
+       check(data, Object);
 
-         data.updatedAt = new Date();
+       data.updatedAt = new Date();
 
-         let Checker =  CategorySchem.namedContext("myContext");
+       let Checker =  CategorySchem.namedContext("myContext");
 
-         if(!Checker.validateOne(data, 'name')){
-           throw new Meteor.Error(404, Checker.keyErrorMessage('name'));
-         }
+       if(!Checker.validateOne(data, 'name')){
+         throw new Meteor.Error(404, Checker.keyErrorMessage('name'));
+       }
 
-         if(!Checker.validateOne(data, 'updatedAt')){
-           throw new Meteor.Error(404, Checker.keyErrorMessage('updatedAt'));
-         }
+       if(!Checker.validateOne(data, 'updatedAt')){
+         throw new Meteor.Error(404, Checker.keyErrorMessage('updatedAt'));
+       }
 
-
-        return Categories.update({_id:categoryId},{$set:data});
+       return Categories.update({_id:categoryId},{$set:data});
 
     },
     'categoriesDelete'(categoryId) {

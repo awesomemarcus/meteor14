@@ -27,6 +27,7 @@ class ProductsUpdate extends React.Component {
         nameError,
         descriptionError,
         priceError,
+        error,
     } = this.props;
 
     return (
@@ -35,6 +36,7 @@ class ProductsUpdate extends React.Component {
         <div className="form-group">
           <div className="col-sm-10">
             <h3>Update Product</h3>
+            {error ? <p style={{color: 'red'}}>{error}</p> : null}
           </div>
         </div>
 

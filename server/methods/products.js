@@ -53,7 +53,26 @@ export default function () {
       check(name, String);
       check(description, String);
       check(price, Number);
-      Products.update({_id: id}, {$set: {category_id: categoryid, name: name, description: description, price: price, modifiedAt: new Date()}});
+
+      let Checker =  ProductSchem.namedContext("myContext");
+
+      if(!Checker.validateOne({category_id: categoryid}, 'category_id')){
+        throw new Meteor.Error(404, Checker.keyErrorMessage('category_id'));
+      }
+
+      if(!Checker.validateOne({name: name}, 'name')){
+        throw new Meteor.Error(404, Checker.keyErrorMessage('name'));
+      }
+
+      if(!Checker.validateOne({description: description}, 'description')){
+        throw new Meteor.Error(404, Checker.keyErrorMessage('description'));
+      }
+
+      if(!Checker.validateOne({price: price}, 'price')){
+        throw new Meteor.Error(404, Checker.keyErrorMessage('price'));
+      }
+
+      Products.update({_id: id}, {$set: {category_id: categoryid, name: name, description: description, price: price, updatedAt: new Date()}});
     },
   });
 }
