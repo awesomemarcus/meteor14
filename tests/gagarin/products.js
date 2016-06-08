@@ -38,17 +38,12 @@ describe('Insert and Update data to the products collection and subscribe to the
   });
 
   it('should insert an object to Categories collection for product insertion', function () {
-    server.execute(function () {
-      var data = {
-        name : 'Games',
-        createdBy: 'BJg4CB785mqa5WkaW',
-        updatedAt : new Date(),
-        createdAt : new Date(),
-        deleted: false,
-      }
-      var cats = Meteor.call("categoriesAdd", data);
-      expect(cats).to.be.a("String");
-    });
+    var data = [{
+      name : 'Games',
+    }];
+
+    var cats = client.call("categoriesAdd", data);
+    expect(cats).to.be.a("String");
   });
 
   it('should insert products', function () {
