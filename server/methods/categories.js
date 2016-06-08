@@ -47,7 +47,7 @@ export default function () {
     'categoriesDelete'(categoryId) {
       check(categoryId, String);
 
-      return Categories.remove(categoryId);
-    }
+      return Categories.update({_id: categoryId}, {$set: {deleted: true}});
+    },
   });
 }

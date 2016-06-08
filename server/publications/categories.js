@@ -7,8 +7,8 @@ export default function () {
   Meteor.publish('categoriesList',  (id) => {
     check(id, String);
     return [
-      Categories.find(),
-      Products.find({createdBy: id}),
+      Categories.find({createdBy: id, deleted: false}),
+      Products.find({createdBy: id, deleted: false}),
     ];
 
   });
@@ -17,7 +17,7 @@ export default function () {
 
     check(category_id, String);
 
-    return Categories.find({_id:category_id});
+    return Categories.find({_id:category_id, deleted: false});
 
   });
 }
