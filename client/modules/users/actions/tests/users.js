@@ -59,9 +59,9 @@ describe('users.actions.userSignup', () => {
 
   it("it should not allow morethan 20 characters", ()=>{
       formData["emails.$.address"] = "jun@mail.com";
-      formData["password"] = "123456789012345678901";
+      formData["password"] = "123456789012345678901asjhasdkfjhaskjdhqwexckvbkdjfakshdgfkajshdgfqwoieusdfjhsadfkjahsdkfjhasdkfjhasgiouqweskjhfaskjdhxcvajhsdfkjahsdfasdlkfjhqwiuefqiwhfkajsddhfqiwueff";
       actions.userSignup({LocalState,User, _},formData);
-      expect(LocalState.set.args[5]).to.deep.equal(["password" , "Password cannot exceed 20 characters"]);
+      expect(LocalState.set.args[5]).to.deep.equal(["password" , "Password cannot exceed 100 characters"]);
   });
 
   it("it should say profilemustbe at least 1 char", ()=>{
