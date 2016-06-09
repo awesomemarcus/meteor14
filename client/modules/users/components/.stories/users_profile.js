@@ -1,5 +1,7 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
+
+import Layout from '../../../core/components/main_layout';
 import UsersProfile from '../users_profile';
 
 storiesOf('Users Profile', module)
@@ -18,7 +20,7 @@ storiesOf('Users Profile', module)
     const routeParamsUserId = "kjhEDFGKJouhjgGfM";
 
     return (
-      <UsersProfile user={userObject} profileId={routeParamsUserId} />
+      <Layout content={ () => (<UsersProfile user={userObject} profileId={routeParamsUserId} />) } userId={routeParamsUserId} />
     );
   })
   .add('Not current user (Shows block button)', () => {
@@ -36,6 +38,6 @@ storiesOf('Users Profile', module)
     const routeParamsUserId = "kjhEDFGKJosduhjgGfM";
 
     return (
-      <UsersProfile user={userObject} profileId={routeParamsUserId} />
+      <Layout content={ () => (<UsersProfile user={userObject} profileId={routeParamsUserId} />) } userId={routeParamsUserId} />
     );
   });

@@ -1,5 +1,7 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
+
+import Layout from '../../../core/components/main_layout';
 import UsersSignup from '../users_signup';
 
 
@@ -28,7 +30,7 @@ storiesOf('Users Signup', module)
 
 
     return (
-        <UsersSignup userSignup={action('userSignup')} getAgeOptions={getAgeOptions()} errorField={errorField} />
+        <Layout content={ () => (<UsersSignup userSignup={action('userSignup')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
     );
   })
   .add('With error on result', () => {
@@ -44,7 +46,7 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
     );
   })
   .add('With error on email', () => {
@@ -60,7 +62,7 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
     );
   })
   .add('With error on password', () => {
@@ -76,7 +78,7 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
     );
   })
   .add('With error on username', () => {
@@ -92,7 +94,7 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
     );
   })
   .add('With error on firstname', () => {
@@ -108,7 +110,7 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
     );
   })
   .add('With error on lastname', () => {
@@ -124,7 +126,7 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
     );
   })
   .add('With error on gender', () => {
@@ -140,7 +142,7 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
     );
   })
   .add('With error on age', () => {
@@ -156,7 +158,7 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
     );
   })
   .add('With error on all fields', () => {
@@ -172,6 +174,6 @@ storiesOf('Users Signup', module)
     };
 
     return (
-      <UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
     );
   });

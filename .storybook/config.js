@@ -8,6 +8,7 @@ function loadStories() {
   require('../client/assets/stylesheets/custom_style.css');
   require('../client/assets/stylesheets/products.css');
 
+  require('../client/modules/core/components/.stories/');
   require('../client/modules/users/components/.stories/');
   require('../client/modules/products/components/.stories/');
   require('../client/modules/categories/components/.stories/');

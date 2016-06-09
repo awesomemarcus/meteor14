@@ -1,5 +1,7 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
+
+import Layout from '../../../core/components/main_layout';
 import UsersUpdate from '../users_update';
 
 const getAgeOptions = () => {
@@ -44,7 +46,7 @@ storiesOf('Users Update', module)
     };
 
     return (
-      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />
+      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />) } userId={'JKHJjJHGjhgJGBV'}/>
     );
   })
   .add('With error on result', () => {
@@ -59,7 +61,7 @@ storiesOf('Users Update', module)
 
 
     return (
-      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />
+      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />) } userId={'JKHJjJHGjhgJGBV'}/>
     );
   })
   .add('With error on profilename', () => {
@@ -83,7 +85,7 @@ storiesOf('Users Update', module)
     };
 
     return (
-      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />
+      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />) } userId={'JKHJjJHGjhgJGBV'}/>
     );
   })
   .add('With error on firstname', () => {
@@ -107,7 +109,7 @@ storiesOf('Users Update', module)
     };
 
     return (
-      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />
+      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />) } userId={'JKHJjJHGjhgJGBV'}/>
     );
   })
   .add('With error on lastname', () => {
@@ -131,7 +133,7 @@ storiesOf('Users Update', module)
     };
 
     return (
-      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />
+      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />) } userId={'JKHJjJHGjhgJGBV'}/>
     );
   })
   .add('With error on gender', () => {
@@ -155,7 +157,7 @@ storiesOf('Users Update', module)
     };
 
     return (
-      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />
+      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />) } userId={'JKHJjJHGjhgJGBV'}/>
     );
   })
   .add('With error on age', () => {
@@ -179,7 +181,7 @@ storiesOf('Users Update', module)
     };
 
     return (
-      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />
+      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />) } userId={'JKHJjJHGjhgJGBV'}/>
     );
   })
   .add('With error on all fields', () => {
@@ -203,6 +205,6 @@ storiesOf('Users Update', module)
     };
 
     return (
-      <UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />
+      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />) } userId={'JKHJjJHGjhgJGBV'}/>
     );
   });
