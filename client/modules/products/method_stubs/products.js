@@ -13,7 +13,7 @@ export default function ({Meteor, Collections, ProductSchem}) {
             check(category_id, String);
             check(name, String);
             check(description, String);
-            check(price, String);
+            check(price, Number);
             check(createdAt, Date);
 
             let formData = {

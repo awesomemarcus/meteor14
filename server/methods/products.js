@@ -14,7 +14,7 @@ export default function () {
       check(category_id, String);
       check(name, String);
       check(description, String);
-      check(parseInt(price), Number);
+      check(price, Number);
       check(createdAt, Date);
 
       let formData = {
@@ -22,7 +22,7 @@ export default function () {
         category_id: category_id,
         name:name,
         description:description,
-        price:parseInt(price),
+        price:price,
         updatedAt: new Date(),
         createdAt: createdAt,
         deleted: false,
