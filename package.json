@@ -1,7 +1,7 @@
 {
-  "name": "mantra-boilerplate",
+  "name": "blog-admin",
   "version": "0.1.0",
-  "description": "mantra-boilerplate",
+  "description": "blog-admin",
   "scripts": {
     "start": "./meteor.sh run",
     "android-device": "./meteor.sh run android-device",
