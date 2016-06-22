@@ -14,48 +14,48 @@ class UsersSignup extends React.Component {
 
           <h2><span className="glyphicon glyphicon-plus"></span> User Signup</h2>
           {errorField.error ? <p  style={{color: 'red'}}>{errorField.error}</p> : null}
-          <form className="form-horizontal" onSubmit={this.userSignup.bind(this)}>
+          <form className="form-horizontal" onSubmit={this.userSignup.bind(this)} >
             <div className={this.getInputWrapperClass(errorField.email)}>
 
               <label for="inputEmail3" className="col-sm-2 control-label">Email</label>
               <div className="col-sm-10">
-                <input type="email" name="email" ref="email" className="form-control" id="inputEmail" onBlur={this.validateField.bind(this)} placeholder="Email" />
+                <input type="email" name="emails.$.address" ref="email" className="form-control" id="inputEmail" onBlur={this.userSignup.bind(this)} placeholder="Email" onChange={this.clearOneError.bind(this)} />
                 {errorField.email ? <p style={{color: 'red'}}>{errorField.email}</p> : null}
               </div>
             </div>
             <div className={this.getInputWrapperClass(errorField.password)}>
               <label for="inputPassword3" className="col-sm-2 control-label">Password</label>
               <div className="col-sm-10">
-                <input type="password" name="password" ref="password" className="form-control" id="inputPassword" onBlur={this.validateField.bind(this)} placeholder="Password" />
+                <input type="password" name="password" ref="password" className="form-control" id="inputPassword" onBlur={this.userSignup.bind(this)} placeholder="Password" onChange={this.clearOneError.bind(this)} />
                 {errorField.password ? <p style={{color: 'red'}}>{errorField.password}</p> : null}
               </div>
             </div>
             <div className={this.getInputWrapperClass(errorField.profilename)}>
               <label for="inputProfilename" className="col-sm-2 control-label">Profilename</label>
               <div className="col-sm-10">
-                <input type="text" name="profilename" ref="profilename" className="form-control" id="inputProfilename" onBlur={this.validateField.bind(this)} placeholder="Profilename" />
+                <input type="text" name="profile.profilename" ref="profilename" className="form-control" id="inputProfilename" onBlur={this.userSignup.bind(this)} placeholder="Profilename"  onChange={this.clearOneError.bind(this)}/>
                 {errorField.profilename ? <p style={{color: 'red'}}>{errorField.profilename}</p> : null}
               </div>
             </div>
             <div className={this.getInputWrapperClass(errorField.firstname)}>
               <label for="inputFirstname" className="col-sm-2 control-label">Firstname</label>
               <div className="col-sm-10">
-                <input type="text" name="firstname" ref="firstname" className="form-control" id="inputFirstname" onBlur={this.validateField.bind(this)} placeholder="Firstname" />
+                <input type="text" name="profile.firstname" ref="firstname" className="form-control" id="inputFirstname" onBlur={this.userSignup.bind(this)} placeholder="Firstname" onChange={this.clearOneError.bind(this)}/>
                 {errorField.firstname ? <p style={{color: 'red'}}>{errorField.firstname}</p> : null}
               </div>
             </div>
             <div className={this.getInputWrapperClass(errorField.lastname)}>
               <label for="inputLastname" className="col-sm-2 control-label">Lastname</label>
               <div className="col-sm-10">
-                <input type="text" name="lastname" ref="lastname" className="form-control" id="inputLastname" onBlur={this.validateField.bind(this)} placeholder="Lastname" />
+                <input type="text" name="profile.lastname" ref="lastname" className="form-control" id="inputLastname" onBlur={this.userSignup.bind(this)} placeholder="Lastname" onChange={this.clearOneError.bind(this)}/>
                 {errorField.lastname ? <p style={{color: 'red'}}>{errorField.lastname}</p> : null}
               </div>
             </div>
             <div className={this.getInputWrapperClass(errorField.gender)}>
               <label for="selectGender" className="col-sm-2 control-label">Gender</label>
               <div className="col-sm-10">
-                <select className="form-control" name="gender" id="selectGender" onBlur={this.validateField.bind(this)} ref="gender">
-                  <option value>- select gender -</option>
+                <select className="form-control" name="profile.gender" id="selectGender" onBlur={this.userSignup.bind(this)} ref="gender" onChange={this.clearOneError.bind(this)}>
+                  <option value="">- select gender -</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                 </select>
@@ -68,7 +68,7 @@ class UsersSignup extends React.Component {
             <div className={this.getInputWrapperClass(errorField.age)}>
               <label for="selectAge" className="col-sm-2 control-label">Age</label>
               <div className="col-sm-10">
-                <select className="form-control" id="selectAge" name="age" onBlur={this.validateField.bind(this)} ref="age">
+                <select className="form-control" id="selectAge" name="profile.age" onBlur={this.userSignup.bind(this)} ref="age" onChange={this.clearOneError.bind(this)}>
                   <option value>- select age -</option>
                   { getAgeOptions ? getAgeOptions.map(value => (<option key={value.age} value={value.age}>{value.age}</option>))
                     : <option>Invalid Age Object</option> }
@@ -96,10 +96,15 @@ class UsersSignup extends React.Component {
     if(e && e.preventDefault){
       e.preventDefault();
     }
+
     const {userSignup} = this.props;
     const {email,password,lastname,firstname,gender,profilename,age} = this.refs;
 
-    const formData = {
+    var formData = {};
+    formData[e.currentTarget.name] = e.currentTarget.value;
+
+    if(e.type == "submit"){
+     formData = {
       "emails.$.address" : email.value,
       "password" : password.value,
       "profile.profilename" : profilename.value,
@@ -109,9 +114,11 @@ class UsersSignup extends React.Component {
       "profile.age" : parseInt(age.value),
       "createdAt" : new Date(),
       "modifiedAt" : new Date(),
-    }
+    };
 
-    userSignup(formData);
+  }
+
+  userSignup(formData,e.type);
   }
 
   clearError(e){
@@ -120,6 +127,16 @@ class UsersSignup extends React.Component {
     }
     const {clearErrors} = this.props;
     clearErrors();
+  }
+
+  clearOneError(e){
+    if(e && e.preventDefault){
+      e.preventDefault();
+    }
+
+
+    const {clearOneError} = this.props;
+    clearOneError(e.currentTarget.name);
   }
 
 

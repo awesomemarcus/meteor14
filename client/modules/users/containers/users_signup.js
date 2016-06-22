@@ -25,6 +25,7 @@ export const composer = ({context,clearErrors}, onData) => {
 export const depsMapper = (context, actions) => ({
   userSignup:actions.users.userSignup,
   clearErrors:actions.users.clearErrors,
+  clearOneError:actions.users.clearOneError,
   validateInputField:actions.users.validateInputField,
   context: () => context,
 });

@@ -26,28 +26,26 @@ export default function () {
   Meteor.methods({
     'usersSignup'(formData) {
       check(formData,Object);
-      let Checker =  User.namedContext("myContext");
-      let schemaNoError = Checker.validate(formData);
-      let signUpErrors = Checker.invalidKeys();
-      _.map(signUpErrors, function (o) { //map errors on each fields
-          throw new Meteor.Error(Checker.keyErrorMessage(o.name));
-      });
+      const data = {
+        "email" : formData["emails.$.address"],
+        "password" : formData["password"],
+        "profile.profilename" : formData["profile.profilename"],
+        "profile.firstname" :formData["profile.firstname"],
+        "profile.lastname" : formData["profile.lastname"],
+        "profile.gender" : formData["profile.gender"],
+        "profile.age" : formData["profile.age"],
+        modifiedAt : new Date(),
+        createdAt : new Date(),
+      };
 
-      if(!schemaNoError) {
-          throw new Meteor.Error("Please fill in the form correctly.");
+      let Checker =  User.namedContext("myContext");
+      let schemaHasNoError = Checker.validate(formData);
+      if(!schemaHasNoError) {
+          let signUpErrors = Checker.invalidKeys();
+          throw new Meteor.Error(Checker.keyErrorMessage(signUpErrors[0].name));
       }
 
-      Accounts.createUser({
-       "email" : formData["emails.$.address"],
-       "password" : formData["password"],
-       "profile.profilename" : formData["profile.profilename"],
-       "profile.firstname" :formData["profile.firstname"],
-       "profile.lastname" : formData["profile.lastname"],
-       "profile.gender" : formData["profile.gender"],
-       "profile.age" : formData["profile.age"],
-       modifiedAt : new Date(),
-       createdAt : new Date(),
-     });
+      Accounts.createUser(data);
 
 
 

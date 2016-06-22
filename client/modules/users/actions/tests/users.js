@@ -37,31 +37,21 @@ describe('users.actions.userSignup', () => {
 
 
 
-  it("it should require email is not null", ()=>{
-      formData["emails.$.address"] = null;
-      actions.userSignup({LocalState,User, _},formData);
-      expect(LocalState.set.args[2]).to.deep.equal(["emails.$.address" , "Email Addess is required"]);
-  });
 
   it("it should say password must be atleast 6 characters", ()=>{
       formData["emails.$.address"] = "jun@mail.com";
       formData["password"] = "four";
       actions.userSignup({LocalState,User, _},formData);
-      expect(LocalState.set.args[3]).to.deep.equal(["password" , "Password must be at least 6 characters"]);
+      expect(LocalState.set.args[2]).to.deep.equal(["password" , "Password must be at least 6 characters"]);
   });
 
-  it("it should require password", ()=>{
-      formData["emails.$.address"] = "jun@mail.com";
-      formData["password"] = null;
-      actions.userSignup({LocalState,User, _},formData);
-      expect(LocalState.set.args[4]).to.deep.equal(["password" , "Password is required"]);
-  });
+
 
   it("it should not allow morethan 20 characters", ()=>{
       formData["emails.$.address"] = "jun@mail.com";
       formData["password"] = "123456789012345678901asjhasdkfjhaskjdhqwexckvbkdjfakshdgfkajshdgfqwoieusdfjhsadfkjahsdkfjhasdkfjhasgiouqweskjhfaskjdhxcvajhsdfkjahsdfasdlkfjhqwiuefqiwhfkajsddhfqiwueff";
       actions.userSignup({LocalState,User, _},formData);
-      expect(LocalState.set.args[5]).to.deep.equal(["password" , "Password cannot exceed 100 characters"]);
+      expect(LocalState.set.args[3]).to.deep.equal(["password" , "Password cannot exceed 100 characters"]);
   });
 
   it("it should say profilemustbe at least 1 char", ()=>{
@@ -69,7 +59,7 @@ describe('users.actions.userSignup', () => {
       formData["password"] = "password";
       formData["profile.profilename"] = "";
       actions.userSignup({LocalState,User, _},formData);
-      expect(LocalState.set.args[6]).to.deep.equal(["profile.profilename" , "Profilename must be at least 1 characters"]);
+      expect(LocalState.set.args[4]).to.deep.equal(["profile.profilename" , "Profilename must be at least 1 characters"]);
   });
 
   it("it should say gay is not allowed value on gender", ()=>{
@@ -78,17 +68,10 @@ describe('users.actions.userSignup', () => {
       formData["profile.profilename"] = "profilename";
       formData["profile.gender"] = "gay";
       actions.userSignup({LocalState,User, _},formData);
-      expect(LocalState.set.args[7]).to.deep.equal(["profile.gender" , "gay is not an allowed value"]);
+      expect(LocalState.set.args[5]).to.deep.equal(["profile.gender" , "gay is not an allowed value"]);
   });
 
-  it("it should require gender field", ()=>{
-      formData["emails.$.address"] = "jun@mail.com";
-      formData["password"] = "password";
-      formData["profile.profilename"] = "profilename";
-      formData["profile.gender"] = null;
-      actions.userSignup({LocalState,User, _},formData);
-      expect(LocalState.set.args[8]).to.deep.equal(["profile.gender" , "Gender is required"]);
-  });
+
 
 
 
@@ -99,20 +82,11 @@ describe('users.actions.userSignup', () => {
       formData["profile.gender"] = "male";
       formData["profile.age"] = "not a number";
       actions.userSignup({LocalState,User, _},formData);
-      expect(LocalState.set.args[9]).to.deep.equal(["profile.age" , "Age must be a number"]);
+      expect(LocalState.set.args[6]).to.deep.equal(["profile.age" , "Age must be a number"]);
   });
 
 
 
-    it("it should require age feild", ()=>{
-        formData["emails.$.address"] = "jun@mail.com";
-        formData["password"] = "password";
-        formData["profile.profilename"] = "profilename";
-        formData["profile.gender"] = "male";
-        formData["profile.age"] = null;
-        actions.userSignup({LocalState,User, _},formData);
-        expect(LocalState.set.args[10]).to.deep.equal(["profile.age" , "Age is required"]);
-    });
 
 
     it("it should require age cannot exceed 99", ()=>{
@@ -122,7 +96,7 @@ describe('users.actions.userSignup', () => {
         formData["profile.gender"] = "male";
         formData["profile.age"] = 100;
         actions.userSignup({LocalState,User, _},formData);
-        expect(LocalState.set.args[11]).to.deep.equal(["profile.age" , "Age cannot exceed 99"]);
+        expect(LocalState.set.args[7]).to.deep.equal(["profile.age" , "Age cannot exceed 99"]);
     });
 
     it("it should require age  must be at least 18", ()=>{
@@ -132,6 +106,6 @@ describe('users.actions.userSignup', () => {
         formData["profile.gender"] = "male";
         formData["profile.age"] = 17;
         actions.userSignup({LocalState,User, _},formData);
-        expect(LocalState.set.args[12]).to.deep.equal(["profile.age" , "Age must be at least 18"]);
+        expect(LocalState.set.args[8]).to.deep.equal(["profile.age" , "Age must be at least 18"]);
     });
 });

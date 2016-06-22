@@ -30,17 +30,23 @@ export default {
 
   },
 
-  userSignup({Meteor, LocalState,FlowRouter, User, _},formData){
-
-      let Checker =  User.namedContext("myContext");
-      let schemaHasNoError = Checker.validate(formData);
-      let signUpErrors = Checker.invalidKeys();
-      _.map(signUpErrors, function (o) { //map errors on each fields
-          LocalState.set(o.name,Checker.keyErrorMessage(o.name));
-      });
+  userSignup({Meteor, LocalState,FlowRouter, User, _},formData,eventType){
 
 
-      if(schemaHasNoError){
+     let Checker =  User.namedContext("myContext");
+     let schemaHasNoError = true;
+    //loop to all dataform submitted and validate each
+    for(let key in formData) {
+        if(!Checker.validateOne(formData, key)){
+              schemaHasNoError = false; //formData will not be submitted
+              LocalState.set(key,Checker.keyErrorMessage(key));
+        }
+    }
+
+
+
+      if(schemaHasNoError && eventType == "submit"){
+
         Meteor.call("usersSignup",formData,(err)=> {
           if(err){
             return LocalState.set("main_error",err.message);
@@ -59,7 +65,7 @@ export default {
 
 
   },
-  
+
   userLogin({Meteor, LocalState,FlowRouter},formData){
 
       Meteor.loginWithPassword(formData["emails.$.address"], formData["password"], (err)=>{
@@ -69,6 +75,11 @@ export default {
         FlowRouter.go("/");
       })
 
+  },
+
+  clearOneError({LocalState},key){
+    LocalState.set(key,null);
+    return  true;
   },
 
   clearErrors({LocalState}){
