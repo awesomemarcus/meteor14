@@ -1,65 +1,50 @@
-
-
-
 export default {
-  validateInputField({LocalState, User}, field, value){
-    var key = "";
-    var userObj = {};
 
-    key = "profile." + field;
-    userObj[key] = value;
+  userSignup({Meteor, LocalState,FlowRouter, User, formValidator, _}, formData, fieldName, fieldValue){
 
-    if(field === 'email'){
-      key = "emails.$.address";
-      userObj[key] = value;
+    /*start Form Object Definition*/
+    let formObject = LocalState.get("formObject");
+
+    if(!formObject){
+      let objectArray = {};
+      objectArray[fieldName] = fieldValue;
+
+      formObject = objectArray;
     }
 
-    if(field === 'password'){
-      key = field;
-      userObj[key] = value;
+    formObject[fieldName] = fieldValue;
+
+    if(formData){
+      formObject = formData;
     }
 
-    let Checker =  User.namedContext("myContext");
-    const validate = Checker.validateOne(userObj, key);
+    LocalState.set("formObject", formObject);
+    /*end Form Object Definition*/
 
-    LocalState.set(key, null);
+    /*Validating form object*/
+    const userContext = User.namedContext("myContext");
+    const result = formValidator(userContext, formObject);
+    /*Validating form object*/
 
-    if(!validate) {
-      LocalState.set(key, Checker.keyErrorMessage(key));
-    }
+    if(result.validate && formData){
+      Meteor.call("usersSignup",formObject,(err) => {
+        if(err){
+          return LocalState.set("main_error", err.message);
+        }
 
-  },
-
-  userSignup({Meteor, LocalState,FlowRouter, User, _},formData){
-
-      let Checker =  User.namedContext("myContext");
-      let schemaHasNoError = Checker.validate(formData);
-      let signUpErrors = Checker.invalidKeys();
-      _.map(signUpErrors, function (o) { //map errors on each fields
-          LocalState.set(o.name,Checker.keyErrorMessage(o.name));
-      });
-
-
-      if(schemaHasNoError){
-        Meteor.call("usersSignup",formData,(err)=> {
+        Meteor.loginWithPassword(formObject["emails.$.address"], formObject["password"], (err)=>{
           if(err){
             return LocalState.set("main_error",err.message);
           }
-
-          Meteor.loginWithPassword(formData["emails.$.address"], formData["password"], (err)=>{
-            if(err){
-              return LocalState.set("main_error",err.message);
-            }
-            FlowRouter.go("/");
-          })
-
+          FlowRouter.go("/");
         })
-      }
 
+      });
+    }
 
-
+    LocalState.set("formErrorObject", result.errorObject);
   },
-  
+
   userLogin({Meteor, LocalState,FlowRouter},formData){
 
       Meteor.loginWithPassword(formData["emails.$.address"], formData["password"], (err)=>{
@@ -72,13 +57,8 @@ export default {
   },
 
   clearErrors({LocalState}){
-    LocalState.set("profile.profilename",null);
-    LocalState.set("profile.firstname",null);
-    LocalState.set("profile.lastname",null);
-    LocalState.set("emails.$.address",null);
-    LocalState.set("password",null);
-    LocalState.set("profile.age",null);
-    LocalState.set("profile.gender",null) ;
+    LocalState.set("formObject",null);
+    LocalState.set("formErrorObject",null);
     LocalState.set("main_error",null) ;
     return  true;
   },

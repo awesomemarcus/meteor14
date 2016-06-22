@@ -11,7 +11,8 @@ describe('users.containers.usersSignup', () => {
       const context = () => ({LocalState});
       composer({context}, spy());
       const args = LocalState.get.args;
-      expect(args).to.have.length(8);
+
+      expect(args).to.have.length(9);
 
       expect(args[0]).to.be.deep.equal([ "profile.profilename", null ]);
       expect(args[1]).to.be.deep.equal([ "profile.firstname", null ]);

@@ -6,7 +6,7 @@ const formatDate = (date) => {
 
 const previousPage = () => {
   return history.back();
-}
+};
 
 module.exports = {
   formatDate,

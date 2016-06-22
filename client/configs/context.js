@@ -23,6 +23,22 @@ const authCommon = function () {
 
 };
 
+const formValidator = (schemaContext, object) => {
+  let errorObject = {};
+
+  const validate = schemaContext.validate(object);
+  let signUpErrors = schemaContext.invalidKeys();
+  _.map(signUpErrors, function (err) { //map errors on each fields
+      errorObject[err.name] = schemaContext.keyErrorMessage(err.name);
+  });
+
+  return {
+      validate: validate ,
+      errorObject:errorObject,
+    };
+
+};
+
 
 export default function () {
   return {
@@ -36,5 +52,6 @@ export default function () {
     CategorySchem,
     User,
     _ ,
+    formValidator,
   };
 }
