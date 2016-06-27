@@ -6,74 +6,81 @@ class UsersSignup extends React.Component {
 
 
   render() {
-    const  {errorField, getAgeOptions} = this.props;
+    const  {getAgeOptions, formErrorObject, mainError} = this.props;
 
     return(
       <div className="container">
         <div className="col-sm-8 col-sm-offset-2">
 
           <h2><span className="glyphicon glyphicon-plus"></span> User Signup</h2>
-          {errorField.error ? <p  style={{color: 'red'}}>{errorField.error}</p> : null}
-          <form className="form-horizontal" onSubmit={this.userSignup.bind(this)} >
-            <div className={this.getInputWrapperClass(errorField.email)}>
+
+          {mainError ? <p  style={{color: 'red'}}>{mainError}</p> : null}
+          <form className="form-horizontal" onSubmit={this.handleSubmit.bind(this)}>
+            <div className={this.getInputWrapperClass(formErrorObject, "emails.$.address")}>
 
               <label for="inputEmail3" className="col-sm-2 control-label">Email</label>
               <div className="col-sm-10">
-                <input type="email" name="emails.$.address" ref="email" className="form-control" id="inputEmail" onBlur={this.userSignup.bind(this)} placeholder="Email" onChange={this.clearOneError.bind(this)} />
-                {errorField.email ? <p style={{color: 'red'}}>{errorField.email}</p> : null}
+                <input type="email" name="emails.$.address" ref="email" className="form-control" id="inputEmail" onBlur={this.handleBlur.bind(this)} placeholder="Email" />
+                {formErrorObject ? <p style={{color: 'red'}}>{formErrorObject["emails.$.address"]}</p> : null}
               </div>
             </div>
-            <div className={this.getInputWrapperClass(errorField.password)}>
+            <div className={this.getInputWrapperClass(formErrorObject, "password")}>
               <label for="inputPassword3" className="col-sm-2 control-label">Password</label>
               <div className="col-sm-10">
-                <input type="password" name="password" ref="password" className="form-control" id="inputPassword" onBlur={this.userSignup.bind(this)} placeholder="Password" onChange={this.clearOneError.bind(this)} />
-                {errorField.password ? <p style={{color: 'red'}}>{errorField.password}</p> : null}
+                <input type="password" name="password" ref="password" className="form-control" id="inputPassword" onBlur={this.handleBlur.bind(this)} placeholder="Password" />
+                {formErrorObject ? <p style={{color: 'red'}}>{formErrorObject["password"]}</p> : null}
               </div>
             </div>
-            <div className={this.getInputWrapperClass(errorField.profilename)}>
+            <div className={this.getInputWrapperClass(formErrorObject, "confirmPassword")}>
+              <label for="inputConfirmPassword" className="col-sm-2 control-label">Confirm Password</label>
+              <div className="col-sm-10">
+                <input type="password" name="confirmPassword" ref="confirmPassword" className="form-control" id="inputConfirmPassword" onBlur={this.handleBlur.bind(this)} placeholder="Confirm Password" />
+                {formErrorObject ? <p style={{color: 'red'}}>{formErrorObject["confirmPassword"]}</p> : null}
+              </div>
+            </div>
+            <div className={this.getInputWrapperClass(formErrorObject, "profile.profilename")}>
               <label for="inputProfilename" className="col-sm-2 control-label">Profilename</label>
               <div className="col-sm-10">
-                <input type="text" name="profile.profilename" ref="profilename" className="form-control" id="inputProfilename" onBlur={this.userSignup.bind(this)} placeholder="Profilename"  onChange={this.clearOneError.bind(this)}/>
-                {errorField.profilename ? <p style={{color: 'red'}}>{errorField.profilename}</p> : null}
+                <input type="text" name="profile.profilename" ref="profilename" className="form-control" id="inputProfilename" onBlur={this.handleBlur.bind(this)} placeholder="Profilename" />
+                {formErrorObject ? <p style={{color: 'red'}}>{formErrorObject["profile.profilename"]}</p> : null}
               </div>
             </div>
-            <div className={this.getInputWrapperClass(errorField.firstname)}>
+            <div className={this.getInputWrapperClass(formErrorObject, "profile.firstname")}>
               <label for="inputFirstname" className="col-sm-2 control-label">Firstname</label>
               <div className="col-sm-10">
-                <input type="text" name="profile.firstname" ref="firstname" className="form-control" id="inputFirstname" onBlur={this.userSignup.bind(this)} placeholder="Firstname" onChange={this.clearOneError.bind(this)}/>
-                {errorField.firstname ? <p style={{color: 'red'}}>{errorField.firstname}</p> : null}
+                <input type="text" name="profile.firstname" ref="firstname" className="form-control" id="inputFirstname" onBlur={this.handleBlur.bind(this)} placeholder="Firstname" />
+                {formErrorObject ? <p style={{color: 'red'}}>{formErrorObject["profile.firstname"]}</p> : null}
               </div>
             </div>
-            <div className={this.getInputWrapperClass(errorField.lastname)}>
+            <div className={this.getInputWrapperClass(formErrorObject, "profile.lastname")}>
               <label for="inputLastname" className="col-sm-2 control-label">Lastname</label>
               <div className="col-sm-10">
-                <input type="text" name="profile.lastname" ref="lastname" className="form-control" id="inputLastname" onBlur={this.userSignup.bind(this)} placeholder="Lastname" onChange={this.clearOneError.bind(this)}/>
-                {errorField.lastname ? <p style={{color: 'red'}}>{errorField.lastname}</p> : null}
+                <input type="text" name="profile.lastname" ref="lastname" className="form-control" id="inputLastname" onBlur={this.handleBlur.bind(this)} placeholder="Lastname" />
+                {formErrorObject ? <p style={{color: 'red'}}>{formErrorObject["profile.lastname"]}</p> : null}
               </div>
             </div>
-            <div className={this.getInputWrapperClass(errorField.gender)}>
+            <div className={this.getInputWrapperClass(formErrorObject, "profile.gender")}>
               <label for="selectGender" className="col-sm-2 control-label">Gender</label>
               <div className="col-sm-10">
-                <select className="form-control" name="profile.gender" id="selectGender" onBlur={this.userSignup.bind(this)} ref="gender" onChange={this.clearOneError.bind(this)}>
-                  <option value="">- select gender -</option>
+                <select className="form-control" name="profile.gender" id="selectGender" onBlur={this.handleBlur.bind(this)} ref="gender">
+                  <option value>- select gender -</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                 </select>
-                {errorField.gender ? <p style={{color: 'red'}}>{errorField.gender}</p> : null}
+                {formErrorObject ? <p style={{color: 'red'}}>{formErrorObject["profile.gender"]}</p> : null}
               </div>
             </div>
 
 
-
-            <div className={this.getInputWrapperClass(errorField.age)}>
+            <div className={this.getInputWrapperClass(formErrorObject, "profile.age")}>
               <label for="selectAge" className="col-sm-2 control-label">Age</label>
               <div className="col-sm-10">
-                <select className="form-control" id="selectAge" name="profile.age" onBlur={this.userSignup.bind(this)} ref="age" onChange={this.clearOneError.bind(this)}>
+                <select className="form-control" id="selectAge" name="profile.age" onBlur={this.handleBlur.bind(this)} ref="age">
                   <option value>- select age -</option>
                   { getAgeOptions ? getAgeOptions.map(value => (<option key={value.age} value={value.age}>{value.age}</option>))
                     : <option>Invalid Age Object</option> }
                 </select>
-                {errorField.age ? <p style={{color: 'red'}}>{errorField.age}</p> : null}
+                {formErrorObject ? <p style={{color: 'red'}}>{formErrorObject["profile.age"]}</p> : null}
               </div>
             </div>
             <div className="form-group">
@@ -90,81 +97,51 @@ class UsersSignup extends React.Component {
     );
   }
 
-
-
-  userSignup(e){
+  handleSubmit(e){
     if(e && e.preventDefault){
       e.preventDefault();
+
+      const {userSignup} = this.props;
+
+      let formData = {};
+      const formDataSerialize = $(e.currentTarget).serializeArray();
+
+      formDataSerialize.map(form => {
+        formData[form.name] = form.value;
+        if(form.name === "profile.age"){
+          formData[form.name] = parseInt(form.value);
+        }
+      });
+
+      userSignup(formData);
     }
-
-    const {userSignup} = this.props;
-    const {email,password,lastname,firstname,gender,profilename,age} = this.refs;
-
-    var formData = {};
-    formData[e.currentTarget.name] = e.currentTarget.value;
-
-    if(e.type == "submit"){
-     formData = {
-      "emails.$.address" : email.value,
-      "password" : password.value,
-      "profile.profilename" : profilename.value,
-      "profile.firstname" : firstname.value,
-      "profile.lastname" : lastname.value,
-      "profile.gender" : gender.value,
-      "profile.age" : parseInt(age.value),
-      "createdAt" : new Date(),
-      "modifiedAt" : new Date(),
-    };
-
   }
 
-  userSignup(formData,e.type);
-  }
-
-  clearError(e){
+  handleBlur(e){
     if(e && e.preventDefault){
-      e.preventDefault();
+      const {userSignup} = this.props;
+
+      const fieldName = e.currentTarget.name;
+      let fieldValue = e.currentTarget.value;
+
+      if(fieldName === 'profile.age') {
+        fieldValue = parseInt(e.currentTarget.value);
+      }
+
+      userSignup(null, fieldName, fieldValue);
     }
-    const {clearErrors} = this.props;
-    clearErrors();
-  }
-
-  clearOneError(e){
-    if(e && e.preventDefault){
-      e.preventDefault();
-    }
-
-
-    const {clearOneError} = this.props;
-    clearOneError(e.currentTarget.name);
   }
 
 
-  getInputWrapperClass(errorObj) {
+  getInputWrapperClass(errorObject, field) {
     var classes = 'form-group';
 
-    if (errorObj) {
+    if (errorObject && errorObject[field]) {
       classes = 'form-group has-error';
     }
 
-
     return classes;
 
-  }
-
-  validateField(event) {
-    if(event && event.preventDefault){
-      const {validateInputField} = this.props;
-
-      const fieldName = event.currentTarget.name;
-      let fieldValue = event.currentTarget.value;
-
-      if(fieldName === 'age') {
-        fieldValue = parseInt(event.currentTarget.value);
-      }
-
-      validateInputField(fieldName, fieldValue);
-    }
   }
 
 }

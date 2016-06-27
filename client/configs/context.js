@@ -23,6 +23,34 @@ const authCommon = function () {
 
 };
 
+const formValidator = (schemaContext, object) => {
+  let errorObject = {};
+
+  const validate = schemaContext.validate(object);
+  const formErrors = schemaContext.invalidKeys();
+
+  _.map(formErrors, function (err) { //map errors for each fields
+      errorObject[err.name] = schemaContext.keyErrorMessage(err.name);
+  });
+
+  return {
+      validate: validate ,
+      errorObject:errorObject,
+    };
+};
+
+const pushToObject = (formObject, fieldName, fieldValue) => {
+  if(!formObject){
+    let objectArray = {};
+    objectArray[fieldName] = fieldValue;
+
+    formObject = objectArray;
+  }
+
+  formObject[fieldName] = fieldValue;
+
+  return formObject;
+}
 
 export default function () {
   return {
@@ -36,5 +64,7 @@ export default function () {
     CategorySchem,
     User,
     _ ,
+    formValidator,
+    pushToObject,
   };
 }
