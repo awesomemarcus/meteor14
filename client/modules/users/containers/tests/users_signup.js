@@ -3,6 +3,16 @@ import {expect} from 'chai';
 import {spy, stub} from 'sinon';
 import {composer, depsMapper} from '../users_signup';
 
+const initAgeOptions = () => {
+  const ageOptions = [];
+
+  for (let minAge = 18; minAge <= 99; minAge++) {
+    ageOptions.push({age: minAge});
+  }
+
+  return ageOptions;
+};
+
 describe('users.containers.usersSignup', () => {
   describe('composer', () => {
 
@@ -12,16 +22,10 @@ describe('users.containers.usersSignup', () => {
       composer({context}, spy());
       const args = LocalState.get.args;
 
-      expect(args).to.have.length(9);
+      expect(args).to.have.length(2);
 
-      expect(args[0]).to.be.deep.equal([ "profile.profilename", null ]);
-      expect(args[1]).to.be.deep.equal([ "profile.firstname", null ]);
-      expect(args[2]).to.be.deep.equal([ "profile.lastname", null ]);
-      expect(args[3]).to.be.deep.equal([ "emails.$.address", null ]);
-      expect(args[4]).to.be.deep.equal([ "password", null ]);
-      expect(args[5]).to.be.deep.equal([ "profile.age", null ]);
-      expect(args[6]).to.be.deep.equal([ "profile.gender", null ]);
-      expect(args[7]).to.be.deep.equal([ "main_error", null ]);
+      expect(args[0]).to.be.deep.equal([ "formErrorObject", null ]);
+      expect(args[1]).to.be.deep.equal([ "mainError", null ]);
 
     });
 
@@ -31,18 +35,11 @@ describe('users.containers.usersSignup', () => {
       const onData = spy();
       composer({context}, onData);
       const args = onData.args[0];
-      const ErrorObject = {
-        profilename: 'error',
-        firstname: 'error',
-        lastname: 'error',
-        email: 'error',
-        password: 'error',
-        age: 'error',
-        gender: 'error',
-        error: 'error' ,
-                      };
+
       expect(args[0]).to.be.equal(null);
-      expect(args[1].errorField).to.be.deep.equal(ErrorObject);
+      expect(args[1].getAgeOptions).to.be.deep.equal(initAgeOptions());
+      expect(args[1].formErrorObject).to.be.deep.equal('error');
+      expect(args[1].mainError).to.be.deep.equal('error');
 
     });
 
@@ -70,11 +67,6 @@ describe('users.containers.usersSignup', () => {
         expect(deps.clearErrors).to.be.equal(actions.users.clearErrors);
       });
 
-      it('should map users.validateInputField', () => {
-        const actions = {users: {validateInputField: spy()}};
-        const deps = depsMapper({}, actions);
-        expect(deps.validateInputField).to.be.equal(actions.users.validateInputField);
-      });
   });
 
 

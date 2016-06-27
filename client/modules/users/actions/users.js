@@ -22,7 +22,7 @@ export default {
     if(result.validate && formData){
       Meteor.call("usersSignup",formObject,(err) => {
         if(err){
-          return LocalState.set("main_error", err.message);
+          return LocalState.set("mainError", err.message);
         }
 
         Meteor.loginWithPassword(formObject["emails.$.address"], formObject["password"], (err)=>{
