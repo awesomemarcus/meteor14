@@ -2,7 +2,6 @@ import React from 'react';
 
 class Pagination extends React.Component {
   render () {
-    console.log(this.props);
     const itemPerPage = 2;
     const {
       setTotalPages,

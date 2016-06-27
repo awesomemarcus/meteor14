@@ -21,7 +21,7 @@ export default {
     });
   },
 
-  extendPages({LocalState}, value, loadPageInit) {
+  extendPages({LocalState}) {
     let newPageLength = 3;
 
     if(LocalState.get('INIT_PAGE_LOAD')) {
