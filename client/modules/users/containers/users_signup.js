@@ -5,12 +5,11 @@ import Signup from '../components/users_signup';
 export const composer = ({context,clearErrors}, onData) => {
   const {LocalState} = context();
 
-  const formObject = LocalState.get("formObject");
   const formErrorObject = LocalState.get("formErrorObject");
-  const mainError = LocalState.get("main_error");
+  const mainError = LocalState.get("mainError");
   const getAgeOptions = initAgeOptions();
 
-  onData(null, {formObject, getAgeOptions, formErrorObject, mainError});
+  onData(null, {getAgeOptions, formErrorObject, mainError});
 
  return clearErrors;
 };

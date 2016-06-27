@@ -1,18 +1,11 @@
 export default {
 
-  userSignup({Meteor, LocalState,FlowRouter, User, formValidator, _}, formData, fieldName, fieldValue){
+  userSignup({Meteor, LocalState,FlowRouter, User, formValidator, pushToObject}, formData, fieldName, fieldValue){
 
     /*start Form Object Definition*/
-    let formObject = LocalState.get("formObject");
+    let object = LocalState.get("formObject");
 
-    if(!formObject){
-      let objectArray = {};
-      objectArray[fieldName] = fieldValue;
-
-      formObject = objectArray;
-    }
-
-    formObject[fieldName] = fieldValue;
+    let formObject = pushToObject(object, fieldName, fieldValue);
 
     if(formData){
       formObject = formData;
@@ -34,7 +27,7 @@ export default {
 
         Meteor.loginWithPassword(formObject["emails.$.address"], formObject["password"], (err)=>{
           if(err){
-            return LocalState.set("main_error",err.message);
+            return LocalState.set("mainError",err.message);
           }
           FlowRouter.go("/");
         })
@@ -57,9 +50,8 @@ export default {
   },
 
   clearErrors({LocalState}){
-    LocalState.set("formObject",null);
     LocalState.set("formErrorObject",null);
-    LocalState.set("main_error",null) ;
+    LocalState.set("mainError",null) ;
     return  true;
   },
 }

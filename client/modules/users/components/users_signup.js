@@ -30,6 +30,13 @@ class UsersSignup extends React.Component {
                 {formErrorObject ? <p style={{color: 'red'}}>{formErrorObject["password"]}</p> : null}
               </div>
             </div>
+            <div className={this.getInputWrapperClass(formErrorObject, "confirmPassword")}>
+              <label for="inputConfirmPassword" className="col-sm-2 control-label">Confirm Password</label>
+              <div className="col-sm-10">
+                <input type="password" name="confirmPassword" ref="confirmPassword" className="form-control" id="inputConfirmPassword" onBlur={this.handleBlur.bind(this)} placeholder="Confirm Password" />
+                {formErrorObject ? <p style={{color: 'red'}}>{formErrorObject["confirmPassword"]}</p> : null}
+              </div>
+            </div>
             <div className={this.getInputWrapperClass(formErrorObject, "profile.profilename")}>
               <label for="inputProfilename" className="col-sm-2 control-label">Profilename</label>
               <div className="col-sm-10">
@@ -107,7 +114,6 @@ class UsersSignup extends React.Component {
       });
 
       userSignup(formData);
-
     }
   }
 

@@ -27,8 +27,9 @@ const formValidator = (schemaContext, object) => {
   let errorObject = {};
 
   const validate = schemaContext.validate(object);
-  let signUpErrors = schemaContext.invalidKeys();
-  _.map(signUpErrors, function (err) { //map errors on each fields
+  const formErrors = schemaContext.invalidKeys();
+
+  _.map(formErrors, function (err) { //map errors for each fields
       errorObject[err.name] = schemaContext.keyErrorMessage(err.name);
   });
 
@@ -36,9 +37,20 @@ const formValidator = (schemaContext, object) => {
       validate: validate ,
       errorObject:errorObject,
     };
-
 };
 
+const pushToObject = (formObject, fieldName, fieldValue) => {
+  if(!formObject){
+    let objectArray = {};
+    objectArray[fieldName] = fieldValue;
+
+    formObject = objectArray;
+  }
+
+  formObject[fieldName] = fieldValue;
+
+  return formObject;
+}
 
 export default function () {
   return {
@@ -53,5 +65,6 @@ export default function () {
     User,
     _ ,
     formValidator,
+    pushToObject,
   };
 }
