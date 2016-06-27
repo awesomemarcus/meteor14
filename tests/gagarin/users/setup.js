@@ -8,6 +8,7 @@ module.exports = {
     var formData = {
         "emails.$.address": "rod@snapzio.com",
         "password": "tmp12345",
+        "confirmPassword": "tmp12345",
         "profile.profilename": "rod",
         "profile.firstname": "rod",
         "profile.lastname": "gohetia",

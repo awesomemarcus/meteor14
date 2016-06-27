@@ -15,6 +15,7 @@ describe('User Signup', function () {
         var formData = {
             "emails.$.address": "new-user@snapzio.com",
             "password": "tmp12345",
+            "confirmPassword": "tmp12345",
             "profile.profilename": "new-user",
             "profile.firstname": "new",
             "profile.lastname": "user",
@@ -49,6 +50,7 @@ describe('User Signup', function () {
         var formData = {
             "emails.$.address": "new-user@snapzio.com",
             "password": "tmp12345",
+            "confirmPassword": "tmp12345",
             "profile.profilename": "new-user",
             "profile.firstname": "new",
             "profile.lastname": "user",
