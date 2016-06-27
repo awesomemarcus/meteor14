@@ -56,6 +56,7 @@ export default {
 
   clearErrors({LocalState}){
     LocalState.set("formErrorObject",null);
+    LocalState.set("formObject", null);
     LocalState.set("mainError",null) ;
     return  true;
   },
