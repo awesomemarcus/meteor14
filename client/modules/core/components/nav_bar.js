@@ -22,6 +22,7 @@ class NavBar extends React.Component {
                 <ul className="nav navbar-nav">
                   <li><a href="/categories/list">Categories</a></li>
                   <li><a href="/products/list">Products</a></li>
+                  <li><a href="/pagination">Pagination</a></li>
                 </ul>
 
                 <ul className="nav navbar-nav navbar-right">

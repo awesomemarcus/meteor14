@@ -2,6 +2,14 @@
   margin-top: 100px;
 }
 
+.paginationBtn {
+  display: inline-block!important;
+  position: relative;
+  float: left;
+  margin: 0px;
+  border-radius: 0px!important;
+}
+
 body {
   padding-top: 40px;
   padding-bottom: 40px;
