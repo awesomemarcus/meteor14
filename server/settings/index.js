@@ -3,6 +3,7 @@
 
 export default function () {
 
+ // CUSTOM SETTING FILE
   switch (process.env.SETTINGS) {
     default:
       require('/imports/settings/local.js');
@@ -11,8 +12,10 @@ export default function () {
       require('/imports/settings/dev.js');
       break;
     case 'prod':
-      require('/imports/settings/prod.js');
+      require('/imports/settings/dev.js');
       break;
   }
+  // ALWAYS INCLUDE VERSION
+  require('/imports/settings/version.js');
 
 }
