@@ -4,17 +4,15 @@
 export default function () {
 
   switch (process.env.SETTINGS) {
-    case 'local':
+    default:
       require('/imports/settings/local.js');
       break;
     case 'dev':
       require('/imports/settings/dev.js');
       break;
     case 'prod':
-      require('/imports/settings/dev.js');
+      require('/imports/settings/prod.js');
       break;
-    default:
-      throw new Error("No valid settings enviroment variable");
   }
 
 }

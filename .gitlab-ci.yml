@@ -21,7 +21,6 @@ all-build:
 all-test:
   stage: test
   script:
-    - export SETTINGS="local";
     - time eslint .
     - time npm run test
     - time npm run gagarin-build

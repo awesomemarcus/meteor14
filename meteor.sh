@@ -1,7 +1,6 @@
 #!/bin/bash
 # Meteor wrapper
 export MONGO_URL=mongodb://localhost:27017/mantraboilerplate_local
-export SETTINGS=local
 PORT=3010
 
 # INITIAL CHECKS
