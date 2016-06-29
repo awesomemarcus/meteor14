@@ -5,13 +5,12 @@
   "scripts": {
     "start": "./meteor.sh run",
     "android-device": "./meteor.sh run android-device",
-    "version": "./version.sh > private/version.json",
+    "version":  "./version.sh > imports/settings/version.js",
     "test": "istanbul cover --dir .coverage  _mocha -- .scripts/mocha_boot.js client/**/tests/**/*.js --compilers js:babel-core/register",
     "test-watch": "istanbul cover --dir .coverage  _mocha -- .scripts/mocha_boot.js client/**/tests/**/*.js --compilers js:babel-core/register --watch",
     "storybook": "start-storybook -p 9001",
     "gagarin": "gagarin -Bmv",
-    "gagarin-build": "gagarin --verbose",
-    "testwatch": "istanbul cover --dir .coverage  _mocha -- .scripts/mocha_boot.js client/**/tests/**/*.js --compilers js:babel-core/register --watch"
+    "gagarin-build": "gagarin --verbose"
   },
   "repository": {
     "type": "git",
