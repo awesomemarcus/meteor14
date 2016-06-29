@@ -12,7 +12,7 @@ export default function () {
       require('/imports/settings/dev.js');
       break;
     case 'prod':
-      require('/imports/settings/dev.js');
+      require('/imports/settings/prod.js');
       break;
   }
   // ALWAYS INCLUDE VERSION
