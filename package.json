@@ -7,9 +7,9 @@
     "port": "3010"
   },
   "scripts": {
-    "start": "export SETTINGS='local'; meteor run --port $npm_package_config_port",
-    "start-android": "meteor run android-device --port $npm_package_config_port --mobile-settings imports/settings/mobile-local.js",
-    "version": "./version.sh > imports/settings/version.js",
+    "start": "./meteor.sh run",
+    "android-device": "./meteor.sh run android-device",
+    "version":  "./version.sh > imports/settings/version.js",
     "test": "istanbul cover --dir .coverage  _mocha -- .scripts/mocha_boot.js client/**/tests/**/*.js --compilers js:babel-core/register",
     "test-watch": "istanbul cover --dir .coverage  _mocha -- .scripts/mocha_boot.js client/**/tests/**/*.js --compilers js:babel-core/register --watch",
     "storybook": "start-storybook -p 9001",

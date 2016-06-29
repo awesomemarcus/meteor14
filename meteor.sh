@@ -1,5 +1,8 @@
 #!/bin/bash
 # Meteor wrapper
+export MONGO_URL=mongodb://localhost:27017/mantraboilerplate_local
+export SETTINGS=local
+PORT=3010
 
 # INITIAL CHECKS
 if [ "$1" == "" ]; then
@@ -14,19 +17,14 @@ if [ "$1" == "run" ]; then
   fi
 fi
 
-# SETTING MONGO
-export MONGO_URL=mongodb://localhost:27017/mantraboilerplate_local
-PORT=3010
 echo MONGO: $MONGO_URL
 
 if [ "$1" == "run" ] &&  [ "$2" == "" ]; then
-    echo RUNNING: "meteor run --port $PORT --settings settings-local.json"
-    npm install
+    echo RUNNING: "meteor run --port $PORT"
     meteor run --port $PORT
 fi
 
 if [ "$1" == "run" ] &&  [ "$2" == "android-device" ]; then
-    echo RUNNING: "meteor run android-device --port $PORT --mobile-settings mobile-local.js"
-    npm install
+    echo RUNNING: "meteor run android-device --port $PORT --mobile-settings imports/settings/mobile-local.js"
     meteor run android-device --port $PORT
 fi
