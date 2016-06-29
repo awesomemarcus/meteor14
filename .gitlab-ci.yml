@@ -6,7 +6,6 @@ before_script:
   - meteor npm --version
   - export PROJECTFILE="mantraboilerplate.tar.gz"
   - export FOLDER="/home/snapzio/mantraboilerplate/"
-  - bash version.sh > private/version.json;
   - alias time="/usr/bin/time -f 'Took %e seconds'"
 
 cache:
@@ -31,6 +30,8 @@ dev-deploy:
   only:
     - dev
   script:
+    - export SETTINGS="dev";
+    - time npm run version;
     - time meteor build . --server-only;
     - time find $FOLDER -mindepth 1 -delete;
     - time rsync -av $PROJECTFILE $FOLDER;
