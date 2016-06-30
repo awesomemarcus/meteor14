@@ -82,12 +82,3 @@ export const NavBarLogOut = () => (
 
 
 export default NavBar;
-
-
-var getSite = React.createClass({
-
-  render: function() {
-      return <img width="75" height="75" src='/site1/logo.jpg' />;
-  },
-
-});
