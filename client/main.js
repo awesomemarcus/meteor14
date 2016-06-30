@@ -36,3 +36,7 @@ DocHead.addLink(cssLink);
 // Loading Meta tag
 var metaInfo = {name: "description", content: "Mantra Boilerplate"};
 DocHead.addMeta(metaInfo);
+
+// CUSTOM SITE BASED CSS
+var customCss = {rel: "stylesheet", href: '/' + Meteor.settings.public.site + '/custom.css'};
+DocHead.addLink(customCss);

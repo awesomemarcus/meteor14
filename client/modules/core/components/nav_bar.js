@@ -61,9 +61,12 @@ export const NavBarLogOut = () => (
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
+
+
+            <img width="75" height="75" src={Meteor.settings.public.site+'/logo.jpg'} />
+
             <a className="navbar-brand" href="#">Mantra Boilerplate</a>
           </div>
-
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav navbar-right">
@@ -71,11 +74,7 @@ export const NavBarLogOut = () => (
                   <li><a href="/users/login">Login</a></li>
             </ul>
 
-
           </div>
-
-
-
 
         </div>
       </nav>
@@ -83,3 +82,12 @@ export const NavBarLogOut = () => (
 
 
 export default NavBar;
+
+
+var getSite = React.createClass({
+
+  render: function() {
+      return <img width="75" height="75" src='/site1/logo.jpg' />;
+  },
+
+});
