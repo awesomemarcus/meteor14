@@ -24,6 +24,8 @@ if [ "$1" == "run" ] &&  [ "$2" == "" ]; then
 fi
 
 if [ "$1" == "run" ] &&  [ "$2" == "android-device" ]; then
-    echo RUNNING: "meteor run android-device --port $PORT --mobile-settings imports/settings/mobile-local.js"
+#    echo RUNNING: "meteor run android-device --port $PORT --mobile-settings imports/settings/mobile-local.js"
+ echo RUNNING: "meteor run android-device --port $PORT --mobile-settings imports/settings/settings.json"
+
     meteor run android-device --port $PORT
 fi
