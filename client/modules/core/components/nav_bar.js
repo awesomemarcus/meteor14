@@ -62,8 +62,6 @@ export const NavBarLogOut = () => (
               <span className="icon-bar"></span>
             </button>
 
-            {Meteor.settings}
-
             <img width="75" height="75" src={Meteor.settings.public.site+'/logo.jpg'} />
 
             <a className="navbar-brand" href="#">Mantra Boilerplate</a>
