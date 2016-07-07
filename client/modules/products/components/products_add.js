@@ -13,7 +13,7 @@ class ProductsAdd extends React.Component {
     $.each($(event.currentTarget).serializeArray(), function() {
       productData[this.name] = this.value;
     });
-
+    productData.price = parseFloat(productData.price);
     productsAdd(productData);
 
   }
