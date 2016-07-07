@@ -46,10 +46,35 @@ export default function () {
       }
 
       Accounts.createUser(data);
+    },
 
+    'usersUpdate'(formData) {
+      check(formData,Object);
+      const data = {
+        "profile.profilename" : formData["profile.profilename"],
+        "profile.firstname" :formData["profile.firstname"],
+        "profile.lastname" : formData["profile.lastname"],
+        "profile.gender" : formData["profile.gender"],
+        "profile.age" : formData["profile.age"],
+        "profile.description" : formData["profile.description"],
+        modifiedAt : new Date(),
+      }
 
+      let Checker =  User.namedContext("myContext");
+      let schemaHasNoError = Checker.validate(formData);
+      if(!schemaHasNoError) {
+          let signUpErrors = Checker.invalidKeys();
+          throw new Meteor.Error(Checker.keyErrorMessage(signUpErrors[0].name));
+      }
 
-
+      Meteor.users.update(
+          {
+            _id:Meteor.userId(),
+          },
+          {
+            $set : data,
+            }
+        );
     },
   });
 }

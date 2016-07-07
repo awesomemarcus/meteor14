@@ -3,10 +3,19 @@ import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 import UsersUpdate from '../components/users_update';
 
 export const composer = ({context}, onData) => {
-  onData(null, {});
+  const {LocalState} = context();
+
+  const formErrorObject = LocalState.get("formErrorObject", null);
+  const mainError = LocalState.get("mainError", null);
+  const getAgeOptions = initAgeOptions();
+
+  const user = Meteor.users.findOne({_id: Meteor.userId()});
+
+  onData(null, {user, getAgeOptions, formErrorObject, mainError});
 };
 
-export const depsMapper = (context) => ({
+export const depsMapper = (context, actions) => ({
+  usersUpdate:actions.users.usersUpdate,
   context: () => context,
 });
 
@@ -14,3 +23,13 @@ export default composeAll(
   composeWithTracker(composer),
   useDeps(depsMapper)
 )(UsersUpdate);
+
+const initAgeOptions = () => {
+  const ageOptions = [];
+
+  for (let minAge = 18; minAge <= 99; minAge++) {
+    ageOptions.push({age: minAge});
+  }
+
+  return ageOptions;
+};

@@ -5,6 +5,7 @@ import MainLayout from '../core/containers/main_layout';
 import UsersLogin from './containers/users_login';
 import UsersSignup from './containers/users_signup';
 import UsersProfile from './containers/users_profile';
+import UsersUpdate from './containers/users_update';
 import AuthChecker from '../users/containers/auth_checker';
 
 export default function (injectDeps, {FlowRouter,Meteor}) {
@@ -40,6 +41,15 @@ export default function (injectDeps, {FlowRouter,Meteor}) {
     action({userId}) {
       mount(AuthCheck, {
       MainLayout,  content: () => (<UsersProfile userId={userId} />),
+      });
+    },
+  });
+
+  FlowRouter.route('/users/update/', {
+    name: 'users update',
+    action() {
+      mount(AuthCheck, {
+      MainLayout,  content: () => (<UsersUpdate />),
       });
     },
   });

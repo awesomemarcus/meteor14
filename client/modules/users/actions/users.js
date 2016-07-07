@@ -38,6 +38,35 @@ export default {
     LocalState.set("formErrorObject", result.errorObject);
   },
 
+  usersUpdate({Meteor, LocalState, User, pushToObject, formValidator}, formData, fieldName, fieldValue) {
+    /*start Form Object Definition*/
+    let object = LocalState.get("formObject");
+
+    let formObject = pushToObject(object, fieldName, fieldValue);
+
+    if(formData){
+      formObject = formData;
+    }
+
+    LocalState.set("formObject", formObject);
+    /*end Form Object Definition*/
+
+    /*Validating form object*/
+    const userContext = User.namedContext("myContext");
+    const result = formValidator(userContext, formObject);
+    /*Validating form object*/
+
+    if(result.validate && formData){
+      Meteor.call("usersUpdate",formObject,(err) => {
+        if(err){
+          return LocalState.set("mainError", err.message);
+        }
+      });
+    }
+
+    LocalState.set("formErrorObject", result.errorObject);
+  },
+
   userLogin({Meteor, LocalState,FlowRouter},formData){
 
       Meteor.loginWithPassword(formData["emails.$.address"], formData["password"], (err)=>{
