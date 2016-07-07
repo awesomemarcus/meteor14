@@ -12,4 +12,11 @@ export default function () {
     ];
   });
 
+  Meteor.publish('productsSingle', (id) => {
+    check(id, String);
+    return [
+      Products.find({_id: id}),
+    ];
+  });
+
 }
