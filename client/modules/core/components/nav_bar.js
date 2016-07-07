@@ -3,6 +3,8 @@ import React from 'react';
 class NavBar extends React.Component {
 
   render() {
+    const {meteorSettings, userId} = this.props;
+
     return (
       <nav className="navbar navbar-default navbar-fixed-top">
             <div className="container-fluid">
@@ -14,7 +16,7 @@ class NavBar extends React.Component {
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                 </button>
-                <a className="navbar-brand" href="#">Mantra Boilerplate</a>
+                <a className="" href="#"><img width="50" height="50" src={'/' + meteorSettings.site +'/logo.jpg'} alt="Mantra Boilerplate"/></a>
               </div>
 
 
@@ -26,7 +28,8 @@ class NavBar extends React.Component {
                 </ul>
 
                 <ul className="nav navbar-nav navbar-right">
-                      <li><a href="#" onClick={this.logout.bind(this)}>Logout</a></li>
+                  <li><a href={'/users/profile/' + userId}>Profile</a></li>
+                  <li><a href="#" onClick={this.logout.bind(this)}>Logout</a></li>
                 </ul>
 
 
@@ -61,9 +64,7 @@ export const NavBarLogOut = ({meteorSettings}) => (
               <span className="icon-bar"></span>
             </button>
 
-            <img width="75" height="75" src={'/' + meteorSettings.site +'/logo.jpg'} />
-
-            <a className="navbar-brand" href="#">Mantra Boilerplate</a>
+            <a className="" href="#"><img width="50" height="50" src={'/' + meteorSettings.site +'/logo.jpg'} alt="Mantra Boilerplate" /></a>
           </div>
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

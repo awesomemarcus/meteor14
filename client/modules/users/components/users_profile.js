@@ -6,7 +6,7 @@ class UsersProfile extends React.Component{
 
     return(
       <div className="container">
-        <h2>{user.profile.username}'s Profile</h2>
+        <h2>{user.profile.profilename}'s Profile</h2>
         <hr />
         <div className="col-sm-3">
           <div className="profile-pic-wrapper"></div>
@@ -27,11 +27,11 @@ class UsersProfile extends React.Component{
   }
 
   currentUserProfile() {
-    const {profileId, user} = this.props;
+    const {currentUser, user} = this.props;
 
     var result = false;
 
-    if(profileId === user._id){
+    if(currentUser === user._id){
       result = true;
     }
 

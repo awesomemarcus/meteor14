@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import MainLayout from '/client/modules/core/components/main_layout.js';
+import MainLayout from '/client/modules/core/containers/main_layout.js';
 import Pagination from '/client/modules/pagination/containers/pagination.js';
 import AuthChecker from '../users/containers/auth_checker';
 

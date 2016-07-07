@@ -7,7 +7,7 @@ class Layout extends React.Component {
     return (
       <div>
         <div>
-          {userId ?   <NavBar Meteor={Meteor} /> :   <NavBarLogOut meteorSettings={meteorSettings} /> }
+          {userId ?   <NavBar Meteor={Meteor} meteorSettings={meteorSettings} userId={userId} /> :   <NavBarLogOut meteorSettings={meteorSettings} /> }
 
           <div className="container marginTop">
             {content()}

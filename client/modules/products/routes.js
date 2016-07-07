@@ -2,7 +2,7 @@ import React from 'react';
 import {mount} from 'react-mounter';
 
 import AuthChecker from '../users/containers/auth_checker';
-import MainLayout from '../core/components/main_layout';
+import MainLayout from '../core/containers/main_layout';
 import ProductsAdd from './containers/products_add';
 import ProductsUpdate from './containers/products_update';
 import ProductsView from './containers/products_view';

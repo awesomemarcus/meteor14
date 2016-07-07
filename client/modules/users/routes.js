@@ -35,11 +35,11 @@ export default function (injectDeps, {FlowRouter,Meteor}) {
     },
   });
 
-  FlowRouter.route('/users/profile', {
+  FlowRouter.route('/users/profile/:userId', {
     name: 'profile',
-    action() {
+    action({userId}) {
       mount(AuthCheck, {
-      MainLayout,  content: () => (<UsersProfile />),
+      MainLayout,  content: () => (<UsersProfile userId={userId} />),
       });
     },
   });

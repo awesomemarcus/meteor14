@@ -3,7 +3,7 @@ import {mount} from 'react-mounter';
 
 
 import AuthChecker from '../users/containers/auth_checker';
-import MainLayout from '../core/components/main_layout';
+import MainLayout from '../core/containers/main_layout';
 import CategoriesAdd from './containers/categories_add';
 import CategoriesUpdate from './containers/categories_update';
 import CategoriesView from './containers/categories_view';

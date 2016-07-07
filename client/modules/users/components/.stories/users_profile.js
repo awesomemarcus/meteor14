@@ -4,6 +4,8 @@ import { storiesOf, action } from '@kadira/storybook';
 import Layout from '../../../core/components/main_layout';
 import UsersProfile from '../users_profile';
 
+const meteorSettings = {site: 'site1'};
+
 storiesOf('Users Profile', module)
   .add('Current user (Shows edit button)', () => {
     const userObject = {
@@ -20,7 +22,7 @@ storiesOf('Users Profile', module)
     const routeParamsUserId = "kjhEDFGKJouhjgGfM";
 
     return (
-      <Layout content={ () => (<UsersProfile user={userObject} profileId={routeParamsUserId} />) } userId={routeParamsUserId} />
+      <Layout content={ () => (<UsersProfile user={userObject} profileId={routeParamsUserId} />) } userId={routeParamsUserId} meteorSettings={meteorSettings} />
     );
   })
   .add('Not current user (Shows block button)', () => {
@@ -38,6 +40,6 @@ storiesOf('Users Profile', module)
     const routeParamsUserId = "kjhEDFGKJosduhjgGfM";
 
     return (
-      <Layout content={ () => (<UsersProfile user={userObject} profileId={routeParamsUserId} />) } userId={routeParamsUserId} />
+      <Layout content={ () => (<UsersProfile user={userObject} profileId={routeParamsUserId} />) } userId={routeParamsUserId} meteorSettings={meteorSettings} />
     );
   });
