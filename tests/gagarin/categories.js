@@ -57,7 +57,7 @@ describe('Insert and Update data to the categories collection and subscribe to t
       expect(category[i].createdBy).to.be.equal(userId);
       expect(category[i].updatedAt).to.be.a('Date');
       expect(category[i].createdAt).to.be.a('Date');
-      expect(category[i].deleted).to.be.equal(false);
+      expect(category[i].isDeleted).to.be.equal(false);
     }
   });
 
@@ -102,12 +102,9 @@ describe('Insert and Update data to the categories collection and subscribe to t
     client.subscribe("categoriesList", userId);
     var category = client.collection("categories");
     var id = Object.keys(category)[0];
-
     expect(category).to.have.property(id);
-
     client.call("categoriesDelete", [id]);
     client.sleep(200);
-
     expect(category).to.be.empty;
 
   });

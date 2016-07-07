@@ -1,100 +1,80 @@
-
 export default {
-  validateProdName({LocalState,ProductSchem},name) {
-    let formData = {
-      name: name,
-    }
-    let validateProdName = ProductSchem.namedContext("myContext").validateOne(formData, "name");
-    if(validateProdName === false) {
-      document.getElementById('prodName').style.border = '1px solid red';
-      document.getElementById('nameErrorMsg').style.color = 'red';
-      document.getElementById('nameErrorMsg').innerHTML = 'Product name should be min of 3 and max of 10 characters.';
+
+  productsAdd({FlowRouter,LocalState,ProductSchem,formValidator, pushToObject}, productInfo=null, fieldName=null, fieldValue=null) {
+    let formObject = pushToObject(LocalState.get("formObject"), fieldName, fieldValue);
+
+    if(productInfo != null) {
+      formObject = productInfo;
     }
 
-    if(validateProdName === true) {
-      document.getElementById('prodName').style.border = '1px solid green';
-      document.getElementById('nameErrorMsg').style.color = 'green';
-      document.getElementById('nameErrorMsg').innerHTML = 'good';
+    if(fieldName === 'price') {
+      formObject.price = parseFloat(fieldValue);
     }
+
+    LocalState.set("formObject", formObject);
+
+    const result = formValidator(ProductSchem.namedContext("myContext"), formObject);
+    const isValid = result.validate;
+
+    if(isValid && productInfo != null) {
+
+      Meteor.call("productsAdd", productInfo, function (err) {
+        if(err) {
+          return LocalState.set('mainError', err.error);
+        }
+        FlowRouter.go('/products/list');
+      });
+
+    }
+
+    LocalState.set("formErrorObject", result.errorObject);
+
   },
 
-  validateProdDescription({LocalState, ProductSchem},description) {
-    let formData = {
-      description: description,
-    }
-    let validateDescpt = ProductSchem.namedContext("myContext").validateOne(formData, "description");
-    if(validateDescpt === false) {
-      document.getElementById('prodDescription').style.border = '1px solid red';
-      document.getElementById('descriptionErrorMsg').style.color = 'red';
-      document.getElementById('descriptionErrorMsg').innerHTML = 'Description should be min of 10 and max of 100 characters.';
-    }
-
-    if(validateDescpt === true) {
-      document.getElementById('prodDescription').style.border = '1px solid green';
-      document.getElementById('descriptionErrorMsg').style.color = 'green';
-      document.getElementById('descriptionErrorMsg').innerHTML = 'Good';
-    }
-  },
-
-  validateProdPrice({LocalState, ProductSchem},price) {
-    let formData = {
-      price: Number(price),
-    }
-    let validatePrice = ProductSchem.namedContext("myContext").validateOne(formData, "price");
-    if(validatePrice === false) {
-      document.getElementById('prodPrice').style.border = '1px solid red';
-      document.getElementById('priceErrorMsg').style.color = 'red';
-      document.getElementById('priceErrorMsg').innerHTML = 'Price must be a number';
-    }
-
-    if(validatePrice === true) {
-      document.getElementById('prodPrice').style.border = '1px solid green';
-      document.getElementById('priceErrorMsg').style.color = 'green';
-      document.getElementById('priceErrorMsg').innerHTML = 'Good';
-    }
-  },
-
-  add({LocalState,FlowRouter},category_id, name, description, price) {
-    if(!name || !description || !price) {
-      LocalState.set('PRODUCTS_ADD_NAME_ERROR', 'Product name is required.');
-      LocalState.set('PRODUCTS_ADD_DESCRIPTION_ERROR', 'Product description is required.');
-      LocalState.set('PRODUCTS_ADD_PRICE_ERROR', 'Product price is required.');
-      return;
-    }
-
-    Meteor.call("insertProduct", category_id, name, description, parseFloat(price), function (err) {
+  productsDelete({Meteor, LocalState},productId) {
+    Meteor.call('productsDelete', productId, (err) => {
       if(err) {
-        return LocalState.set('PRODUCTS_ADD_ERROR', err.error);
+        return LocalState.set('mainError', err.reason);
       }
-
-      FlowRouter.go('/products/list');
+      LocalState.set('mainError', null);
     });
   },
 
-  deleteProduct({LocalState}, id) {
-    Meteor.call("deleteProduct", id, function (err) {
-      if(err) {
-        return LocalState.set('PRODUCTS_ADD_ERROR', 'Unable to delete product.');
-      }
-    });
+  productsUpdate({FlowRouter,LocalState,ProductSchem,formValidator, pushToObject},productId, productInfo=null, fieldName=null, fieldValue=null) {
+    let formObject = pushToObject(LocalState.get("formObject"), fieldName, fieldValue);
+
+    if(productInfo != null) {
+      formObject = productInfo;
+    }
+
+    if(fieldName === 'price') {
+      formObject.price = parseFloat(fieldValue);
+    }
+
+    LocalState.set("formObject", formObject);
+
+    const result = formValidator(ProductSchem.namedContext("myContext"), formObject);
+    const isValid = result.validate;
+
+    if(isValid && productInfo != null) {
+
+      Meteor.call("productsUpdate", productId,productInfo, function (err) {
+        if(err) {
+          return LocalState.set('mainError', err.error);
+        }
+        FlowRouter.go('/products/list');
+      });
+
+    }
+
+    LocalState.set("formErrorObject", result.errorObject);
   },
 
-  updateProduct({LocalState,FlowRouter}, category_id, name, description, price) {
-    var id = FlowRouter.current().params.productId;
-    Meteor.call("updateProduct", id, category_id, name, description, parseInt(price), function (err) {
-      if(err) {
-        return LocalState.set("ERROR", err.reason);
-      }
-
-      FlowRouter.go('/products/list');
-    });
-  },
-
-  clearErrors({LocalState}){
-
+  clearProductErrors({LocalState}) {
     return [
-      LocalState.set("PRODUCTS_ADD_ERROR", null),
-      LocalState.set("ERROR", null),
+      LocalState.set('formErrorObject', null),
+      LocalState.set('mainError', null),
     ];
   },
+
 }

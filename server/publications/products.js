@@ -4,12 +4,20 @@ import {check} from 'meteor/check';
 
 export default function () {
 
-  Meteor.publish('productList',  (id) => {
+  Meteor.publish('productsList',  (id) => {
     check(id, String);
-
     return [
-      Products.find({createdBy: id, deleted: false}),
-      Categories.find({createdBy: id, deleted: false}),
+      Products.find({createdBy: id, isDeleted: false}),
+      Categories.find({createdBy: id, isDeleted: false}),
     ];
   });
+
+  Meteor.publish('productsSingle', (id) => {
+    check(id, String);
+    return [
+      Products.find({_id: id}),
+      Categories.find(),
+    ];
+  });
+
 }

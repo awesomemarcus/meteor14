@@ -7,26 +7,37 @@ class ProductsAdd extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const {add} = this.props;
-    const {category_id,name, description, price, productAdd} = this.refs;
+    const {productsAdd} = this.props;
+    let productData = {};
 
-    add(category_id.value,name.value,description.value,price.value);
+    $.each($(event.currentTarget).serializeArray(), function() {
+      productData[this.name] = this.value;
+    });
+    productData.price = parseFloat(productData.price);
+    productsAdd(productData);
 
-    productAdd.reset();
+  }
 
+  handleBlur(event) {
+    event.preventDefault();
 
+    const {productsAdd} = this.props;
+
+    const fieldName = event.currentTarget.name;
+    let fieldValue = event.currentTarget.value;
+
+    productsAdd(null, fieldName, fieldValue);
   }
 
   render() {
     const {
         categories,
-        nameError,
-        descriptionError,
-        priceError,
-        addError,
+        mainError,
+        formErrorObject,
     } = this.props;
+
     return (
-      <form className="form-horizontal col-sm-4" ref="productAdd" role="form" onSubmit={this.handleSubmit.bind(this)}>
+      <form className="form-horizontal col-sm-4" id="productAddForm" role="form" onSubmit={this.handleSubmit.bind(this)}>
 
         <div className="form-group">
           <div className="col-sm-10">
@@ -34,12 +45,12 @@ class ProductsAdd extends React.Component {
           </div>
         </div>
 
-        <p className="error text-error">{addError ? addError : ''}</p>
+        {mainError ? <p className="error">{mainError}</p> : null}
 
         <div className="form-group">
           <label className="col-sm-2 control-label">Choose Category</label>
           <div className="col-sm-10">
-            <select className="selectpicker form-control" ref="category_id">
+            <select className="selectpicker form-control" name="category_id">
               <option value="selecCategory" defaultValue="selected">Select a Category</option>
               {
                 categories ? categories.map(category => (
@@ -55,24 +66,24 @@ class ProductsAdd extends React.Component {
         <div className="form-group">
           <label className="col-sm-2 control-label">Name</label>
           <div className="col-sm-10">
-            <input type="text" id="prodName" onBlur={this.checkProdName.bind(this)} className="form-control" ref="name"/>
-            <p id="nameErrorMsg" className="error text-error">{nameError ? nameError : ''}</p>
+            <input type="text" id="prodName" className="form-control" name="name" onBlur={this.handleBlur.bind(this)}/>
+            {formErrorObject ? <p className="error text-error">{formErrorObject['name']}</p> : null}
           </div>
         </div>
 
         <div className="form-group">
           <label className="col-sm-2 control-label">Description</label>
           <div className="col-sm-10">
-            <textarea id="prodDescription" onBlur={this.checkProdDescription.bind(this)} className="form-control" rows="3" ref="description"></textarea>
-            <p id="descriptionErrorMsg" className="error text-error">{descriptionError ? descriptionError : ''}</p>
+            <textarea id="prodDescription" className="form-control" rows="3" name="description" onBlur={this.handleBlur.bind(this)}></textarea>
+            {formErrorObject ? <p className="error text-error">{formErrorObject['description']}</p> : null}
           </div>
         </div>
 
         <div className="form-group">
           <label className="col-sm-2 control-label">Price</label>
           <div className="col-sm-10">
-            <input type="number" onBlur={this.checkProdPrice.bind(this)} id="prodPrice" className="form-control" ref="price" placeholder="(i.e) $10.00" min="0.01" step="0.01"/>
-            <p id="priceErrorMsg" className="error text-error">{priceError ? priceError : ''}</p>
+            <input type="number" id="prodPrice" className="form-control" name="price" placeholder="(i.e) $10.00" min="0.01" step="0.01" onBlur={this.handleBlur.bind(this)}/>
+            {formErrorObject ? <p className="error text-error">{formErrorObject['price']}</p> : null}
           </div>
         </div>
 
@@ -85,80 +96,6 @@ class ProductsAdd extends React.Component {
       </form>
     );
   }
-
-  checkProdName () {
-    const {name} = this.refs;
-    const {validateProdName} = this.props;
-    validateProdName(name.value);
-  }
-
-  checkProdDescription () {
-    const {description} = this.refs;
-    const {validateProdDescription} = this.props;
-    validateProdDescription(description.value);
-  }
-
-  checkProdPrice () {
-    const {price} = this.refs;
-    const {validateProdPrice} = this.props;
-    validateProdPrice(price.value);
-  }
-
-  // validateProdName () {
-  //   const {name} = this.refs;
-  //   let formData = {
-  //     name: name.value,
-  //   };
-  //   let validateProdName = ProductSchem.namedContext("myContext").validateOne(formData, "name");
-  //   if(validateProdName === false) {
-  //     document.getElementById('prodName').style.border = '1px solid red';
-  //     document.getElementById('nameErrorMsg').style.color = 'red';
-  //     document.getElementById('nameErrorMsg').innerHTML = 'error';
-  //   }
-  //
-  //   if(validateProdName === true) {
-  //     document.getElementById('prodName').style.border = '1px solid green';
-  //     document.getElementById('nameErrorMsg').style.color = 'green';
-  //     document.getElementById('nameErrorMsg').innerHTML = 'Good';
-  //   }
-  // }
-  //
-  // validateProdDescription () {
-  //   const {description} = this.refs;
-  //   let formData = {
-  //     description: description.value,
-  //   };
-  //   let validateDescpt = ProductSchem.namedContext("myContext").validateOne(formData, "description");
-  //   if(validateDescpt === false) {
-  //     document.getElementById('prodDescription').style.border = '1px solid red';
-  //     document.getElementById('descriptionErrorMsg').style.color = 'red';
-  //     document.getElementById('descriptionErrorMsg').innerHTML = 'error';
-  //   }
-  //
-  //   if(validateDescpt === true) {
-  //     document.getElementById('prodDescription').style.border = '1px solid green';
-  //     document.getElementById('descriptionErrorMsg').style.color = 'green';
-  //     document.getElementById('descriptionErrorMsg').innerHTML = 'Good';
-  //   }
-  // }
-  //
-  // validateProdPrice () {
-  //   const {price} = this.refs;
-  //   let formData = {
-  //     price: Number(price.value),
-  //   };
-  //   let validatePrice = ProductSchem.namedContext("myContext").validateOne(formData, "price");
-  //   if(validatePrice === false) {
-  //     document.getElementById('prodPrice').style.border = '1px solid red';
-  //     document.getElementById('priceErrorMsg').style.color = 'red';
-  //     document.getElementById('priceErrorMsg').innerHTML = 'error';
-  //   }
-  //
-  //   if(validatePrice === true) {
-  //     document.getElementById('prodPrice').style.border = '1px solid green';
-  //     document.getElementById('priceErrorMsg').style.color = 'green';
-  //     document.getElementById('priceErrorMsg').innerHTML = 'Good';
-  //   }
 
 }
 

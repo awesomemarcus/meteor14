@@ -4,9 +4,10 @@ import ProductsView from '../components/products_view';
 
 export const composer = ({context, productId}, onData) => {
   const {Meteor, Collections} = context();
-  if(Meteor.subscribe('productList', Meteor.userId()).ready()){
-    const product = Collections.Products.findOne({},{sort:{createdAt:-1}});
-        onData(null, {product});
+  if(Meteor.subscribe('productsSingle', productId).ready()) {
+    const product = Collections.Products.findOne({_id: productId});
+    product.categoryName = Collections.Categories.findOne({_id: product.category_id}).name;
+    onData(null, {product});
   }
 };
 
