@@ -4,47 +4,25 @@ import {check} from 'meteor/check';
 
 export default function () {
   Meteor.methods({
-    'insertProduct'(category_id, name, description, price) {
+    'productsAdd'(productInfo) {
 
-      /* use only for testing latency compensation */
-      //Meteor._sleepForMs(5000);
-
-      const createdAt = new Date();
-
-      check(category_id, String);
-      check(name, String);
-      check(description, String);
-      check(price, Number);
-      check(createdAt, Date);
-
-      let formData = {
-        createdBy: Meteor.userId(),
-        category_id: category_id,
-        name:name,
-        description:description,
-        price:price,
-        updatedAt: new Date(),
-        createdAt: createdAt,
-        deleted: false,
-      };
-
-      let Checker =  ProductSchem.namedContext("myContext");
-
-      if(Checker.validate(formData)) {
-        return Products.insert(formData);
-      }
-
-      let prodError = Checker.invalidKeys();
-
-      _.map(prodError, function (o) { //map errors on each fields
-        throw new Meteor.Error(Checker.keyErrorMessage(o.name));
+      check(productInfo, {
+        category_id: String,
+        name: String,
+        description: String,
+        price: Number,
       });
 
+      productInfo.createdBy = this.userId;
+      productInfo.createdAt = new Date();
+      productInfo.updatedAt = new Date();
+      productInfo.isDeleted = false;
+      Products.insert(productInfo);
     },
 
-    'deleteProduct'(id) {
+    'productsDelete'(id) {
       check(id, String);
-      Products.update({_id: id}, {$set: {deleted: true}});
+      Products.update({_id: id}, {$set: {isDeleted: true}});
     },
 
     'updateProduct'(id, categoryid, name, description, price) {

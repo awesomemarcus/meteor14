@@ -9,7 +9,7 @@ class ProductsList extends React.Component {
 
   render() {
 
-    const { prods, deleteProduct, updateProduct } = this.props;
+    const { prods, productsDelete, updateProduct } = this.props;
     return (
       <div className="col-sm-12">
 
@@ -32,7 +32,7 @@ class ProductsList extends React.Component {
               <ProductsListItem
                   key={product._id}
                   product={product}
-                  deleteProduct={deleteProduct}
+                  productsDelete={productsDelete}
                   updateProduct={updateProduct}
               />
             )) : 'no products yet'}

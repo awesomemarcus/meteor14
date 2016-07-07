@@ -5,7 +5,7 @@ class ModalConfirmDelete extends React.Component{
     const {title, content, object} = this.props;
 
     return(
-      <div id={'modal_' + object._id} className="modal fade" tabindex="-1" role="dialog">
+      <div id={'modal_' + object._id} className="modal fade" tabIndex="-1" role="dialog">
         <div className="modal-dialog modal-sm">
           <div className="modal-content">
             <div className="modal-header">
@@ -28,7 +28,6 @@ class ModalConfirmDelete extends React.Component{
 
   handleAction(){
     const {action, object} = this.props;
-
     action(object._id);
   }
 }
