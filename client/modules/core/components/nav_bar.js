@@ -50,10 +50,9 @@ class NavBar extends React.Component {
 
 }
 
-export const NavBarLogOut = () => (
+export const NavBarLogOut = ({meteorSettings}) => (
   <nav className="navbar navbar-default navbar-fixed-top">
         <div className="container-fluid">
-
           <div className="navbar-header">
             <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
               <span className="sr-only">Toggle navigation</span>
@@ -62,7 +61,7 @@ export const NavBarLogOut = () => (
               <span className="icon-bar"></span>
             </button>
 
-            <img width="75" height="75" src={Meteor.settings.public.site+'/logo.jpg'} />
+            <img width="75" height="75" src={'/' + meteorSettings.site +'/logo.jpg'} />
 
             <a className="navbar-brand" href="#">Mantra Boilerplate</a>
           </div>

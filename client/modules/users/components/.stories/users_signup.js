@@ -15,165 +15,193 @@ const getAgeOptions = ()=> {
   return ageOptions;
 }
 
+const meteorSettings = {site: 'site1'};
+
 storiesOf('Users Signup', module)
   .add('Signup form', () => {
-    const errorField = {
-      error: null,
-      email: null,
+    const mainError = null;
+    const formErrorObject = {
+      'emails.$.address': null,
       password: null,
-      profilename: null,
-      firstname: null,
-      lastname: null,
-      gender: null,
-      age: null,
+      confirmPassword: null,
+      'profile.profilename': null,
+      'profile.firstname': null,
+      'profile.lastname': null,
+      'profile.gender': null,
+      'profile.age': null,
     };
 
-
     return (
-        <Layout content={ () => (<UsersSignup userSignup={action('userSignup')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
+        <Layout content={ () => (<UsersSignup userSignup={action('userSignup')} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } meteorSettings={meteorSettings} />
     );
   })
   .add('With error on result', () => {
-    const errorField = {
-      error: 'Error from method call',
-      email: null,
+    const mainError = 'Error from method call';
+    const formErrorObject = {
+      'emails.$.address': null,
       password: null,
-      profilename: null,
-      firstname: null,
-      lastname: null,
-      gender: null,
-      age: null,
+      confirmPassword: null,
+      'profile.profilename': null,
+      'profile.firstname': null,
+      'profile.lastname': null,
+      'profile.gender': null,
+      'profile.age': null,
     };
 
     return (
-      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } meteorSettings={meteorSettings} />
     );
   })
   .add('With error on email', () => {
-    const errorField = {
-      error: null,
-      email: 'Invalid Email',
+    const mainError = null;
+    const formErrorObject = {
+      'emails.$.address': 'Invalid Email',
       password: null,
-      profilename: null,
-      firstname: null,
-      lastname: null,
-      gender: null,
-      age: null,
+      confirmPassword: null,
+      'profile.profilename': null,
+      'profile.firstname': null,
+      'profile.lastname': null,
+      'profile.gender': null,
+      'profile.age': null,
     };
 
     return (
-      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } meteorSettings={meteorSettings} />
     );
   })
   .add('With error on password', () => {
-    const errorField = {
-      error: null,
-      email: null,
+    const mainError = null;
+    const formErrorObject = {
+      'emails.$.address': null,
       password: 'Invalid Password',
-      profilename: null,
-      firstname: null,
-      lastname: null,
-      gender: null,
-      age: null,
+      confirmPassword: null,
+      'profile.profilename': null,
+      'profile.firstname': null,
+      'profile.lastname': null,
+      'profile.gender': null,
+      'profile.age': null,
     };
 
     return (
-      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } meteorSettings={meteorSettings} />
+    );
+  })
+  .add('With error on confirm password', () => {
+    const mainError = null;
+    const formErrorObject = {
+      'emails.$.address': null,
+      password: null,
+      confirmPassword: 'Password not match',
+      'profile.profilename': null,
+      'profile.firstname': null,
+      'profile.lastname': null,
+      'profile.gender': null,
+      'profile.age': null,
+    };
+
+    return (
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } meteorSettings={meteorSettings} />
     );
   })
   .add('With error on username', () => {
-    const errorField = {
-      error: null,
-      email: null,
+    const mainError = null;
+    const formErrorObject = {
+      'emails.$.address': null,
       password: null,
-      profilename: 'Invalid Profilename',
-      firstname: null,
-      lastname: null,
-      gender: null,
-      age: null,
+      confirmPassword: null,
+      'profile.profilename': 'Invalid Profilename',
+      'profile.firstname': null,
+      'profile.lastname': null,
+      'profile.gender': null,
+      'profile.age': null,
     };
 
     return (
-      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } meteorSettings={meteorSettings} />
     );
   })
   .add('With error on firstname', () => {
-    const errorField = {
-      error: null,
-      email: null,
+    const mainError = null;
+    const formErrorObject = {
+      'emails.$.address': null,
       password: null,
-      profilename: null,
-      firstname: 'Invalid Firstname',
-      lastname: null,
-      gender: null,
-      age: null,
+      confirmPassword: null,
+      'profile.profilename': null,
+      'profile.firstname': 'Invalid Firstname',
+      'profile.lastname': null,
+      'profile.gender': null,
+      'profile.age': null,
     };
 
     return (
-      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } meteorSettings={meteorSettings} />
     );
   })
   .add('With error on lastname', () => {
-    const errorField = {
-      error: null,
-      email: null,
+    const mainError = null;
+    const formErrorObject = {
+      'emails.$.address': null,
       password: null,
-      profilename: null,
-      firstname: null,
-      lastname: 'Invalid Lastname',
-      gender: null,
-      age: null,
+      confirmPassword: null,
+      'profile.profilename': null,
+      'profile.firstname': null,
+      'profile.lastname': 'Invalid Lastname',
+      'profile.gender': null,
+      'profile.age': null,
     };
 
     return (
-      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } meteorSettings={meteorSettings} />
     );
   })
   .add('With error on gender', () => {
-    const errorField = {
-      error: null,
-      email: null,
+    const mainError = null;
+    const formErrorObject = {
+      'emails.$.address': null,
       password: null,
-      profilename: null,
-      firstname: null,
-      lastname: null,
-      gender: 'Invalid Gender',
-      age: null,
+      confirmPassword: null,
+      'profile.profilename': null,
+      'profile.firstname': null,
+      'profile.lastname': null,
+      'profile.gender': 'Invalid Gender',
+      'profile.age': null,
     };
 
     return (
-      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } meteorSettings={meteorSettings} />
     );
   })
   .add('With error on age', () => {
-    const errorField = {
-      error: null,
-      email: null,
+    const mainError = null;
+    const formErrorObject = {
+      'emails.$.address': null,
       password: null,
-      profilename: null,
-      firstname: null,
-      lastname: null,
-      gender: null,
-      age: 'Invalid Age',
+      confirmPassword: null,
+      'profile.profilename': null,
+      'profile.firstname': null,
+      'profile.lastname': null,
+      'profile.gender': null,
+      'profile.age': 'Invalid Age',
     };
 
     return (
-      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } meteorSettings={meteorSettings} />
     );
   })
   .add('With error on all fields', () => {
-    const errorField = {
-      error: null,
-      email: 'Invalid Email',
-      password: 'Invalid Password',
-      profilename: 'Invalid Profilename',
-      firstname: 'Invalid Firstname',
-      lastname: 'Invalid Lastname',
-      gender: 'Invalid Gender',
-      age: 'Invalid Age',
+    const mainError = null;
+    const formErrorObject = {
+      'emails.$.address': 'Invalid Email',
+      password: 'Invalid password',
+      confirmPassword: 'Invalid confirm password',
+      'profile.profilename': 'Invalid Profilename',
+      'profile.firstname': 'Invalid Firstname',
+      'profile.lastname': 'Invalid Lastname',
+      'profile.gender': 'Invalid Gender',
+      'profile.age': 'Invalid Age',
     };
 
     return (
-      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} errorField={errorField} />) } />
+      <Layout content={ () => (<UsersSignup userCreateAccount={action('userCreateAccount')} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } meteorSettings={meteorSettings} />
     );
   });
