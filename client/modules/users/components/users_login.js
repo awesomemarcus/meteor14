@@ -2,37 +2,66 @@ import React from 'react';
 
 class UsersLogin extends React.Component{
   render() {
-    const {error} = this.props;
+    const {mainError, formErrorObject} = this.props;
     return(
       <div className="container">
-      <form className="form-signin" onSubmit={this.userLogin.bind(this)}>
-        <h2 className="form-signin-heading">User login</h2>
+        <form className="form-signin" onSubmit={this.handleSubmit.bind(this)}>
+          <h2 className="form-signin-heading text-white">Login User</h2>
+          {mainError ? <p  className="text-danger">{mainError}</p> : null}
+          <div className={this.getInputWrapperClass(formErrorObject, "emails.$.address")}>
+            <input ref="email" type="email" id="inputEmail" name="emails.$.address" onBlur={this.handleBlur.bind(this)} className="form-control edge-square" placeholder="Email address"/>
+            <span className="help-block">{formErrorObject ? <p>{formErrorObject["emails.$.address"]}</p> : null}</span>
+          </div>
 
-        {error ? <p style={{color: 'red'}}>{error}</p> : null}
+          <div className={this.getInputWrapperClass(formErrorObject, "password")}>
+            <input ref="password" type="password" id="inputPassword" name="password" onBlur={this.handleBlur.bind(this)} className="form-control edge-square" placeholder="Password" />
+            <span className="help-block">{formErrorObject ? <p>{formErrorObject["password"]}</p> : null}</span>
+          </div>
 
-        <label for="inputEmail" className="sr-only">Email address</label>
-        <input ref="email" type="email" id="inputEmail" className="form-control" placeholder="Email address" autofocus />
-        <label for="inputPassword" className="sr-only">Password</label>
-        <input ref="password"  type="password" id="inputPassword" className="form-control" placeholder="Password" />
-        <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <a href="/users/signup" className="btn btn-lg btn-block btn-default">Signup</a>
-      </form>
-
+          <button className="btn btn-lg btn-danger btn-block edge-square" type="submit">LOGIN</button>
+          <a href="/users/signup" className="btn btn-lg btn-success btn-block edge-square">REGISTER ACCOUNT</a>
+        </form>
     </div>
     );
   }
 
-  userLogin(e){
+  handleSubmit(e){
     if(e && e.preventDefault){
       e.preventDefault();
+
+      const {usersLogin} = this.props;
+
+      let formData = {};
+      const formDataSerialize = $(e.currentTarget).serializeArray();
+
+      formDataSerialize.map(form => {
+        formData[form.name] = form.value;
+      });
+
+      usersLogin(formData);
     }
-    const {userLogin} = this.props;
-    const {email,password} = this.refs;
-    const formData = {
-      "emails.$.address" :email.value,
-      "password" : password.value,
-    };
-    userLogin(formData);
+  }
+
+  handleBlur(e){
+    if(e && e.preventDefault){
+      const {usersLogin} = this.props;
+
+      const fieldName = e.currentTarget.name;
+      let fieldValue = e.currentTarget.value;
+
+      usersLogin(null, fieldName, fieldValue);
+    }
+  }
+
+  getInputWrapperClass(errorObject, field) {
+    var classes = 'form-group';
+
+    if (errorObject && errorObject[field]) {
+      classes = 'form-group has-error';
+    }
+
+    return classes;
+
   }
 
 }

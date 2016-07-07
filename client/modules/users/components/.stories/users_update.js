@@ -24,15 +24,17 @@ const userObject = {
   }
 };
 
+const meteorSettings = {site: 'site1'};
+
 storiesOf('Users Update', module)
   .add('Update form', () => {
-    const errorField = {
-      error: null,
-      profilename: null,
-      firstname: null,
-      lastname: null,
-      gender: null,
-      age: null,
+    const mainError = null;
+    const formErrorObject = {
+      'profile.profilename': null,
+      'profile.firstname': null,
+      'profile.lastname': null,
+      'profile.gender': null,
+      'profile.age': null,
     };
 
     const userObject = {
@@ -46,32 +48,32 @@ storiesOf('Users Update', module)
     };
 
     return (
-      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />) } userId={'JKHJjJHGjhgJGBV'}/>
+      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } userId={'JKHJjJHGjhgJGBV'} meteorSettings={meteorSettings}/>
     );
   })
   .add('With error on result', () => {
-    const errorField = {
-      error: 'Error from method call',
-      profilename: null,
-      firstname: null,
-      lastname: null,
-      gender: null,
-      age: null,
+    const mainError = 'Error from method call';
+    const formErrorObject = {
+      'profile.profilename': null,
+      'profile.firstname': null,
+      'profile.lastname': null,
+      'profile.gender': null,
+      'profile.age': null,
     };
 
 
     return (
-      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />) } userId={'JKHJjJHGjhgJGBV'}/>
+      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } userId={'JKHJjJHGjhgJGBV'} meteorSettings={meteorSettings}/>
     );
   })
   .add('With error on profilename', () => {
-    const errorField = {
-      error: null,
-      profilename: 'Invalid Profilename',
-      firstname: null,
-      lastname: null,
-      gender: null,
-      age: null,
+    const mainError = null;
+    const formErrorObject = {
+      'profile.profilename': 'Invalid profilename',
+      'profile.firstname': null,
+      'profile.lastname': null,
+      'profile.gender': null,
+      'profile.age': null,
     };
 
     const userObject = {
@@ -85,17 +87,17 @@ storiesOf('Users Update', module)
     };
 
     return (
-      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />) } userId={'JKHJjJHGjhgJGBV'}/>
+      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } userId={'JKHJjJHGjhgJGBV'} meteorSettings={meteorSettings}/>
     );
   })
   .add('With error on firstname', () => {
-    const errorField = {
-      error: null,
-      profilename: null,
-      firstname: 'Invalid firstname',
-      lastname: null,
-      gender: null,
-      age: null,
+    const mainError = null;
+    const formErrorObject = {
+      'profile.profilename': null,
+      'profile.firstname': 'Invalid Firstname',
+      'profile.lastname': null,
+      'profile.gender': null,
+      'profile.age': null,
     };
 
     const userObject = {
@@ -109,17 +111,17 @@ storiesOf('Users Update', module)
     };
 
     return (
-      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />) } userId={'JKHJjJHGjhgJGBV'}/>
+      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } userId={'JKHJjJHGjhgJGBV'} meteorSettings={meteorSettings}/>
     );
   })
   .add('With error on lastname', () => {
-    const errorField = {
-      error: null,
-      profilename: null,
-      firstname: null,
-      lastname: 'Invalid lastname',
-      gender: null,
-      age: null,
+    const mainError = null;
+    const formErrorObject = {
+      'profile.profilename': null,
+      'profile.firstname': null,
+      'profile.lastname': 'Invalid Lastname',
+      'profile.gender': null,
+      'profile.age': null,
     };
 
     const userObject = {
@@ -133,17 +135,17 @@ storiesOf('Users Update', module)
     };
 
     return (
-      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />) } userId={'JKHJjJHGjhgJGBV'}/>
+      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } userId={'JKHJjJHGjhgJGBV'} meteorSettings={meteorSettings}/>
     );
   })
   .add('With error on gender', () => {
-    const errorField = {
-      error: null,
-      profilename: null,
-      firstname: null,
-      lastname: null,
-      gender: 'Invalid gender',
-      age: null,
+    const mainError = null;
+    const formErrorObject = {
+      'profile.profilename': null,
+      'profile.firstname': null,
+      'profile.lastname': null,
+      'profile.gender': 'Invalid Gender',
+      'profile.age': null,
     };
 
     const userObject = {
@@ -157,17 +159,17 @@ storiesOf('Users Update', module)
     };
 
     return (
-      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />) } userId={'JKHJjJHGjhgJGBV'}/>
+      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } userId={'JKHJjJHGjhgJGBV'} meteorSettings={meteorSettings}/>
     );
   })
   .add('With error on age', () => {
-    const errorField = {
-      error: null,
-      profilename: null,
-      firstname: null,
-      lastname: null,
-      gender: null,
-      age: 'Invalid age',
+    const mainError = null;
+    const formErrorObject = {
+      'profile.profilename': null,
+      'profile.firstname': null,
+      'profile.lastname': null,
+      'profile.gender': null,
+      'profile.age': 'Invalid Age',
     };
 
     const userObject = {
@@ -181,17 +183,43 @@ storiesOf('Users Update', module)
     };
 
     return (
-      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />) } userId={'JKHJjJHGjhgJGBV'}/>
+      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } userId={'JKHJjJHGjhgJGBV'} meteorSettings={meteorSettings}/>
+    );
+  })
+  .add('With error on description', () => {
+    const mainError = null;
+    const formErrorObject = {
+      'profile.profilename': null,
+      'profile.firstname': null,
+      'profile.lastname': null,
+      'profile.gender': null,
+      'profile.age': null,
+      'profile.description': 'Invalid Description',
+    };
+
+    const userObject = {
+      profile: {
+        profilename: "johnyCash",
+        firstname: "John",
+        lastname: "Doe",
+        gender: "male",
+        age: null
+      }
+    };
+
+    return (
+      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } userId={'JKHJjJHGjhgJGBV'} meteorSettings={meteorSettings}/>
     );
   })
   .add('With error on all fields', () => {
-    const errorField = {
-      error: null,
-      profilename: 'Invalid Profilename',
-      firstname: 'Invalid Firstname',
-      lastname: 'Invalid Lastname',
-      gender: 'Invalid Gender',
-      age: 'Invalid Age',
+    const mainError = null;
+    const formErrorObject = {
+      'profile.profilename': 'Invalid Profilename',
+      'profile.firstname': 'Invalid Firstname',
+      'profile.lastname': 'Invalid Lastname',
+      'profile.gender': 'Invalid Gender',
+      'profile.age': 'Invalid Age',
+      'profile.description': 'Invalid Description',
     };
 
     const userObject = {
@@ -205,6 +233,6 @@ storiesOf('Users Update', module)
     };
 
     return (
-      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} errorField={errorField} />) } userId={'JKHJjJHGjhgJGBV'}/>
+      <Layout content={ () => (<UsersUpdate userUpdateAccount={action('userUpdateAccount')} user={userObject} getAgeOptions={getAgeOptions()} mainError={mainError} formErrorObject={formErrorObject}/>) } userId={'JKHJjJHGjhgJGBV'} meteorSettings={meteorSettings}/>
     );
   });

@@ -8,14 +8,33 @@ const meteorSettings = {site: 'site1'};
 
 storiesOf('Users Login', module)
   .add('Login Form', () => {
-    const error = null;
+    const mainError = null;
     return (
-      <Layout content={ () => (<UsersLogin userLogin={action('userLogin')} error={error}/>) } meteorSettings={meteorSettings} />
+      <Layout content={ () => (<UsersLogin userLogin={action('userLogin')} mainError={mainError}/>) } meteorSettings={meteorSettings} />
     );
   })
   .add('With error on login', () => {
-    const error = 'Error on login';
+    const mainError = 'Error on login';
     return (
-      <Layout content={ () => (<UsersLogin userLogin={action('userLogin')} error={error}/>) } meteorSettings={meteorSettings} />
+      <Layout content={ () => (<UsersLogin userLogin={action('userLogin')} mainError={mainError}/>) } meteorSettings={meteorSettings} />
+    );
+  })
+  .add('With Invalid Email', () => {
+    const mainError = null;
+    const formErrorObject = {
+      'emails.$.address' : 'Invalid Email',
+    };
+
+    return (
+      <Layout content={ () => (<UsersLogin userLogin={action('userLogin')} mainError={mainError} formErrorObject={formErrorObject}/>) } meteorSettings={meteorSettings} />
+    );
+  })
+  .add('With Invalid Password', () => {
+    const mainError = null;
+    const formErrorObject = {
+      'password' : 'Invalid Password',
+    };
+    return (
+      <Layout content={ () => (<UsersLogin userLogin={action('userLogin')} mainError={mainError} formErrorObject={formErrorObject}/>) } meteorSettings={meteorSettings} />
     );
   });
