@@ -21,8 +21,6 @@ app.loadModule(usersModule);
 app.loadModule(paginationModule);
 app.init();
 
-console.log(Meteor.settings);
-
 //Site Title
 var title = 'Mantra Boilerplate';
 DocHead.setTitle(title);
