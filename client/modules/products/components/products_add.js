@@ -14,8 +14,6 @@ class ProductsAdd extends React.Component {
       productData[this.name] = this.value;
     });
 
-    productData.price = parseFloat(productData.price);
-
     productsAdd(productData);
 
   }

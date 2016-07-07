@@ -6,6 +6,7 @@ export const composer = ({context, productId}, onData) => {
   const {Meteor, Collections} = context();
   if(Meteor.subscribe('productsSingle', productId).ready()) {
     const product = Collections.Products.findOne({_id: productId});
+    product.categoryName = Collections.Categories.findOne({_id: product.category_id}).name;
     onData(null, {product});
   }
 };

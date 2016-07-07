@@ -16,6 +16,7 @@ export default function () {
     check(id, String);
     return [
       Products.find({_id: id}),
+      Categories.find(),
     ];
   });
 
