@@ -11,10 +11,15 @@ describe('core.containers.main_layout', () => {
   beforeEach(function(){
 
     const LocalState = {get: spy()};
-
+    const Meteor = {
+      settings : {
+        public : {}
+      },
+    };
     this.context = function(){
       return {
         LocalState,
+        Meteor,
         authCommon: function(){
 
           return {
