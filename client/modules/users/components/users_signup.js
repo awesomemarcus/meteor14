@@ -13,8 +13,7 @@ class UsersSignup extends React.Component {
         <div className="col-sm-8 col-sm-offset-2">
 
           <h2><span className="glyphicon glyphicon-plus"></span> User Signup</h2>
-
-          {mainError ? <p  style={{color: 'red'}}>{mainError}</p> : null}
+          
           <form className="form-horizontal" onSubmit={this.handleSubmit.bind(this)}>
             <div className={this.getInputWrapperClass(formErrorObject, "emails.$.address")}>
 
