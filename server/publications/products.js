@@ -12,10 +12,12 @@ export default function () {
     ];
   });
 
-  Meteor.publish('productsSingle', (id) => {
+  Meteor.publish('productsSingle', (id, userid) => {
     check(id, String);
+    check(userid, String);
     return [
       Products.find({_id: id}),
+      Categories.find({createdBy: userid, isDeleted: false}),
     ];
   });
 

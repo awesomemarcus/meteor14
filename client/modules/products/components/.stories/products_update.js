@@ -3,6 +3,14 @@ import {storiesOf, action} from '@kadira/storybook';
 
 import ProductsUpdate from '../products_update';
 
+const formErrorObject = {
+  name: "Name error message will display here.",
+  description: "Description error message will display here.",
+  price: "Price error message will display here.",
+};
+
+const mainError = "General error message will display here.";
+
 const categories = [
   {_id: '1', name: 'Food'},
   {_id: '2', name: 'Business'},
@@ -21,15 +29,16 @@ const product = {
 
 storiesOf('Products Update', module)
   .add('default view', () => (
-    <ProductsUpdate updateProduct={action('update product')} categories={categories} product={product}/>
-)).add('name required error', () => (
-    <ProductsUpdate nameError="Name is required." updateProduct={action('update product')} categories={categories} product={product}/>
-)).add('name min/max error', () => (
-    <ProductsUpdate nameError="Name must contain 3-20 characters." updateProduct={action('update product')} categories={categories} product={product}/>
-)).add('description required error', () => (
-    <ProductsUpdate descriptionError="Description is required." updateProduct={action('update product')} categories={categories} product={product}/>
-)).add('description min/max error', () => (
-    <ProductsUpdate descriptionError="Description must contain 20-150 characters." updateProduct={action('update product')} categories={categories} product={product}/>
-)).add('price required error', () => (
-    <ProductsUpdate priceError="Price is required." updateProduct={action('update product')} categories={categories} product={product}/>
-));
+    <ProductsUpdate productsUpdate={action('update product')}
+                    categories={categories}
+                    product={product}
+                    />
+  ))
+  .add('with errors', () => (
+    <ProductsUpdate productsUpdate={action('update product')}
+                    categories={categories}
+                    product={product}
+                    formErrorObject={formErrorObject}
+                    mainError={mainError}
+                    />
+  ))

@@ -40,3 +40,6 @@ DocHead.addMeta(metaInfo);
 // CUSTOM SITE BASED CSS
 var customCss = {rel: "stylesheet", href: '/' + Meteor.settings.public.site + '/custom.css'};
 DocHead.addLink(customCss);
+
+var metaViewPort = {name: "viewport", content: "width=device-width, initial-scale=1"};
+DocHead.addMeta(metaViewPort);

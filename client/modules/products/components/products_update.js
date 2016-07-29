@@ -8,47 +8,65 @@ class ProductsUpdate extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const {updateProduct} = this.props;
-    const {
-      category_id,
-      name,
-      description,
-      price,
-    } = this.refs;
+    const {productsUpdate, productId} = this.props;
+    let productData = {};
 
-    updateProduct(category_id.value,name.value,description.value,price.value);
+    $.each($(event.currentTarget).serializeArray(), function() {
+      productData[this.name] = this.value;
+    });
+    productData._id = productId;
+    productData.price = parseFloat(productData.price);
 
+    productsUpdate(productData);
+
+  }
+
+  handleBlur(event) {
+    event.preventDefault();
+
+    const {productsUpdate} = this.props;
+
+    const fieldName = event.currentTarget.name;
+    let fieldValue = event.currentTarget.value;
+
+    productsUpdate(null, fieldName, fieldValue);
+  }
+
+  backToPrevious() {
+    window.history.back();
   }
 
   render() {
     const {
         product,
         categories,
-        nameError,
-        descriptionError,
-        priceError,
-        error,
+        mainError,
+        formErrorObject,
     } = this.props;
 
     return (
-      <form className="form-horizontal col-sm-4" role="form" onSubmit={this.handleSubmit.bind(this)}>
+      <form className="form-horizontal col-sm-4" id="productAddForm" role="form" onSubmit={this.handleSubmit.bind(this)}>
 
         <div className="form-group">
           <div className="col-sm-10">
-            <h3>Update Product</h3>
-            {error ? <p style={{color: 'red'}}>{error}</p> : null}
+            <h3>Update Product Info</h3>
           </div>
         </div>
+
+        {mainError ? <p className="error">{mainError}</p> : null}
 
         <div className="form-group">
           <label className="col-sm-2 control-label">Choose Category</label>
           <div className="col-sm-10">
-            <select className="selectpicker form-control" ref="category_id">
-              {categories ? (categories.map((cat)=>(
-                <option key={cat._id}
-                  value={cat._id}
-                >{cat.name}</option>
-              ))) : <option>No categories</option>}
+            <select className="selectpicker form-control" name="category_id" defaultValue={product.category_id}>
+              <option>Select a Category</option>
+              {
+                categories ? categories.map(category => (
+                  <option key={category._id} value={category._id}>
+                    {category.name}
+                  </option>
+                )) : 'No category available'
+              }
             </select>
           </div>
         </div>
@@ -56,30 +74,35 @@ class ProductsUpdate extends React.Component {
         <div className="form-group">
           <label className="col-sm-2 control-label">Name</label>
           <div className="col-sm-10">
-            <input type="text" className="form-control" ref="name" defaultValue={product.name}/>
-            <p className="error text-error">{nameError ? nameError : ''}</p>
+            <input type="text" id="prodName" className="form-control" name="name"
+                   onBlur={this.handleBlur.bind(this)} defaultValue={product.name}/>
+            {formErrorObject ? <p className="error text-error">{formErrorObject['name']}</p> : null}
           </div>
         </div>
 
         <div className="form-group">
           <label className="col-sm-2 control-label">Description</label>
           <div className="col-sm-10">
-            <textarea className="form-control" rows="3" ref="description" defaultValue={product.description}></textarea>
-            <p className="error text-error">{descriptionError ? descriptionError : ''}</p>
+            <textarea id="prodDescription" className="form-control" rows="3" name="description"
+                      onBlur={this.handleBlur.bind(this)} defaultValue={product.description}></textarea>
+            {formErrorObject ? <p className="error text-error">{formErrorObject['description']}</p> : null}
           </div>
         </div>
 
         <div className="form-group">
           <label className="col-sm-2 control-label">Price</label>
           <div className="col-sm-10">
-            <input type="number" className="form-control" ref="price" placeholder="(i.e) $10.00" step="0.01" defaultValue={product.price}/>
-            <p className="error text-error">{priceError ? priceError : ''}</p>
+            <input type="number" id="prodPrice" className="form-control" name="price"
+                   placeholder="(i.e) $10.00" min="0.01" step="0.01" onBlur={this.handleBlur.bind(this)}
+                   defaultValue={product.price} />
+            {formErrorObject ? <p className="error text-error">{formErrorObject['price']}</p> : null}
           </div>
         </div>
 
         <div className="form-group pull-right">
-          <div className="col-sm-10">
-            <button className="btn btn-primary">Update</button>
+          <div className="col-md-12 col-sm-10">
+            <a className="btn btn-primary" onClick={this.backToPrevious.bind(this)}>Back</a>
+            <button className="btn btn-default">Save changes</button>
           </div>
         </div>
 

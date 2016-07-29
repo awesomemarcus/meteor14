@@ -5,6 +5,10 @@ class ProductsView extends React.Component {
     super(props);
   }
 
+  backToPrevious() {
+    window.history.back();
+  }
+
   render() {
     const {product} = this.props;
 
@@ -20,7 +24,7 @@ class ProductsView extends React.Component {
         <div className="form-group">
           <label className="col-sm-2 control-label">Category</label>
           <div className="col-sm-10">
-            <input type="text" className="form-control" value={product.category_id} disabled/>
+            <input type="text" className="form-control" value={product.category_name} disabled/>
           </div>
         </div>
 
@@ -47,7 +51,7 @@ class ProductsView extends React.Component {
 
         <div className="form-group pull-right">
           <div className="col-sm-10">
-            <a href="/products/list" className="btn btn-primary">Back</a>
+            <a href="#" className="btn btn-primary" onClick={this.backToPrevious.bind(this)}>Back</a>
           </div>
         </div>
 
