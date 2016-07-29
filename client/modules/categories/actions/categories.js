@@ -13,7 +13,7 @@ export default {
       });
     }
 
-    LocalState.set("CATEGORIES_ADD_ERROR", Checker.keyErrorMessage('name'));
+    LocalState.set("mainError", Checker.keyErrorMessage('name'));
   },
   categoriesUpdate({Meteor,LocalState,FlowRouter,CategorySchem}, formData){
     let Checker =  CategorySchem.namedContext("myContext");

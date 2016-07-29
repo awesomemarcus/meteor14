@@ -24,7 +24,7 @@ class CategoriesAdd extends React.Component {
           </div>
 
           <div className="form-group">
-            <label for="categoryName">Name</label>
+            <label htmlFor="categoryName">Name</label>
             <input ref="name" type="text" className="form-control" id="categoryName" placeholder="Name" />
             <p className="error text-error">{nameError ? nameError : ''}</p>
           </div>

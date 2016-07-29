@@ -35,6 +35,7 @@ export default function () {
         description: String,
         price: Number,
       });
+
       productInfo.updatedAt = new Date();
 
       Products.update({_id: productInfo._id}, {

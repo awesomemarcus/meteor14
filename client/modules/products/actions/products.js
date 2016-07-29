@@ -52,9 +52,10 @@ export default {
 
       Meteor.call("productsUpdate", productInfo, function (err) {
         if(err) {
-          return LocalState.set('mainError', err.toString());
+          return LocalState.set('mainError', err.error);
         }
         FlowRouter.go('/products/list');
+        return LocalState.set('mainSuccess', "Product updated successfully");
       });
 
     }
@@ -70,37 +71,6 @@ export default {
       }
       return LocalState.set('mainSuccess', "Product deleted successfully");
     });
-  },
-
-  productsUpdate({FlowRouter,LocalState,ProductSchem,formValidator, pushToObject},productId, productInfo=null, fieldName=null, fieldValue=null) {
-    let formObject = pushToObject(LocalState.get("formObject"), fieldName, fieldValue);
-
-    if(productInfo != null) {
-      formObject = productInfo;
-    }
-
-    if(fieldName === 'price') {
-      formObject.price = parseFloat(fieldValue);
-    }
-
-    LocalState.set("formObject", formObject);
-
-    const result = formValidator(ProductSchem.namedContext("myContext"), formObject);
-    const isValid = result.validate;
-
-    if(isValid && productInfo != null) {
-
-      Meteor.call("productsUpdate", productId,productInfo, function (err) {
-        if(err) {
-          return LocalState.set('mainError', err.error);
-        }
-        FlowRouter.go('/products/list');
-        return LocalState.set('mainSuccess', "Product updated successfully");
-      });
-
-    }
-
-    LocalState.set("formErrorObject", result.errorObject);
   },
 
   clearProductErrors({LocalState}) {
