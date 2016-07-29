@@ -20,8 +20,9 @@ export default function () {
     };
   });
 
-  Meteor.publishComposite('productsSingle', (id) => {
+  Meteor.publishComposite('productsSingle', (id, userid) => {
     check(id, String);
+    check(userid, String);
 
     return {
       find: function() {
@@ -35,6 +36,7 @@ export default function () {
         },
       ],
     };
+
   });
 
 }

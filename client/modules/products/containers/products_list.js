@@ -9,7 +9,7 @@ export const composer = ({context}, onData) => {
 
     const prods = Collections.Products.find({},{sort:{createdAt:-1}}).fetch().map(function(product){
 
-      product.category = Collections.Categories.findOne({_id: product.category_id}, {fields: {name:1}});
+      product.category_name = Collections.Categories.findOne({_id: product.category_id}, {fields: {name:1}}).name;
 
       return product;
     });

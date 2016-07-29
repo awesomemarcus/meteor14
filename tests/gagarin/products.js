@@ -2,6 +2,13 @@ describe('Insert and Update data to the products collection and subscribe to the
   var server = meteor({flavor: "fiber"});
   var client = ddp(server, {flavor: "fiber"});
 
+  var productDummy = {
+      category_id: '12345678907894563',
+      name: 'asdfwasd',
+      description: 'asdfwasdfasdfasdf',
+      price: 12,
+  };
+
   it('should login before adding products', function () {
     server.execute(function() {
       var formData = {
@@ -48,45 +55,55 @@ describe('Insert and Update data to the products collection and subscribe to the
   });
 
   it('should insert products', function () {
+
     client.subscribe("users.current");
     var user = client.collection("users");
     var userPropId = Object.keys(user)[0];
 
-    client.subscribe("categoriesList", [userPropId]);
-    var category = client.collection("categories");
-    var userCatId = Object.keys(category)[0];
+    client.call("productsAdd", [productDummy]); // 1st call
+    client.call("productsAdd", [productDummy]); // 2nd call
 
-    var productData = {
-      category_id: userCatId,
-      name: 'Safeguard',
-      description: 'Skin germ protection soap',
-      price: 25
-    };
+    // check if successfully added
+    client.subscribe("productsList", [userPropId]);
 
-    client.call("productsAdd", [productData]);
-    client.sleep(200);
+    var products = client.collection("products");
+    var index = Object.keys(products);
 
-    expect(client.collection("products")).to.be.a("Object");
+    expect(products[index[0]]).to.be.an('object');
+    expect(products[index[1]]).to.be.an('object');
+
   });
 
-  it('should subscribe to the product collection and return object', function () {
+  it('should subscribe to the products collection and return object', function () {
+
     client.subscribe("users.current");
     var user = client.collection("users");
     var userPropId = Object.keys(user)[0];
 
     client.subscribe("productsList", [userPropId]);
-    var product = client.collection("products");
-    expect(product).to.be.a("Object");
+
+    var products = client.collection("products");
+
+    expect(products).to.be.a("Object");
+
   });
 
   it('should get the products related to the user', function () {
+
     client.subscribe("users.current");
     var user = client.collection("users");
     var userPropId = Object.keys(user)[0];
 
     client.subscribe("productsList", [userPropId]);
-    var collection = client.collection("products");
-    var product = collection[Object.keys(collection)[0]];
-    expect(product.createdBy).to.be.equal(userPropId);
+
+    var products = client.collection("products");
+
+    expect(Object.keys(products).length).to.equal(2);
+
+    for(var i in products) {
+      expect(products[i].createdBy).to.be.equal(userPropId);
+    }
+
   });
+
 });

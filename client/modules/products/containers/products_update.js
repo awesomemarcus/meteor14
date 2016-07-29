@@ -3,14 +3,15 @@ import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 import ProductsUpdate from '../components/products_update';
 
 export const composer = ({context, productId, clearProductErrors}, onData) => {
-  const {Meteor, Collections, LocalState, authCommon} = context();
-  const {user} = authCommon();
+  const {LocalState, Meteor, Collections, authCommon} = context();
+  const {userId} = authCommon();
+  const mainError = LocalState.get('mainError');
   const formErrorObject = LocalState.get('formErrorObject');
 
-  if(user &&  Meteor.subscribe('productsSingle', productId).ready() ) {
+  if(Meteor.subscribe('productsSingle', productId, userId).ready()) {
     const product = Collections.Products.findOne({_id: productId});
-    const categories = Collections.Categories.find().fetch();
-    onData(null, {product, categories, formErrorObject});
+    const categories = Collections.Categories.find({createdBy: userId, isDeleted: false}).fetch();
+    onData(null, {productId,product, categories, mainError, formErrorObject});
   }
 
   return clearProductErrors;
