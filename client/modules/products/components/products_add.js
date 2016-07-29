@@ -57,6 +57,7 @@ class ProductsAdd extends React.Component {
                 )) : 'No category available'
               }
             </select>
+            {formErrorObject ? <p className="error text-error">{formErrorObject['category_id']}</p> : null}
           </div>
         </div>
 
