@@ -10,7 +10,7 @@ class CategoriesUpdate extends React.Component {
   }
 
   render() {
-    const {nameError, category, detailsError} = this.props;
+    const {category} = this.props;
 
     return (
       <div className="col-sm-4">
@@ -18,13 +18,11 @@ class CategoriesUpdate extends React.Component {
 
         <div className="form-group">
           <h3>Category Update</h3>
-          {detailsError ? <p  style={{color: 'red'}}>{detailsError}</p> : null}
         </div>
 
         <div className="form-group">
           <label for="categoryName">Name</label>
           <input ref="name" type="text" className="form-control" id="categoryName" placeholder="Name" defaultValue={category.name} />
-          <p className="error text-error">{nameError ? nameError : ''}</p>
         </div>
 
         <button type="submit" className="btn btn-default">Update</button>

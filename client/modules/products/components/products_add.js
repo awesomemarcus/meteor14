@@ -32,7 +32,6 @@ class ProductsAdd extends React.Component {
   render() {
     const {
         categories,
-        mainError,
         formErrorObject,
     } = this.props;
 
@@ -44,8 +43,6 @@ class ProductsAdd extends React.Component {
             <h3>Add Product</h3>
           </div>
         </div>
-
-        {mainError ? <p className="error">{mainError}</p> : null}
 
         <div className="form-group">
           <label className="col-sm-2 control-label">Choose Category</label>
@@ -60,6 +57,7 @@ class ProductsAdd extends React.Component {
                 )) : 'No category available'
               }
             </select>
+            {formErrorObject ? <p className="error text-error">{formErrorObject['category_id']}</p> : null}
           </div>
         </div>
 

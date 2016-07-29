@@ -6,10 +6,9 @@ export const composer = ({context,clearErrors}, onData) => {
   const {LocalState} = context();
 
   const formErrorObject = LocalState.get("formErrorObject", null);
-  const mainError = LocalState.get("mainError", null);
   const getAgeOptions = initAgeOptions();
 
-  onData(null, {getAgeOptions, formErrorObject, mainError});
+  onData(null, {getAgeOptions, formErrorObject});
 
  return clearErrors;
 };

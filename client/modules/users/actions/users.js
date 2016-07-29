@@ -29,7 +29,9 @@ export default {
           if(err){
             return LocalState.set("mainError",err.message);
           }
+
           FlowRouter.go("/");
+          return LocalState.set("mainSuccess", "Account created successfully");
         })
 
       });
@@ -61,6 +63,8 @@ export default {
         if(err){
           return LocalState.set("mainError", err.message);
         }
+
+        return LocalState.set("mainSuccess", "Account updated successfully");
       });
     }
 
@@ -93,6 +97,7 @@ export default {
         }
 
         FlowRouter.go("/");
+        return LocalState.set("mainSuccess", "Welcome back!");
       })
     }
 

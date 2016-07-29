@@ -5,9 +5,8 @@ import UsersLogin from '../components/users_login';
 export const composer = ({context,clearErrors}, onData) => {
   const {LocalState} = context();
   const formErrorObject = LocalState.get("formErrorObject", null);
-  const mainError = LocalState.get("mainError", null);
 
-  onData(null, {mainError, formErrorObject});
+  onData(null, {formErrorObject});
   return clearErrors;
 };
 

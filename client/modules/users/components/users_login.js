@@ -2,12 +2,11 @@ import React from 'react';
 
 class UsersLogin extends React.Component{
   render() {
-    const {mainError, formErrorObject} = this.props;
+    const {formErrorObject} = this.props;
     return(
       <div className="container">
         <form className="form-signin" onSubmit={this.handleSubmit.bind(this)}>
           <h2 className="form-signin-heading text-white">Login User</h2>
-          {mainError ? <p  className="text-danger">{mainError}</p> : null}
           <div className={this.getInputWrapperClass(formErrorObject, "emails.$.address")}>
             <input ref="email" type="email" id="inputEmail" name="emails.$.address" onBlur={this.handleBlur.bind(this)} className="form-control edge-square" placeholder="Email address"/>
             <span className="help-block">{formErrorObject ? <p>{formErrorObject["emails.$.address"]}</p> : null}</span>

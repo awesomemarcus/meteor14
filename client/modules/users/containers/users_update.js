@@ -6,12 +6,11 @@ export const composer = ({context}, onData) => {
   const {LocalState} = context();
 
   const formErrorObject = LocalState.get("formErrorObject", null);
-  const mainError = LocalState.get("mainError", null);
   const getAgeOptions = initAgeOptions();
 
   const user = Meteor.users.findOne({_id: Meteor.userId()});
 
-  onData(null, {user, getAgeOptions, formErrorObject, mainError});
+  onData(null, {user, getAgeOptions, formErrorObject});
 };
 
 export const depsMapper = (context, actions) => ({

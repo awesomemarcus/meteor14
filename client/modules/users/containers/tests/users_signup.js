@@ -22,10 +22,9 @@ describe('users.containers.usersSignup', () => {
       composer({context}, spy());
       const args = LocalState.get.args;
 
-      expect(args).to.have.length(2);
+      expect(args).to.have.length(1);
 
       expect(args[0]).to.be.deep.equal([ "formErrorObject", null ]);
-      expect(args[1]).to.be.deep.equal([ "mainError", null ]);
 
     });
 
@@ -39,7 +38,6 @@ describe('users.containers.usersSignup', () => {
       expect(args[0]).to.be.equal(null);
       expect(args[1].getAgeOptions).to.be.deep.equal(initAgeOptions());
       expect(args[1].formErrorObject).to.be.deep.equal('error');
-      expect(args[1].mainError).to.be.deep.equal('error');
 
     });
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 # Meteor wrapper
 export MONGO_URL=mongodb://localhost:27017/mantraboilerplate_local
-PORT=3010
+PORT=31611
 
 # INITIAL CHECKS
 if [ "$1" == "" ]; then

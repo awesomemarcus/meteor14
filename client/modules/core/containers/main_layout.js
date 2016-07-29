@@ -4,18 +4,19 @@ import Layout from '../components/main_layout';
 
 export const composer = ({context}, onData) => {
 
+
   const {authCommon, Meteor} = context();
   const {  userSubReady, userId,  user } = authCommon();
   if(userSubReady){
     const meteorSettings = Meteor.settings.public;
-    console.log(Meteor.settings.public);
     const data = {  userId, user, Meteor, meteorSettings};
     onData(null, data);
   }
 
 };
 
-export const depsMapper = (context) => ({
+export const depsMapper = (context, actions) => ({
+  clearErrors: actions.core.clearErrors,
   context: () => context,
 });
 

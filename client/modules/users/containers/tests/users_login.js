@@ -11,7 +11,7 @@ describe('users.containers.userLogin', () => {
       const context = () => ({LocalState});
       composer({context}, spy());
       const args = LocalState.get.args;
-      expect(args).to.have.length(2);
+      expect(args).to.have.length(1);
 
       expect(args[0]).to.be.deep.equal([ "formErrorObject", null ]);
 
@@ -24,7 +24,7 @@ describe('users.containers.userLogin', () => {
       composer({context}, onData);
       const args = onData.args[0];
      expect(args[0]).to.be.equal(null);
-     expect(args[1]).to.be.deep.equal({ "formErrorObject": "error", "mainError": "error" });
+     expect(args[1]).to.be.deep.equal({ "formErrorObject": "error"});
     });
 
     it('should return clearErrors', () => {
