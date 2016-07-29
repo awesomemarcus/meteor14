@@ -6,14 +6,14 @@ class UsersSignup extends React.Component {
 
 
   render() {
-    const  {getAgeOptions, formErrorObject, mainError} = this.props;
+    const  {getAgeOptions, formErrorObject} = this.props;
 
     return(
       <div className="container">
         <div className="col-sm-8 col-sm-offset-2">
 
           <h2><span className="glyphicon glyphicon-plus"></span> User Signup</h2>
-          
+
           <form className="form-horizontal" onSubmit={this.handleSubmit.bind(this)}>
             <div className={this.getInputWrapperClass(formErrorObject, "emails.$.address")}>
 
