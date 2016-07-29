@@ -35,7 +35,6 @@ class ProductsUpdate extends React.Component {
     const {
         product,
         categories,
-        mainError,
         formErrorObject,
     } = this.props;
 
@@ -45,10 +44,6 @@ class ProductsUpdate extends React.Component {
         <div className="form-group">
           <div className="col-sm-10">
             <h3>Update Product</h3>
-            {
-              mainError ?
-              <p className="error text-error">{mainError}</p> : null
-            }
           </div>
         </div>
 
