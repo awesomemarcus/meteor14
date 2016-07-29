@@ -7,6 +7,7 @@ import {Tracker} from 'meteor/tracker';
 import {ProductSchem} from '/lib/collections/products';
 import {CategorySchem} from '/lib/collections/categories';
 import User from '/lib/collections/users';
+import {Bert} from 'meteor/themeteorchef:bert';
 import _ from 'underscore';
 
 const authCommon = function () {
@@ -68,5 +69,6 @@ export default function () {
     formValidator,
     pushToObject,
     meteorSettings,
+    Bert,
   };
 }

@@ -4,11 +4,14 @@ import Layout from '../components/main_layout';
 
 export const composer = ({context}, onData) => {
 
-  const {authCommon, Meteor, meteorSettings} = context();
+  const {authCommon, Meteor, meteorSettings, LocalState, Bert} = context();
   const {  userSubReady, userId,  user } = authCommon();
   if(userSubReady){
 
-    const data = {  userId, user, Meteor, meteorSettings};
+    const mainError = LocalState.get('mainError', null);
+    const mainSuccess = LocalState.get('mainSuccess', null);
+
+    const data = {userId, user, Meteor, meteorSettings, Bert, mainError, mainSuccess};
     onData(null, data);
   }
 
