@@ -10,7 +10,7 @@ export default function () {
          data.createdBy = this.userId;
          data.createdAt = new Date();
          data.updatedAt = new Date();
-         data.deleted = false;
+         data.isDeleted = false;
 
          let Checker =  CategorySchem.namedContext("myContext");
 
@@ -46,7 +46,7 @@ export default function () {
     'categoriesDelete'(categoryId) {
       check(categoryId, String);
 
-      return Categories.update({_id: categoryId}, {$set: {deleted: true}});
+      return Categories.update({_id: categoryId}, {$set: {isDeleted: true}});
     },
   });
 }
