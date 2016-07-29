@@ -5,13 +5,12 @@ import ProductsUpdate from '../components/products_update';
 export const composer = ({context, productId, clearProductErrors}, onData) => {
   const {Meteor, Collections, LocalState, authCommon} = context();
   const {user} = authCommon();
-  const mainError = LocalState.get('mainError');
   const formErrorObject = LocalState.get('formErrorObject');
 
   if(user &&  Meteor.subscribe('productsSingle', productId).ready() ) {
     const product = Collections.Products.findOne({_id: productId});
     const categories = Collections.Categories.find().fetch();
-    onData(null, {product, categories, formErrorObject, mainError});
+    onData(null, {product, categories, formErrorObject});
   }
 
   return clearProductErrors;

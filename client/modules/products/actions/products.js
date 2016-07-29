@@ -23,6 +23,7 @@ export default {
           return LocalState.set('mainError', err.error);
         }
         FlowRouter.go('/products/list');
+        return LocalState.set('mainSuccess', "Product added successfully");
       });
 
     }
@@ -36,7 +37,7 @@ export default {
       if(err) {
         return LocalState.set('mainError', err.reason);
       }
-      LocalState.set('mainError', null);
+      return LocalState.set('mainSuccess', "Product deleted successfully");
     });
   },
 
@@ -63,6 +64,7 @@ export default {
           return LocalState.set('mainError', err.error);
         }
         FlowRouter.go('/products/list');
+        return LocalState.set('mainSuccess', "Product updated successfully");
       });
 
     }
@@ -73,7 +75,6 @@ export default {
   clearProductErrors({LocalState}) {
     return [
       LocalState.set('formErrorObject', null),
-      LocalState.set('mainError', null),
     ];
   },
 
