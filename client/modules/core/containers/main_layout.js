@@ -4,10 +4,11 @@ import Layout from '../components/main_layout';
 
 export const composer = ({context}, onData) => {
 
-  const {authCommon, Meteor, meteorSettings} = context();
+  const {authCommon, Meteor} = context();
   const {  userSubReady, userId,  user } = authCommon();
   if(userSubReady){
-
+    const meteorSettings = Meteor.settings.public;
+    console.log(Meteor.settings.public);
     const data = {  userId, user, Meteor, meteorSettings};
     onData(null, data);
   }

@@ -1,8 +1,8 @@
 // This section sets up some basic app metadata,
 // the entire section is optional.
 App.info({
-  id: 'com.example.matt.uber',
-  name: 'über',
+  id: 'com.mantraboilerplate.snapzio.dev',
+  name: 'mantraboilerplate',
   description: 'Get über power in one button click',
   author: 'Matt Development Group',
   email: 'contact@example.com',

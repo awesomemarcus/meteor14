@@ -2,6 +2,8 @@ import settings from './settings';
 import publications from './publications';
 import methods from './methods';
 
-settings();
+Meteor.startup(function(){
+  settings();
+});
 publications();
 methods();

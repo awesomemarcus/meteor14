@@ -1,4 +1,4 @@
-const meteorSettings = Meteor.settings.public;
+
 import * as Collections from '/lib/collections';
 import {Meteor} from 'meteor/meteor';
 import {FlowRouter} from 'meteor/kadira:flow-router';
@@ -23,8 +23,11 @@ const authCommon = function () {
   };
 
 };
-
-const formValidator = (schemaContext, object) => {
+if(!Meteor.settings){
+  Meteor.settings = {};
+  Meteor.settings.public = {site:"site1"};
+}
+const formValidator = (schemaContext, object) => { 
   let errorObject = {};
 
   const validate = schemaContext.validate(object);
@@ -52,6 +55,7 @@ const pushToObject = (formObject, fieldName, fieldValue) => {
 
   return formObject;
 }
+let meteorSettings = {};
 
 export default function () {
   return {
@@ -67,6 +71,6 @@ export default function () {
     _ ,
     formValidator,
     pushToObject,
-    meteorSettings,
+
   };
 }
