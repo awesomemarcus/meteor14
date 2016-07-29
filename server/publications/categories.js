@@ -4,12 +4,21 @@ import {check} from 'meteor/check';
 
 export default function () {
 
-  Meteor.publish('categoriesList',  (id) => {
+  Meteor.publishComposite('categoriesList',  (id) => {
     check(id, String);
-    return [
-      Categories.find({createdBy: id, isDeleted: false}),
-      Products.find({createdBy: id, isDeleted: false}),
-    ];
+    
+    return {
+      find: function() {
+        return Categories.find({createdBy: id, isDeleted: false});
+      },
+      children: [
+        {
+            find: function(category) {
+              return Products.find({category_id: category._id, isDeleted: false});
+            },
+        },
+      ],
+    };
 
   });
 

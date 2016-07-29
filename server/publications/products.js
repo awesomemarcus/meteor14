@@ -4,20 +4,37 @@ import {check} from 'meteor/check';
 
 export default function () {
 
-  Meteor.publish('productsList',  (id) => {
+  Meteor.publishComposite('productsList',  (id) => {
     check(id, String);
-    return [
-      Products.find({createdBy: id, isDeleted: false}),
-      Categories.find({createdBy: id, isDeleted: false}),
-    ];
+    return {
+      find: function() {
+        return Products.find({createdBy: id, isDeleted: false});
+      },
+      children: [
+        {
+          find: function(product) {
+            return Categories.find({_id: product.category_id, isDeleted: false});
+          },
+        },
+      ],
+    };
   });
 
-  Meteor.publish('productsSingle', (id) => {
+  Meteor.publishComposite('productsSingle', (id) => {
     check(id, String);
-    return [
-      Products.find({_id: id}),
-      Categories.find(),
-    ];
+
+    return {
+      find: function() {
+        return Products.find({_id: id});
+      },
+      children: [
+        {
+          find: function(product) {
+            return Categories.find({_id: product.category_id, isDeleted: false});
+          },
+        },
+      ],
+    };
   });
 
 }
