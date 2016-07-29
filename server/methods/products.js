@@ -17,7 +17,7 @@ export default function () {
       productInfo.createdAt = new Date();
       productInfo.updatedAt = new Date();
       productInfo.isDeleted = false;
-      console.log(productInfo);
+
       Products.insert(productInfo);
     },
 
