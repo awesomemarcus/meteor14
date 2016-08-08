@@ -6,7 +6,7 @@ before_script:
   - meteor npm --version
   - alias time="/usr/bin/time -f 'Took %e seconds'"
   - export PROJECTFILE="mantraboilerplate.tar.gz"
-  - export PROJECTFOLDER="/home/snapzio/mantraboilerplate/"
+  - export PROJECTFOLDER="/home/snapzio/mantraboilerplate"
   - export PROJECTUSER="snapzio"
 
 cache:
@@ -35,4 +35,4 @@ dev-deploy:
     - time meteor build . --server-only;
     - time find $PROJECTFOLDER -mindepth 1 -delete;
     - time rsync -av $PROJECTFILE $PROJECTFOLDER;
-    - cd $PROJECTFOLDER && tar -xf $PROJECTFILE && cd bundle/programs/server && meteor npm install --production && chown -R $PROJECTUSER:www-data . && service nginx reload;
+    - cd $PROJECTFOLDER && tar -xf $PROJECTFILE && cd bundle/programs/server && meteor npm install --production && chown -R $PROJECTUSER:www-data . && passenger-config restart-app $PROJECTFOLDER;
