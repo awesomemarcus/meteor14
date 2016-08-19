@@ -10,6 +10,9 @@ before_script:
   - export PROJECTFOLDER="/home/snapzio/mantraboilerplate"
   - export PROJECTUSER="snapzio"
 
+variables:
+  PROJECTFOLDER: "/home/snapzio/mantraboilerplate"
+
 cache:
   key: "$CI_BUILD_REF_NAME"
   untracked: true
@@ -20,7 +23,6 @@ build:
     - dev
     - prod
   script:
-    - time npm-check;
     - time npm install;
 
 test:
