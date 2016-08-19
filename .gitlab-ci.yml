@@ -20,6 +20,7 @@ build:
     - dev
     - prod
   script:
+    - time npm-check;
     - time npm install;
 
 test:
