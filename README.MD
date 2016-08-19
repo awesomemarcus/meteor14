@@ -1,4 +1,4 @@
-# Mantra BoilerPlate 7
+# Mantra BoilerPlate 8
 
 ##### Installation
 ```sh
