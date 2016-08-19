@@ -13,10 +13,6 @@ before_script:
 cache:
   untracked: true
 
-build:
-  stage: build
-  script:
-
 test:
   stage: test
   script:
