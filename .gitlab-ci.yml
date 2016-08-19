@@ -9,14 +9,12 @@ before_script:
   - export PROJECTFOLDER="/home/snapzio/mantraboilerplate"
   - export PROJECTUSER="snapzio"
 
-cache:
-  untracked: true
-
 build:
   stage: build
   script:
-    - time npm run version;
     - time npm install;
+  artifacts:
+    - node_modules/
 
 test:
   stage: test
@@ -30,6 +28,7 @@ dev:
   only:
     - dev
   script:
+    - time npm run version;
     - time meteor build . --server-only;
     - time find $PROJECTFOLDER -mindepth 1 -delete;
     - time rsync -av $PROJECTFILE $PROJECTFOLDER;
