@@ -39,5 +39,5 @@ dev:
     - time npm run version;
     - time meteor build . --server-only;
     - time find $PROJECTFOLDER -mindepth 1 -delete;
-    - time rsync -av $PROJECTFILE $PROJECTFOLDER;
-    - cd $PROJECTFOLDER && tar -xf $PROJECTFILE && cd bundle/programs/server && meteor npm install --production && chown -R $PROJECTUSER:www-data . && passenger-config restart-app $PROJECTFOLDER;
+    - time rsync -av $PROJECTFILES $PROJECTFOLDER;
+    - cd $PROJECTFOLDER && tar -xf $PROJECTFILES && cd bundle/programs/server && meteor npm install --production && chown -R $PROJECTUSER:www-data . && passenger-config restart-app $PROJECTFOLDER;
