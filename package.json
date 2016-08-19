@@ -35,7 +35,7 @@
     "expose-loader": "^0.7.1",
     "file": "^0.2.2",
     "file-loader": "^0.8.5",
-    "jquery": "^2.2.4",
+    "jquery": "3.1.0",
     "jsdom": "^8.0.4",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
