@@ -3,7 +3,6 @@ before_script:
   - export PROJECTFOLDER="/home/snapzio/mantraboilerplate"
   - export PROJECTFILES="mantraboilerplate.tar.gz"
   - export DEVSERVER="app1.snapzio.com"
-  - export PRODSERVER="app1.rometic.com"
   - pwd
   - shopt -s expand_aliases
   - alias time="/usr/bin/time -f 'Took %e seconds'"
@@ -30,7 +29,7 @@ test:
     - time npm run test
     - time npm run gagarin-build
 
-dev:
+dev-deploy:
   stage: deploy
   environment: dev
   only:
@@ -38,6 +37,6 @@ dev:
   script:
     - time npm run version;
     - time meteor build . --server-only;
-    - time find $PROJECTFOLDER -mindepth 1 -delete;
-    - time rsync -av $PROJECTFILES $PROJECTFOLDER;
-    - cd $PROJECTFOLDER && tar -xf $PROJECTFILES && cd bundle/programs/server && meteor npm install --production && chown -R $PROJECTUSER:www-data . && passenger-config restart-app $PROJECTFOLDER;
+    - time ssh $DEVSERVER "find $PROJECTFOLDER -mindepth 1 -delete";
+    - time rsync -av $PROJECTFILES $DEVSERVER:$PROJECTFOLDER;
+    - time ssh $DEVSERVER "cd $PROJECTFOLDER && tar -xf $PROJECTFILE && cd bundle/programs/server && meteor npm install --production && chown -R $PROJECTUSER:www-data $PROJECTFOLDER && passenger-config restart-app $PROJECTFOLDER";
