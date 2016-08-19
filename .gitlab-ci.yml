@@ -4,6 +4,7 @@ before_script:
   - pwd
   - meteor node --version
   - meteor npm --version
+  - npm config list
   - alias time="/usr/bin/time -f 'Took %e seconds'"
   - export PROJECTFILE="mantraboilerplate.tar.gz"
   - export PROJECTFOLDER="/home/snapzio/mantraboilerplate"
