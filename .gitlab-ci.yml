@@ -39,4 +39,4 @@ dev-deploy:
     - time meteor build . --server-only;
     - time ssh $DEVSERVER "find $PROJECTFOLDER -mindepth 1 -delete";
     - time rsync -av $PROJECTFILES $DEVSERVER:$PROJECTFOLDER;
-    - time ssh $DEVSERVER "cd $PROJECTFOLDER && tar -xf $PROJECTFILE && cd bundle/programs/server && meteor npm install --production && chown -R $PROJECTUSER:www-data $PROJECTFOLDER && passenger-config restart-app $PROJECTFOLDER";
+    - time ssh $DEVSERVER "cd $PROJECTFOLDER && tar -xf $PROJECTFILES && cd bundle/programs/server && meteor npm install --production && chown -R $PROJECTUSER:www-data $PROJECTFOLDER && passenger-config restart-app $PROJECTFOLDER";
