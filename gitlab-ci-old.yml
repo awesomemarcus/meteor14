@@ -10,26 +10,28 @@ before_script:
   - export PROJECTUSER="snapzio"
 
 cache:
-  untracked: true
+  key: "$CI_BUILD_REF_NAME"
+  paths:
+  - node_modules/
 
-build:
+all-build:
   stage: build
   script:
-    - time npm run version;
     - time npm install;
 
-test:
+all-test:
   stage: test
   script:
     - time eslint .
     - time npm run test
     - time npm run gagarin-build
 
-dev:
+dev-deploy:
   stage: deploy
   only:
     - dev
   script:
+    - time npm run version;
     - time meteor build . --server-only;
     - time find $PROJECTFOLDER -mindepth 1 -delete;
     - time rsync -av $PROJECTFILE $PROJECTFOLDER;
