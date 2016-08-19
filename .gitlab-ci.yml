@@ -11,12 +11,23 @@ before_script:
   - export PROJECTUSER="snapzio"
 
 cache:
+  key: "$CI_BUILD_REF_NAME"
   untracked: true
+
+build:
+  stage: build
+  only:
+    - dev
+    - prod
+  script:
+    - time npm install;
 
 test:
   stage: test
+  only:
+    - dev
+    - prod
   script:
-    - time npm install
     - time eslint .
     - time npm run test
     - time npm run gagarin-build
@@ -26,7 +37,6 @@ dev:
   only:
     - dev
   script:
-    - time npm install --production
     - time npm run version;
     - time meteor build . --server-only;
     - time find $PROJECTFOLDER -mindepth 1 -delete;
