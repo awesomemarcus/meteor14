@@ -1,7 +1,7 @@
 before_script:
-  - export PROJECTFILE="mantraboilerplate.tar.gz"
-  - export PROJECTFOLDER="/home/snapzio/mantraboilerplate"
   - export PROJECTUSER="snapzio"
+  - export PROJECTFOLDER="/home/snapzio/mantraboilerplate"
+  - export PROJECTFILES="mantraboilerplate.tar.gz"
   - export DEVSERVER="app1.snapzio.com"
   - export PRODSERVER="app1.rometic.com"
   - pwd
@@ -32,6 +32,7 @@ test:
 
 dev:
   stage: deploy
+  environment: dev
   only:
     - dev
   script:
