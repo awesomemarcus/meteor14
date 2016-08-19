@@ -10,13 +10,13 @@ before_script:
   - export PROJECTFOLDER="/home/snapzio/mantraboilerplate"
   - export PROJECTUSER="snapzio"
 
+cache:
+  untracked: true
+
 build:
   stage: build
   script:
     - time npm install
-  artifacts:
-    paths:
-    - node_modules/
 
 test:
   stage: test
