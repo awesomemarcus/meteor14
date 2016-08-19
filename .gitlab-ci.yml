@@ -12,8 +12,9 @@ before_script:
 build:
   stage: build
   script:
-    - time npm install;
+    - time npm install
   artifacts:
+    paths:
     - node_modules/
 
 test:
