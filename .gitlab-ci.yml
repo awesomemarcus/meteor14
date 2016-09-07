@@ -7,10 +7,6 @@ before_script:
   - shopt -s expand_aliases
   - alias time="/usr/bin/time -f 'Took %e seconds'"
 
-cache:
-  key: "$CI_BUILD_REF_NAME"
-  untracked: true
-
 build:
   stage: build
   only:
@@ -18,6 +14,9 @@ build:
     - prod
   script:
     - time npm install;
+  artifacts:
+    paths:
+    - node_modules
 
 test:
   stage: test
