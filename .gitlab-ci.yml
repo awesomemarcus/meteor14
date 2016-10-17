@@ -3,7 +3,6 @@ before_script:
   - export PROJECTFOLDER="/home/snapzio/mantraboilerplate"
   - export PROJECTFILES="mantraboilerplate.tar.gz"
   - export DEVSERVER="app1.snapzio.com"
-  - pwd
   - shopt -s expand_aliases
   - alias time="/usr/bin/time -f 'Took %e seconds'"
   - npm config list
@@ -19,7 +18,7 @@ build:
     - dev
     - prod
   script:
-    - time npm install;
+    - time meteor npm install;
 
 test:
   stage: test
