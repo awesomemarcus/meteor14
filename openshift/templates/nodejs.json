@@ -2,7 +2,7 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "meteor14-7",
+    "name": "meteor14",
     "annotations": {
       "openshift.io/display-name": "Node.js",
       "description": "An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/nodejs-ex/blob/master/README.md.",
@@ -12,7 +12,7 @@
   },
   "message": "The following service(s) have been created in your project: ${NAME}.\n\nFor more information about using this template, including OpenShift considerations, see https://github.com/openshift/nodejs-ex/blob/master/README.md.",
   "labels": {
-    "template": "meteor14-7"
+    "template": "meteor14"
   },
   "objects": [
     {
@@ -145,7 +145,7 @@
             "imageChangeParams": {
               "automatic": true,
               "containerNames": [
-                "meteor14-7"
+                "meteor14"
               ],
               "from": {
                 "kind": "ImageStreamTag",
@@ -171,7 +171,7 @@
           "spec": {
             "containers": [
               {
-                "name": "meteor14-7",
+                "name": "meteor14",
                 "image": " ",
                 "ports": [
                   {
@@ -239,7 +239,7 @@
       "displayName": "Name",
       "description": "The name assigned to all of the frontend objects defined in this template.",
       "required": true,
-      "value": "meteor14-7"
+      "value": "meteor14"
     },
     {
       "name": "NAMESPACE",
@@ -265,7 +265,8 @@
     {
       "name": "SOURCE_REPOSITORY_REF",
       "displayName": "Git Reference",
-      "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
+      "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch.",
+      "value": 'master',
     },
     {
       "name": "CONTEXT_DIR",
